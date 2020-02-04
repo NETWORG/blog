@@ -1,0 +1,31 @@
+# /_data/authors.yml
+
+Jan Hajek:
+  name        : "Jan Hajek"
+  bio         : "I am Honza, hi."
+  avatar      : "/assets/images/hajekj.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:jan.hajek@thenetw.org"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://hajekj.net"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/jahaj/"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/hajekj"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://fb.me/hajekj"
+
+Tomas Prokop:
+  name        : "Tomas Prokop"
+  bio         : ""
+  avatar      : "/assets/images/bio-photo.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:tomas.prokop@thenetw.org"
