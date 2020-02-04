@@ -56,7 +56,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/networg.png"
   bio    : "Read our experiences while we help others"
   links:
     - label: "Website"
