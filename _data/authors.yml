@@ -2,7 +2,7 @@
 
 Jan Hajek:
   name        : "Jan Hajek"
-  bio         : "I am Honza, hi."
+  bio         : "Technical Fellow"
   avatar      : "/assets/images/hajekj.jpg"
   links:
     - label: "Email"
@@ -23,7 +23,7 @@ Jan Hajek:
 
 Tomas Prokop:
   name        : "Tomas Prokop"
-  bio         : ""
+  bio         : "CEO"
   avatar      : "/assets/images/bio-photo.jpg"
   links:
     - label: "Email"
