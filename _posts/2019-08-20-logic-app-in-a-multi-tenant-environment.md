@@ -8,7 +8,6 @@ categories:
   - Azure
   - English
   - Microsoft Flow
-  - Uncategorized
 tags:
   - Azure Logic Apps
 ---

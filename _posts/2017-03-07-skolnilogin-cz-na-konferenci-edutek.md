@@ -5,7 +5,6 @@ slug: skolnilogin-cz-na-konferenci-edutek
 id: 1067
 date: '2017-03-07 16:44:13'
 categories:
-  - Uncategorized
 ---
 
 ### KONFERENCE EDUTEK

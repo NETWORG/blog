@@ -5,7 +5,6 @@ slug: navstivte-nas-na-pocitaci-ve-skole-2015
 id: 1055
 date: '2015-04-01 12:59:02'
 categories:
-  - Uncategorized
 ---
 
 Pokud máte možnost zúčastnit se 12\. ročníku konference v Novém Městě na Moravě, určitě nás, kluky ze SkolniLogin.cz, nezapomeňte navštívit. Jen pozor na počasí, jsme na Vysočině a máme tu sníh! [![WP_20150331_12_25_44_Pro](/uploads/2015/04/WP_20150331_12_25_44_Pro-1024x576.jpg)](/uploads/2015/04/WP_20150331_12_25_44_Pro.jpg)  

@@ -6,7 +6,6 @@ id: 938
 date: '2019-09-19 12:16:49'
 categories:
   - Dynamics 365 / CDS / PowerApps
-  - Uncategorized
 tags:
   - Best Practices
   - CDS

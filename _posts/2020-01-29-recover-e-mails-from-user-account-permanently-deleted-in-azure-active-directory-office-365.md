@@ -10,7 +10,6 @@ date: '2020-01-29 09:00:00'
 categories:
   - Azure
   - Office 365
-  - Uncategorized
 tags:
   - Azure Active Directory
   - Office 365

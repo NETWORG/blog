@@ -7,7 +7,6 @@ date: '2019-03-26 14:01:44'
 categories:
   - Azure
   - English
-  - Uncategorized
 tags:
   - Azure DevOps
   - Dev
