@@ -117,6 +117,13 @@ analytics:
     tracking_id: "UA-73142323-4"
     anonymize_ip: false # default
 
+repository: networg/networg.github.io # Git username/repo-name e.g. "mmistakes/minimal-mistakes"
+comments:
+  provider: "staticman_v2"
+  staticman:
+    branch: "master"
+    endpoint: https://api.staticman.net/v3/entry/github/
+
 reCaptcha:
   siteKey: "6LfU-9UUAAAAAKoZxSz_xhPHYtXlMtpiPSHxN9uy"
   # Encrypt reCaptcha secret key using Staticman /encrypt endpoint
