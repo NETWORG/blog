@@ -33,7 +33,7 @@ Jan Hajek:
 Tomas Prokop:
   name        : "Tomas Prokop"
   bio         : "CEO"
-  avatar      : "/assets/images/networg.png"
+  avatar      : "/assets/images/tomas.prokop.png"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -42,7 +42,7 @@ Tomas Prokop:
 Jan Kostejn:
   name        : "Jan Kostejn"
   bio         : "Engineering Lead"
-  avatar      : "/assets/images/networg.png"
+  avatar      : "/assets/images/jan.kostejn.jpeg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -51,7 +51,7 @@ Jan Kostejn:
 Frantisek Capek:
   name        : "Frantisek Capek"
   bio         : "Business Apps Developer"
-  avatar      : "/assets/images/networg.png"
+  avatar      : "/assets/images/frantisek.capek.png"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -60,7 +60,7 @@ Frantisek Capek:
 Jan Skala:
   name        : "Jan Skala"
   bio         : "Integration Architect"
-  avatar      : "/assets/images/networg.png"
+  avatar      : "/assets/images/jan.skala.jpeg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -69,7 +69,7 @@ Jan Skala:
 Matej Samler:
   name        : "Matej Samler"
   bio         : "Business Apps Developer"
-  avatar      : "/assets/images/networg.png"
+  avatar      : "/assets/images/matej.samler.jpeg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -78,7 +78,7 @@ Matej Samler:
 Marek Dubsky:
   name        : "Marek Dubsky"
   bio         : "Product Experience"
-  avatar      : "/assets/images/networg.png"
+  avatar      : "/assets/images/marek.dubsky.png"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -87,7 +87,7 @@ Marek Dubsky:
 Jakub Wyczanski:
   name        : "Jakub Wyczanski"
   bio         : "Product Experience"
-  avatar      : "/assets/images/networg.png"
+  avatar      : "/assets/images/jakub.wyczanski.png"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
