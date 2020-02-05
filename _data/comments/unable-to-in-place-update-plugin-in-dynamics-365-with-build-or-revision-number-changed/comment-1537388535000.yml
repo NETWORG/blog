@@ -1,0 +1,8 @@
+name: >-
+  Assembly Caching Issue in Dynamics 365 V9 &#8211; Update Assembly Version of
+  Custom Workflow Steps With PowerShell &#8211; TheNetw.org | Blog
+date: '2018-09-19 22:22:15'
+url: >-
+  https://blog.thenetw.org/2018/09/19/assembly-caching-issue-in-dynamics-365-v9-update-assembly-version-of-custom-workflow-steps-with-powershell/
+message: "[&#8230;] (V9). You can do an in-place upgrade with Plugin Registration Tool without an exception now (see\_Unable to in-place update plugin in Dynamics 365 (with build or revision number changed)) but for some assemblies it just won&#8217;t propagate to your workflow [&#8230;]"
+email: d41d8cd98f00b204e9800998ecf8427e

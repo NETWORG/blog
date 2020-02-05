@@ -1,0 +1,12 @@
+name: Doug Beebe
+date: '2019-10-09 18:56:44'
+url: ''
+message: >-
+  I've been looking for this solution, although our situation is slightly
+  different.  We are on a roadmap to get to the online version of Dynamics 365,
+  but as interim step will be lifting our on-premise to an Azure Vnet.  The ADFS
+  notes make sense, but your steps on the App creation are a bit unclear to me
+  and I'm trying to match with the Azure Portal.  Do we create a Web App or are
+  you talking about an App Registration within the Azure Active Directory
+  service?  Thanks again for this article!
+email: 66b8b609cd6a57c1b849921cc4c04917

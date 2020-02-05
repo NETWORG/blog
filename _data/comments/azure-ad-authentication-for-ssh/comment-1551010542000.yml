@@ -1,0 +1,14 @@
+name: Jan Hajek
+date: '2019-02-24 13:15:42'
+url: 'https://hajekj.net'
+message: >-
+  The point was to actually not having to use ADDS/Azure AD Domain Services at
+  all and leverage modern authentication including conditional access and MFA
+  which is not offered by any of the solutions you mentioned. Microsoft has
+  already made their own implementation which allows you to do exactly this
+  without having to have ADDS or AADDS -
+  https://docs.microsoft.com/en-us/azure/virtual-machines/linux/login-using-aad
+  and you simply assign permissions to that machine in the Azure Portal which is
+  pretty cool. This was just an attempt to implement this before Microsoft built
+  it on their own.
+email: adcb8f422ca6d33ee0799c238a86bbec

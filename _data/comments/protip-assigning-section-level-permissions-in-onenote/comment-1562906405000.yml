@@ -1,0 +1,27 @@
+name: Tausif Jamkhandi
+date: '2019-07-12 06:40:05'
+url: ''
+message: >-
+  Hey Jan,
+
+
+  Awesome article, thank you for sharing this information with us.
+
+
+  Following your step it worked perfect worked.
+
+
+  Later I did some test and found out that without encoded URL too this can
+  work,
+
+  we can simply use decoded URL e.g below worked for me
+
+  https://domain.sharepoint.com/sites/sitename/Shared%20Documents/Forms/AllItems.aspx?id=/sites/sitename/Shared%20Documents/notebookname
+
+
+  I have tested this in SharePoint Online so far and also noticed this works
+  with Modern List experience only
+
+
+  Thank you
+email: 8e89269fd2604a07d528b7f025a84088

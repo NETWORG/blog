@@ -1,0 +1,24 @@
+name: Tomas Prokop
+date: '2018-11-03 15:00:51'
+url: ''
+message: >-
+  Hi Matt, what is your exact scenario? If you plan to combine CRM, Exchange and
+  identity there it can be done in supported scenarios:
+
+  Dynamics 365 on-premise to Exchange Online
+
+  Dynamics 365 on-premise to Exchange on-premise
+
+  Dynamics 365 online to Exchange on-premise
+
+  Dynamics 365 online to Exchange online
+
+
+  If you want to have a part of CRM in cloud and the rest onpremises, it can be
+  done too.
+
+
+  First you need to decide how toho split the workload. Kingswaysoft has a great
+  solution for integrating environments. We have experimented with Virtual
+  Entities for read only access.
+email: 1a69712a0fb8f93e086e027af6c10003

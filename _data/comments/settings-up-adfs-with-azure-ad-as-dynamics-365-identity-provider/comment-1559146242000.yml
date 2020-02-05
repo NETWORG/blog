@@ -1,0 +1,12 @@
+name: Aaron
+date: '2019-05-29 18:10:42'
+url: ''
+message: >-
+  I am challenged with step 2, "Configure the Application Identifier to your
+  ADFS’s address, for example: https://sts.crmlabs.tntg.cz"
+
+
+  The Application Identifier does not appear to be editable (it is a GUID). The
+  only way I can change this is to setup SAML authentication -- is that part of
+  the process?
+email: ba9ede0883a32b8e95b92c3748793643

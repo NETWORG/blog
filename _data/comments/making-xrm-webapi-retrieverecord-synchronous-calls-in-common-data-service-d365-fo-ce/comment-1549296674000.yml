@@ -1,0 +1,24 @@
+name: Jan Kostejn
+date: '2019-02-04 17:11:14'
+url: ''
+message: >-
+  Hello Andrew,
+
+  you are absolutely right. We were discussing this with my colleagues and
+  choose this option because of the limitation to one expand on
+  retrieveMultipleRecords call. But what I didn't considered is FetchXML query
+  instead of OData query. I haven't tested it, but it should work.
+
+
+  So thanks for the comment.
+
+
+  We use this method, because I think it's more pleasant for the customizers of
+  Dynamics Solutions.
+
+
+  When I get a little more time, I'll try to edit the post with your input.
+
+
+  Thanks again.
+email: c4c60cd61166e7c13f2afa18689d644c

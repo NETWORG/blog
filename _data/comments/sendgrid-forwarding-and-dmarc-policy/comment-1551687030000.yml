@@ -1,0 +1,9 @@
+name: 'Sending e-mail from Web Apps &#8211; Honza&#039;s Blarg'
+date: '2019-03-04 09:10:30'
+url: 'https://hajekj.net/2019/02/11/sending-e-mail-from-web-apps/'
+message: >-
+  [&#8230;] I chose to list SendGrid here because we use it on most projects and
+  because you can obtain an account directly through Azure Portal. There are
+  many alternatives, but you have to watch out for deliverability especially
+  when DMARC policy is applied. [&#8230;]
+email: d41d8cd98f00b204e9800998ecf8427e

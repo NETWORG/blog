@@ -1,0 +1,11 @@
+name: Chris Griswold
+date: '2019-04-12 18:29:53'
+url: ''
+message: >-
+  Your approach worked like a charm for me on my CRM 2011 instance, however
+  since changing the configuration I can't connect to CRM via the API using the
+  usual methods.  No matter what I try I get the "the authentication endpoint
+  Username was not found on the configured Secure Token Service!"  I understand
+  that I need to force it to use NameIdentifier, but I don't know what part of
+  the code to change to force it to use that.  Any ideas?
+email: 4b2a7343b1988c9b00486aeabe7cf71f

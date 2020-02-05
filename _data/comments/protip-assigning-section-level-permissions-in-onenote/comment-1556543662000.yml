@@ -1,0 +1,10 @@
+name: Jan Hajek
+date: '2019-04-29 15:14:22'
+url: 'https://hajekj.net'
+message: >-
+  Hi, I think that it actually makes difference because Class Notebook is using
+  these permissions to secure the sections for students. So there might be some
+  sync mechanism or something. I would suggest looking into the audit log on
+  that specific folder (or enabling it first in Office 365) to gain some more
+  insight into what happened.
+email: adcb8f422ca6d33ee0799c238a86bbec

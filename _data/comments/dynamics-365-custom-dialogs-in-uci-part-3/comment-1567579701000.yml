@@ -1,0 +1,31 @@
+name: Radek Novák
+date: '2019-09-04 08:48:21'
+url: 'http://www.artemis-crm.cz'
+message: >-
+  Hi František,
+
+
+  Thank you for you great article!
+
+  We implemented several custom dialogs with success.
+
+
+  Now we are facing issue with implementation of "MultiSelect Option Set" custom
+  control.
+
+  We use the same XML configuration as for "Option Set" but we cannot see any
+  list of values.
+
+
+  Have you ever implemented "MultiSelect Option Set"? If so, can you share with
+  us some hints or code examples?
+
+
+  Thank you so much!
+
+
+  Best Regards
+
+
+  Radek
+email: 2b55704b5d057c628ee062264e77a6ab

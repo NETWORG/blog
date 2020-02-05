@@ -1,0 +1,15 @@
+name: noobient
+date: '2019-02-24 13:09:11'
+url: ''
+message: >-
+  AD login already works (and has been for years) with SSSD on Linux. Including
+  sudo access controlled via AD sudoroles (the sudo source code actually
+  includes the schema you need to extend AD with). If you don't have local AD,
+  you can also use SSSD to join to Azure AD:
+
+
+  https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm
+
+
+  So I'm not quite sure what you're trying to achieve here.
+email: 6bedc0ee8ffc4a0090d96ed842d98a2a

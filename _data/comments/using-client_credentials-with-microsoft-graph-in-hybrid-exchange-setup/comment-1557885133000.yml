@@ -1,0 +1,35 @@
+name: Karthik Hebbar
+date: '2019-05-15 03:52:13'
+url: ''
+message: >-
+  Last time i was trying to make this work i was stuck at Set-PartnerApplication
+  for Graph. When i try to do that i used to get error like below.
+
+
+  A parameter cannot be found that matches parameter name 'AppOnlyPermissions'.
+      + CategoryInfo          : InvalidArgument: (:) [Set-PartnerApplication], ParameterBindingException
+      + FullyQualifiedErrorId : NamedParameterNotFound,Set-PartnerApplication
+      + PSComputerName        : ec2amaz-oidu4ke.mar-esa.com
+
+  [PS] C:\Windows\system32&gt;
+
+
+  Exchange server version
+
+
+  Get-ExchangeServer | Format-List Name,Edition,AdminDisplayVersion
+
+
+  Name                : EC2AMAZ-OIDU4KE
+
+  Edition             : Standard
+
+  AdminDisplayVersion : Version 15.1 (Build 1591.10)
+
+
+  Am i missing anything ??
+
+
+  May i know in which exchange management shell you tried this ? And where did
+  you connect (O365 or Local exchange) to execute this command ?
+email: f7b81d056e479cec2a5b59a1f2750f43

@@ -1,0 +1,18 @@
+name: JFMichaud
+date: '2019-05-01 12:15:43'
+url: 'http://jfmichaudblog.wordpress.com'
+message: >-
+  Nice but where do you create the info "The simple solution was to create an
+  SPF record for em2509.e-mail.thenetw.org which contains v=spf1
+  include:spf.protection.outlook.com include:sendgrid.net
+  include:u9317285.wl036.sendgrid.net -all Office 365 and SendGrid IPs."
+
+  Since in the DNS there should already have a entry for em2509 (cname) that
+  SendGrid need to have?
+
+
+  We are using SendGrid but have problem sending to others Microsoft Tenant (as
+  we also have a tenant) Microsoft re-route the mail...first time spf pass with
+  our dedicated IP but the message header change after that and now use the
+  Microsoft IP with our SendGrid emxxxx subdomain...spf then fail.
+email: 2c145674450e71dbf1181f7613f06b96
