@@ -16,7 +16,7 @@ tags:
 
 If you have seen the screen below, you should definitely continue reading, because I'm gonna share with you very simple solution.
 
-<figure class="wp-block-image">![](/uploads/2019/07/MA-MFA-.jpg)</figure>
+![](/uploads/2019/07/MA-MFA-.jpg)
 
 When it happened to me for the first time, I was a bit confused - until I found the solution - then I felt silly (LOL). The answer is enabling Modern Authentication.
 

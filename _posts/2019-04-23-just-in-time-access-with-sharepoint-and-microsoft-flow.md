@@ -26,7 +26,7 @@ In our company we use Groups to secure everything. From accessing projects, thro
 
 So what we did was that we made a simple portal in SharePoint which allows you to request access to a certain group which than has to be approved by the group owners. The owners are not group members so they have to request access as well. Along with the request, they have to specify the expiration date and business justification. The automatic expiration automatically removes the user from the group afterwards so they loose access to the resources.
 
-<figure class="wp-block-image">![](/uploads/2019/04/screencapture-emea-flow-microsoft-manage-environments-Default-67266d43-8de7-494d-9ed8-3d1bd3b3a764-flows-fb531e60-bebf-4f90-a32c-9ab59c880507-2019-04-19-10_41_54-955x1024.png)</figure>
+![](/uploads/2019/04/screencapture-emea-flow-microsoft-manage-environments-Default-67266d43-8de7-494d-9ed8-3d1bd3b3a764-flows-fb531e60-bebf-4f90-a32c-9ab59c880507-2019-04-19-10_41_54-955x1024.png)
 
 ## Download
 

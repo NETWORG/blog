@@ -78,7 +78,7 @@ public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: (
 }
 ```
 
-<figure class="wp-block-image">![](/uploads/2019/06/pcf1-1024x161.jpg)</figure>
+![](/uploads/2019/06/pcf1-1024x161.jpg)
 
 **Yay! Now we have React working within PCF!**
 
@@ -166,7 +166,7 @@ public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: (
 
 Once you run the control, you will end up with Office Fabric UI control working!
 
-<figure class="wp-block-image">![](/uploads/2019/06/pcf3-1024x150.jpg)</figure>
+![](/uploads/2019/06/pcf3-1024x150.jpg)
 
 Great! What about changing _index.ts_ to _index.tsx_? By default, it doesn't work, but if you want it to work, you have to do a _little hack_. You have to go to the _pcf-scripts_ module (_node_modules\pcf-scripts\controlcontext.js_) and modify the line 34 (at the time of writing) to include _.tsx_ files:
 
@@ -192,6 +192,6 @@ In [some posts](https://www.linkedin.com/feed/update/urn:li:activity:65419738225
 
 Also, internally, Dynamics has a way to figure out the dependencies in a single page for multiple components (and load them only once - super smart!), so you should be definitely using the manifest way, rather than relying on React and other libraries being actually present on the page.
 
-<figure class="wp-block-image">![](/uploads/2019/06/pcf2-1024x109.jpg)</figure>
+![](/uploads/2019/06/pcf2-1024x109.jpg)
 
 _Footnote:_ This article doesn't demonstrate end to end integration (input and output), however it should be super simple after this point.

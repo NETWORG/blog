@@ -35,7 +35,7 @@ Add new app registration. Specify the name of your app, optionally you can also 
 
 Don't forget to make your app Multitenant. It is really up to you if you allow personal Microsoft accounts, it depends on your use case.
 
-<figure class="wp-block-image">![](/uploads/2019/08/chrome_2D61LJb9B6.png)</figure>
+![](/uploads/2019/08/chrome_2D61LJb9B6.png)
 
 Supported account types
 

@@ -31,13 +31,13 @@ Now we have to configure this project, so we get a .nupkg file as a build output
 
 ### Option 1: Project Properties - package
 
-<figure class="wp-block-image">![](/uploads/2019/03/image-1024x596.png)</figure>
+![](/uploads/2019/03/image-1024x596.png)
 
 Make sure to check **Generate NuGet package on build**. Then you can fill whatever info you need for your package.
 
 ### Option 2: Edit csproj
 
-<figure class="wp-block-image">![](/uploads/2019/03/image-1.png)</figure>
+![](/uploads/2019/03/image-1.png)
 
 Now when we build our solution or the project we receive the .nupkg as an output.
 
@@ -102,7 +102,7 @@ Our pipeline will simply deliver all .nupkg(s) to our NuGet feed which we create
 
 Now your release pipeline will automatically trigger every time your build pipeline is successful. And this is how the output looks like.
 
-<figure class="wp-block-image">![](/uploads/2019/03/image-3-1024x517.png)</figure>
+![](/uploads/2019/03/image-3-1024x517.png)
 
 ### Side note
 
@@ -112,6 +112,6 @@ I had to change my **PackageId** from _Calculator_ to _BadDemoCalculator_. Becau
 
 It is caused by selecting this option:
 
-<figure class="wp-block-image">![](/uploads/2019/03/image-4.png)</figure>
+![](/uploads/2019/03/image-4.png)
 
 It is wise to have this option selected, because typically you won't have conflicts with existing packages. Also, when you use this NuGet feed in your build pipelines, you don't have to use nuget.org explicitly.

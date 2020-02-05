@@ -31,10 +31,10 @@ So what? One record cannot be that bad, even though our customizers probably rea
 
 True, this will probably not be a problem for you, unless you start comparing these workflow ids. In practise, let’s say you have an entity “Workflow manager” that is there to watch the runs of his workflow. Typically, you would create an entity, give it a lookup for workflow and then compare the ids in a code activity or plugin
 
-<figure class="wp-block-image">![](/uploads/2019/04/workflow-on-form.png)</figure>
+![](/uploads/2019/04/workflow-on-form.png)
 
 But this is the part where we run into a problem. The record being referenced in the lookup is NOT the same that is used when executing a workflow. The record in the lookup is the Parent record,while the one executed in the async operation (found under owningextentionid) is the active workflow. Meaning that if you wanted to return all async operations of workflow from Workflow managers lookup, you would have to query for parentId, and not the id of the workflow.
 
-<figure class="wp-block-image">![](/uploads/2019/04/workflow.png)</figure>
+![](/uploads/2019/04/workflow.png)
 
 So, there we have it, this is how CDS handles different versions of workflows, and why you must activate it instead of publishing. Give the endpoint a try and check if you didn’t accidently create dozens of records by reactivating your business logic.

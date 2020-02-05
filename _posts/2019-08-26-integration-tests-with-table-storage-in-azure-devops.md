@@ -29,7 +29,7 @@ Unfortunately, Azure Storage Emulator runs only on Windows. There is an open sou
 
 First step to do is to run your CI pipeline on Windows agent.
 
-<figure class="wp-block-image">![](/uploads/2019/08/image-3.png)</figure>
+![](/uploads/2019/08/image-3.png)
 
 Next step is to run Azure Storage Emulator on this particular agent. You can do that with following script.
 

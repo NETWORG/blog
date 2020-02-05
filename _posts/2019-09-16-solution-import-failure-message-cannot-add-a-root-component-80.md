@@ -22,13 +22,13 @@ Let’s recap:
 
 We have a solution containing a model driven application with all it needs: Some dashboards, AppModuleSiteMaps, both managed and unamanged, AppModules themselves as well as solution.xml and customization.xml. When trying to upload the managed solution, we get the following error, even though nothing has changed since the last time I tried uploading it without a problem:
 
-<figure class="wp-block-image">![](/uploads/2019/09/Annotation-2019-09-13-171250.png)</figure>
+![](/uploads/2019/09/Annotation-2019-09-13-171250.png)
 
 Surprisingly, the unmanaged version of the same solution still works and gets uploaded just fine. So what is different?  
 
 The difference lies in SolutionPackager.exe, especially in the latest (as of the date of writing this post) version of the tool. When building the solution with this version, we may notice this message in the output:  
 
-<figure class="wp-block-image">![](/uploads/2019/09/MicrosoftTeams-image-11-1024x162.png)</figure>
+![](/uploads/2019/09/MicrosoftTeams-image-11-1024x162.png)
 
 The missing dashboards are nothing new in the structure that we are using, but the first line is alarming. The AppModule is not defined?  
 

@@ -29,6 +29,7 @@ The fix is quite easy. You just need to manually modify a type of property in th
 
 Fortunatelly JSON Parser in Microsoft Flow can handle multiple types in the schema:
 
+```json
     {
       "type": "array",
       "items": {
@@ -43,6 +44,7 @@ Fortunatelly JSON Parser in Microsoft Flow can handle multiple types in the sche
         }
       }
     }
+```
 
 So you just need to change
 
@@ -52,4 +54,4 @@ to
 
     "type": ["string", "null"]
 
-<figure class="wp-block-image">![](/uploads/2019/03/chrome_2019-03-11_08-39-41-1024x699.png)</figure>
+![](/uploads/2019/03/chrome_2019-03-11_08-39-41-1024x699.png)
