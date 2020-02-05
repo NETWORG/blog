@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: Historie Dynamics CRM / CE / 365 for Sales
 slug: historie-dynamics-crm-ce-365-for-sales
 id: 133

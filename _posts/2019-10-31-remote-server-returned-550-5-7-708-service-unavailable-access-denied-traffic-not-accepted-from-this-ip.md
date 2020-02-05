@@ -1,5 +1,5 @@
 ---
-author: marek.dubsky@thenetw.org
+author: Marek Dubsky
 title: Troubleshooting 550 5.7.708 error from EXO
 slug: >-
   remote-server-returned-550-5-7-708-service-unavailable-access-denied-traffic-not-accepted-from-this-ip

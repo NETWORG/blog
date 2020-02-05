@@ -1,5 +1,5 @@
 ---
-author: jan.kostejn@thenetw.org
+author: Jan Kostejn
 title: Override the default open behavior of data rows in an entity-bound grid
 slug: override-the-default-open-behavior-of-data-rows-in-an-entity-bound-grid
 id: 408

@@ -1,5 +1,5 @@
 ---
-author: matej.samler@thenetw.org
+author: Matej Samler
 title: 'Solution Import Failure Message: Cannot add a Root Component 80'
 slug: solution-import-failure-message-cannot-add-a-root-component-80
 id: 928

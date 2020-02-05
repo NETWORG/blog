@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: >-
   Assembly Caching Issue in Dynamics 365 V9 - Update Assembly Version of Custom
   Workflow Steps With PowerShell

@@ -1,5 +1,14 @@
 # /_data/authors.yml
 
+NETWORG:
+  name        : "NETWORG"
+  bio         : ""
+  avatar      : "/assets/images/networg.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:hello@networg.com"
+
 Jan Hajek:
   name        : "Jan Hajek"
   bio         : "Technical Fellow"
@@ -24,8 +33,62 @@ Jan Hajek:
 Tomas Prokop:
   name        : "Tomas Prokop"
   bio         : "CEO"
-  avatar      : "/assets/images/bio-photo.jpg"
+  avatar      : "/assets/images/networg.jpg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:tomas.prokop@thenetw.org"
+
+Jan Kostejn:
+  name        : "Jan Kostejn"
+  bio         : "Engineering Lead"
+  avatar      : "/assets/images/networg.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:jan.kostejn@thenetw.org"
+
+Frantisek Capek:
+  name        : "Frantisek Capek"
+  bio         : "Business Apps Developer"
+  avatar      : "/assets/images/networg.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:frantisek.capek@thenetw.org"
+
+Jan Skala:
+  name        : "Jan Skala"
+  bio         : "Integration Architect"
+  avatar      : "/assets/images/networg.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:jan.skala@thenetw.org"
+
+Matej Samler:
+  name        : "Matej Samler"
+  bio         : "Business Apps Developer"
+  avatar      : "/assets/images/networg.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:matej.samler@thenetw.org"
+
+Marek Dubsky:
+  name        : "Marek Dubsky"
+  bio         : "Product Experience"
+  avatar      : "/assets/images/networg.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:marek.dubsky@thenetw.org"
+
+Jakub Wyczanski:
+  name        : "Jakub Wyczanski"
+  bio         : "Product Experience"
+  avatar      : "/assets/images/networg.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:jakub.wyczanski@networg.com"

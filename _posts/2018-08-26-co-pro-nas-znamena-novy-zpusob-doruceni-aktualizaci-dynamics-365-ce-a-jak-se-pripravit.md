@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: >-
   Co pro nás znamená nový způsob doručení aktualizací Dynamics 365 CE a jak se
   připravit

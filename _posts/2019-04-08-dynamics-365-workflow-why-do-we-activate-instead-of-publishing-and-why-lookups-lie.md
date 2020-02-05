@@ -1,5 +1,5 @@
 ---
-author: matej.samler@thenetw.org
+author: Matej Samler
 title: >-
   Dynamics 365 Workflow – Why do we activate instead of publishing and why
   lookups lie

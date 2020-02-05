@@ -1,5 +1,5 @@
 ---
-author: migrationuser
+author: NETWORG
 title: Navštivte nás na Počítači ve Škole 2015
 slug: navstivte-nas-na-pocitaci-ve-skole-2015
 id: 1055

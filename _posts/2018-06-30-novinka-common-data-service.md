@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: Novinka Common Data Service 2.0 v souvislostech
 slug: novinka-common-data-service
 id: 144

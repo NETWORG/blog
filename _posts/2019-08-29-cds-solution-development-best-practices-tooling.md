@@ -1,5 +1,5 @@
 ---
-author: jan.kostejn@thenetw.org
+author: Jan Kostejn
 title: CDS Solution Development - Best Practices - Tooling
 slug: cds-solution-development-best-practices-tooling
 id: 894

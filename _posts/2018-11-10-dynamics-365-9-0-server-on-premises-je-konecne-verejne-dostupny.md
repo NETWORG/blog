@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: Dynamics 365 9.0 Server (On-Premises) je konečně veřejně dostupný!
 slug: dynamics-365-9-0-server-on-premises-je-konecne-verejne-dostupny
 id: 383

@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: >-
   Quick Troubleshooting Tip: Workflow Activity Exception
   'Newtonsoft.Json.JsonSerializationException'

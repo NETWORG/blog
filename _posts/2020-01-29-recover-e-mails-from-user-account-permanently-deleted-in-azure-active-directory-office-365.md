@@ -1,5 +1,5 @@
 ---
-author: jakub.wyczanski@networg.com
+author: Jakub Wyczanski
 title: >-
   Recover e-mails from user account permanently deleted in Azure Active
   Directory (Office 365)

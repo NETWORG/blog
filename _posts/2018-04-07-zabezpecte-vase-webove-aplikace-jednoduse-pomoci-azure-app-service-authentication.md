@@ -1,5 +1,5 @@
 ---
-author: jan.skala@thenetw.org
+author: Jan Skala
 title: >-
   Zabezpečte vaše webové aplikace jednoduše pomocí Azure App Service
   Authentication

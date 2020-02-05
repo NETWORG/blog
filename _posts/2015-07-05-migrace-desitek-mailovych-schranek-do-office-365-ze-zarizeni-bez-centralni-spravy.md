@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: >-
   Migrace desítek mailových schránek do Office 365 ze zařízení bez centrální
   správy

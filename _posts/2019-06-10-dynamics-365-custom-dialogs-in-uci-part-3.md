@@ -1,5 +1,5 @@
 ---
-author: frantisek.capek@thenetw.org
+author: Frantisek Capek
 title: Dynamics 365 - Custom Dialogs in UCI - Part 3
 slug: dynamics-365-custom-dialogs-in-uci-part-3
 id: 689

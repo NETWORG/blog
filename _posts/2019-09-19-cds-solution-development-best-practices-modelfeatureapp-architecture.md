@@ -1,5 +1,5 @@
 ---
-author: jan.kostejn@thenetw.org
+author: Jan Kostejn
 title: CDS Solution Development – Best Practices – ModelFeatureApp Architecture
 slug: cds-solution-development-best-practices-modelfeatureapp-architecture
 id: 938

@@ -1,5 +1,5 @@
 ---
-author: migrationuser
+author: NETWORG
 title: Kompletní inovace školní sítě
 slug: kompletni-inovace-skolni-site-2
 id: 1068

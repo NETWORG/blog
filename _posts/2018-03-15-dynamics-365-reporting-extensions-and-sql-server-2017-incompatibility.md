@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: Dynamics 365 Reporting Extensions and SQL Server 2017 incompatibility
 slug: dynamics-365-reporting-extensions-and-sql-server-2017-incompatibility
 id: 92

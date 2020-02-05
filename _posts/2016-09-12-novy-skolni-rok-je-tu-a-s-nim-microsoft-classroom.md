@@ -1,5 +1,5 @@
 ---
-author: migrationuser
+author: NETWORG
 title: Nový školní rok je tu a s ním Microsoft Classroom
 slug: novy-skolni-rok-je-tu-a-s-nim-microsoft-classroom
 id: 1065

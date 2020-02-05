@@ -1,5 +1,5 @@
 ---
-author: frantisek.capek@thenetw.org
+author: Frantisek Capek
 title: Dynamics 365 - Subgrids without relationship
 slug: dynamics-365-subgrids-without-relationship
 id: 808

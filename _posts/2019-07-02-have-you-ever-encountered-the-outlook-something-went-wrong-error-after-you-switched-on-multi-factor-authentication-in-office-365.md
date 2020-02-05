@@ -1,5 +1,5 @@
 ---
-author: marek.dubsky@thenetw.org
+author: Marek Dubsky
 title: >-
   Have you ever encountered the Outlook \"something went wrong\" error, after
   you switched on Multi-Factor Authentication in Office 365?

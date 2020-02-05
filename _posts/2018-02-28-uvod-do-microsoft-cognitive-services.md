@@ -1,5 +1,5 @@
 ---
-author: matej.samler@thenetw.org
+author: Matej Samler
 title: Úvod do Microsoft Cognitive Services
 slug: uvod-do-microsoft-cognitive-services
 id: 100

@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: 'Quick Fix: Microsoft Flow Error - Invalid type. Expected String but got Null.'
 slug: quick-fix-microsoft-flow-error-invalid-type-expected-string-but-got-null
 id: 498

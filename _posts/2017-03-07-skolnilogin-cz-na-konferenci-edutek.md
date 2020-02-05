@@ -1,5 +1,5 @@
 ---
-author: migrationuser
+author: NETWORG
 title: SkolniLogin.cz na konferenci EDUTEK
 slug: skolnilogin-cz-na-konferenci-edutek
 id: 1067

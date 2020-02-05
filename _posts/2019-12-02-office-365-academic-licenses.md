@@ -1,5 +1,5 @@
 ---
-author: marek.dubsky@thenetw.org
+author: Marek Dubsky
 title: Office 365 Academic Licenses
 slug: office-365-academic-licenses
 id: 993

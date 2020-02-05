@@ -1,5 +1,5 @@
 ---
-author: frantisek.capek@thenetw.org
+author: Frantisek Capek
 title: 'Dynamics 365 - Emails: Mailboxes & Queues'
 slug: dynamics-365-mailboxes-queues
 id: 972

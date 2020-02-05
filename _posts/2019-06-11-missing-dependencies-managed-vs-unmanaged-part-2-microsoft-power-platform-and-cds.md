@@ -1,5 +1,5 @@
 ---
-author: jan.kostejn@thenetw.org
+author: Jan Kostejn
 title: >-
   Missing Dependencies - managed vs unmanaged PART 2 (Microsoft Power Platform
   and CDS)

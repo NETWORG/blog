@@ -1,5 +1,5 @@
 ---
-author: marek.dubsky@thenetw.org
+author: Marek Dubsky
 title: Office 365 domain ForceTakeOver
 slug: office-365-domain-forcetakeover
 id: 920

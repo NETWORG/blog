@@ -1,5 +1,5 @@
 ---
-author: jan.kostejn@thenetw.org
+author: Jan Kostejn
 title: >-
   Making Xrm.WebApi.retrieveRecord Synchronous calls in Common Data Service
   (D365 fo CE)

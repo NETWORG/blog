@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: >-
   Notes: Adding custom fields to entity maps between Quotes, Orders and Invoices
   (solution aware)

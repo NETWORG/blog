@@ -1,5 +1,5 @@
 ---
-author: jan.skala@thenetw.org
+author: Jan Skala
 title: Integration tests with Table Storage in Azure DevOps
 slug: integration-tests-with-table-storage-in-azure-devops
 id: 852

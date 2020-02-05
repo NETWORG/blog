@@ -1,5 +1,5 @@
 ---
-author: jan.skala@thenetw.org
+author: Jan Skala
 title: Logic Apps foreach and variables
 slug: logic-apps-foreach-and-variables
 id: 356

@@ -1,5 +1,5 @@
 ---
-author: migrationuser
+author: NETWORG
 title: Květnu vládne SkolniLogin.cz
 slug: kvetnu-vladne-skolnilogin-cz
 id: 1056

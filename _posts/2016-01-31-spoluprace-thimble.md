@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: Spolupráce s agenturou Thimble na projektu SkolniWeby.cz
 slug: spoluprace-thimble
 id: 1062

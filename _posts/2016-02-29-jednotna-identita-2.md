@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: 'Jak na jednotnou identitu: 2. část - Protokoly'
 slug: jednotna-identita-2
 id: 1063

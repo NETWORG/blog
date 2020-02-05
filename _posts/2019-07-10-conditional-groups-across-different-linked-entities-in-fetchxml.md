@@ -1,5 +1,5 @@
 ---
-author: matej.samler@thenetw.org
+author: Matej Samler
 title: Conditional groups across different linked entities in FetchXML
 slug: conditional-groups-across-different-linked-entities-in-fetchxml
 id: 793

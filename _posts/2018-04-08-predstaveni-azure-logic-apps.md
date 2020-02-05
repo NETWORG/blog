@@ -1,5 +1,5 @@
 ---
-author: jan.kostejn@thenetw.org
+author: Jan Kostejn
 title: Představení Azure Logic Apps
 slug: predstaveni-azure-logic-apps
 id: 83

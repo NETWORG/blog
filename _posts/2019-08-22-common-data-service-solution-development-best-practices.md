@@ -1,5 +1,5 @@
 ---
-author: jan.kostejn@thenetw.org
+author: Jan Kostejn
 title: Common Data Service Solution Development - Best Practices
 slug: common-data-service-solution-development-best-practices
 id: 874

@@ -1,5 +1,5 @@
 ---
-author: jan.skala@thenetw.org
+author: Jan Skala
 title: Logic App in a multi tenant environment
 slug: logic-app-in-a-multi-tenant-environment
 id: 489

@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: Remove missing dependencies from solution XML with PowerShell
 slug: remove-missing-dependencies-from-solution-xml-with-powershell
 id: 191

@@ -1,5 +1,5 @@
 ---
-author: jan.kostejn@thenetw.org
+author: Jan Kostejn
 title: >-
   Merging Forms and Views – managed vs unmanaged (Microsoft Power Platform and
   CDS)

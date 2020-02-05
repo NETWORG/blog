@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: 'Jak na jednotnou identitu: 1. část - Adresářové služby'
 slug: jednotna-identita-1
 id: 158

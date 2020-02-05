@@ -1,5 +1,5 @@
 ---
-author: jan.kostejn@thenetw.org
+author: Jan Kostejn
 title: >-
   Merging DLLs in the new csproj project format (excluding specific NuGet
   packages)

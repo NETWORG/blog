@@ -1,5 +1,5 @@
 ---
-author: jan.skala@thenetw.org
+author: Jan Skala
 title: Internal NuGet feed with Azure DevOps (VSTS)
 slug: internal-nuget-feed-with-azure-devops-vsts
 id: 509

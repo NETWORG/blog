@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: 'Dynamics 365 Unified User Interface: Direct View Links in SiteMap'
 slug: dynamics-365-unified-user-interface-direct-view-links-in-sitemap
 id: 48

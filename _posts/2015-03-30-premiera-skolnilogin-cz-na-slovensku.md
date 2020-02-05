@@ -1,5 +1,5 @@
 ---
-author: migrationuser
+author: NETWORG
 title: Premiéra SkolniLogin.cz na Slovensku
 slug: premiera-skolnilogin-cz-na-slovensku
 id: 1054

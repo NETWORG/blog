@@ -1,5 +1,5 @@
 ---
-author: tomas.prokop
+author: Tomas Prokop
 title: >-
   Unable to in-place update plugin in Dynamics 365 (with build or revision
   number changed)
