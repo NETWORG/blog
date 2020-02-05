@@ -22,8 +22,8 @@ Obr. 1 - Příklad využití SAML 2.0
 
 <span style="text-decoration: underline">Jak na jednotnou identitu:</span>
 
-*   [1\. část - Adresářové služby](https://blog.skolnilogin.cz/jednotna-identita-1/)
-*   [2\. část - Protokoly](https://blog.skolnilogin.cz/jednotna-identita-2/)
+*   [1\. část - Adresářové služby](/jednotna-identita-1/)
+*   [2\. část - Protokoly](/jednotna-identita-2/)
 *   3\. část - Nástroje pro správu
 
 ## <span style="text-decoration: underline">Protokoly</span>

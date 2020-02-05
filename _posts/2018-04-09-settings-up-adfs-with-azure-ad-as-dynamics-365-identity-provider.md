@@ -17,7 +17,7 @@ tags:
   - SSO
 ---
 
-[In previous article](https://blog.thenetw.org/2018/04/03/using-azure-active-directory-for-sso-with-dynamics-365-on-premise/), we have looked at the possibility to connect Dynamics 365 on-premise directly with Azure AD, which is on one hand really cool, on the other, it doesn't provide all the features like mobile apps integration. In this article, we are going to explore a production ready solution by leveraging Active Directory Federation Service and Azure AD as a Claims Provider Trust. Starting off, I am going to assume you already have ADFS installed and set up with Dynamics 365, if not I suggest starting [here](https://technet.microsoft.com/en-us/library/gg188595.aspx).
+[In previous article]/2018/04/03/using-azure-active-directory-for-sso-with-dynamics-365-on-premise/), we have looked at the possibility to connect Dynamics 365 on-premise directly with Azure AD, which is on one hand really cool, on the other, it doesn't provide all the features like mobile apps integration. In this article, we are going to explore a production ready solution by leveraging Active Directory Federation Service and Azure AD as a Claims Provider Trust. Starting off, I am going to assume you already have ADFS installed and set up with Dynamics 365, if not I suggest starting [here](https://technet.microsoft.com/en-us/library/gg188595.aspx).
 
 # Identities in Dynamics 365
 

@@ -22,7 +22,7 @@ tags:
 
 ## Introduction.
 
-I started with series of articles about **managed and unmanaged** solutions from the ISV (Independent Software Vendor) perspective. You can find the first about merging forms and layering views [here](https://blog.thenetw.org/2019/03/07/merging-forms-and-views/), and the second about missing dependencies [here](https://blog.thenetw.org/2019/06/11/missing-dependencies-managed-vs-unmanaged-part-2-microsoft-power-platform-and-cds/). I was thinking about the next topic in the managed vs. unmanaged series and decided **to start over with best practices for CDS (Common Data Service) in general**.
+I started with series of articles about **managed and unmanaged** solutions from the ISV (Independent Software Vendor) perspective. You can find the first about merging forms and layering views [here]/2019/03/07/merging-forms-and-views/), and the second about missing dependencies [here]/2019/06/11/missing-dependencies-managed-vs-unmanaged-part-2-microsoft-power-platform-and-cds/). I was thinking about the next topic in the managed vs. unmanaged series and decided **to start over with best practices for CDS (Common Data Service) in general**.
 
 I just want to state one thing. We are ISV. We **build and endorse managed solutions** and these best practices are our own based on the documentation from Microsoft and implementations of customer projects.
 

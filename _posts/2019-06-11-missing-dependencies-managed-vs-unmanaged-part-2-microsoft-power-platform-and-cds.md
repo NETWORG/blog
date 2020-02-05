@@ -26,11 +26,11 @@ tags:
 
 This is the second part in my series of CDS/Dynamics solution development.
 
-[In the last article](https://blog.thenetw.org/2019/03/07/merging-forms-and-views/), I described why **you should use managed solutions** and why it's not a great idea to use unmanaged ones. I want to support my suggested best practices in this series in the future so you have the option to make your own opinion. I'm strongly for managed solutions and I'll tell you another reason why in this part.
+[In the last article]/2019/03/07/merging-forms-and-views/), I described why **you should use managed solutions** and why it's not a great idea to use unmanaged ones. I want to support my suggested best practices in this series in the future so you have the option to make your own opinion. I'm strongly for managed solutions and I'll tell you another reason why in this part.
 
 Have you ever heard of **"missing dependencies"**? Well if you are CDS developer like me, I know you have and I know that they are pain in your ***.
 
-Actually we have [an article here in this blog](https://blog.thenetw.org/2018/06/24/remove-missing-dependencies-from-solution-xml-with-powershell/), which provides you with tooling to automatically remove missing dependencies, in case that you don't have the luxury of source control and aren't able to deploy due to **false** missing dependencies.
+Actually we have [an article here in this blog]/2018/06/24/remove-missing-dependencies-from-solution-xml-with-powershell/), which provides you with tooling to automatically remove missing dependencies, in case that you don't have the luxury of source control and aren't able to deploy due to **false** missing dependencies.
 
 Well how does it happen that **false missing dependency is created** and you can't deploy your solution into downstream environment? Why do you have to delete the element manually or use script for this? **Why does it even exist in the first place?!**
 

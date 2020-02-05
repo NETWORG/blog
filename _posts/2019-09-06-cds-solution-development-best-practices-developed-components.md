@@ -25,7 +25,7 @@ tags:
 
 ## Introduction.
 
-Hi all! Another week went by, another [page in the GitHub wiki](https://github.com/NETWORG/cds-solution-development-docs/wiki/Developed-Components) added… In case you’re new here, read [this article](https://blog.thenetw.org/2019/08/22/common-data-service-solution-development-best-practices/) which explains the motivation behind it all.
+Hi all! Another week went by, another [page in the GitHub wiki](https://github.com/NETWORG/cds-solution-development-docs/wiki/Developed-Components) added… In case you’re new here, read [this article]/2019/08/22/common-data-service-solution-development-best-practices/) which explains the motivation behind it all.
 
 There's not a lot I can comment on for these few new pages. But I can think of one thing.
 

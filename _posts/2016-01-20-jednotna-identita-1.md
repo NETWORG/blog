@@ -15,8 +15,8 @@ tags:
 
 Cílem této série je je přiblížení situace a dostupných prostředků k sjednocení elektronické identity uživatelů softwaru, který spravuje školní instituce. Sjednocením je možné optimalizovat správu uživatelských entit a eliminovat redundantní vyplňování uživatelských dat, které je rizikové kvůli chybám zaviněným lidským faktorem. Takového stavu je možné docílit pomocí konsolidace dat do jednoho zdroje, využitím dostupných ověřovacích a adresářových protokolů a automatizací úkonů potřebných k jejich správě.   ![ji_blog](/uploads/2016/01/ji_blog.png)    <span style="text-decoration: underline">Jak na jednotnou identitu:</span>
 
-*   [1\. část - Adresářové služby](https://blog.skolnilogin.cz/jednotna-identita-1/)
-*   [2\. část - Protokoly](https://blog.skolnilogin.cz/jednotna-identita-2/)
+*   [1\. část - Adresářové služby](/jednotna-identita-1/)
+*   [2\. část - Protokoly](/jednotna-identita-2/)
 *   3\. část - Nástroje pro správu
 
   Vycházím ze zkušeností získaných po úspěšné prvotní fázi projektu SkolniLogin.cz, která zahrnovala průzkum trhu, vývoj externí služby, implementaci na pilotních školách, proškolení učitelů a správců, zpracování zpětné vazby a dat z prvních měsíců produkčního provozu. Její části mohou být užitečné především pro správce, kteří budou řešit propojení systémů zde zmíněných. Výčet dostupných technologií není kompletní a jsou zde zmíněny pouze vybrané a nejrozšířenější. Na začátek je nutné definovat dva možné způsoby, jak docílit sjednoceného přihlášení více  nezávislých aplikací.
