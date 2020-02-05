@@ -62,6 +62,9 @@ author:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://networg.com"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook"
+      url: "https://fb.me/thenetworg"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/thenetworg"
@@ -74,6 +77,9 @@ author:
 
 footer:
   links:
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook"
+      url: "https://fb.me/thenetworg"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/thenetworg"
