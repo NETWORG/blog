@@ -74,31 +74,19 @@ I assume you have some basic experience with Azure DevOps (VSTS). If not, here i
     *   Target folder = $(build.artifactstagingdirectory)
 5.  Publish Artifact: drop
 
-<figure class="wp-block-image">![](/uploads/2019/03/j9TDhGpNrS.gif)
-
-<figcaption>Step by step build pipeline creation</figcaption>
-
-</figure>
+![](/uploads/2019/03/j9TDhGpNrS.gif)
 
 ### NuGet feed
 
 Before we create our release pipeline, we need to create a Nuget feed. Navigate to Artifacts and click on "New feed" button. Give it a name and you are ready to go.
 
-<figure class="wp-block-image">![](/uploads/2019/03/hnnSuUdZg8.gif)
-
-<figcaption>Step by step NuGet feed creation</figcaption>
-
-</figure>
+![](/uploads/2019/03/hnnSuUdZg8.gif)
 
 ### Release pipeline
 
 Our pipeline will simply deliver all .nupkg(s) to our NuGet feed which we created in previous step.
 
-<figure class="wp-block-image">![](/uploads/2019/03/releasepipeline.gif)
-
-<figcaption>Step by step release pipeline creation</figcaption>
-
-</figure>
+![](/uploads/2019/03/releasepipeline.gif)
 
 Now your release pipeline will automatically trigger every time your build pipeline is successful. And this is how the output looks like.
 

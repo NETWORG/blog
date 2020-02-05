@@ -33,6 +33,7 @@ First step to do is to run your CI pipeline on Windows agent.
 
 Next step is to run Azure Storage Emulator on this particular agent. You can do that with following script.
 
+```bat
     echo Starting MsSql localdb
     sqllocaldb create MSSQLLocalDB
     sqllocaldb start MSSQLLocalDB
@@ -42,16 +43,15 @@ Next step is to run Azure Storage Emulator on this particular agent. You can do 
     "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe" start
 
     echo Table storage emulator started
+```
 
-<figure class="wp-block-image">![](/uploads/2019/08/image-4-1024x259.png)
-
-<figcaption>Usage of the script</figcaption>
-
-</figure>
+![](/uploads/2019/08/image-4-1024x259.png)
 
 Now you can use the real Table Storage inside your tests instead of a mocked one.
 
+```csharp
     var connectionString = "UseDevelopmentStorage=true";
     var storageAccount = CloudStorageAccount.Parse(connectionString);
     var tableClient = storageAccount.CreateCloudTableClient();
     // rest of the test...
+```

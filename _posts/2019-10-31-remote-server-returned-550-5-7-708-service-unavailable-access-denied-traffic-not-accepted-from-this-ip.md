@@ -16,7 +16,7 @@ tags:
 
 From time to time, when you start Office 365 trial with Exchange Online license, after some time you happen to be cut off from email communication and you get this NDR: Remote Server returned 550 5.7.708 Service unavailable. Access denied, traffic not accepted from this IP.
 
-*   <figure>![](/uploads/2019/10/708-screenshot.png)</figure>
+* [](/uploads/2019/10/708-screenshot.png)
 
 It happens when the tenant is in trial version or after you pay for a full license, and it is caused by temporarily used IP addresses which are not trusted, therefore get blocked sometimes.
 

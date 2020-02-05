@@ -32,11 +32,7 @@ In case we need to track emails from a shared mailbox, we should create a queue.
 
 <div class="wp-block-image">
 
-<figure class="aligncenter">![This is an example of a queue for shared mailbox support@thenetw.org in Dynamics CRM.](/uploads/2019/10/image.png)
-
-<figcaption>This is an example of a queue for shared mailbox support@thenetw.org</figcaption>
-
-</figure>
+![This is an example of a queue for shared mailbox support@thenetw.org in Dynamics CRM.](/uploads/2019/10/image.png)
 
 </div>
 

@@ -17,11 +17,7 @@ Hi, today I came across JSON parser error in Microsoft Flow. I used auto-generat
 
 <div class="wp-block-image">
 
-<figure class="aligncenter">![](/uploads/2019/03/chrome_2019-03-11_08-30-13-1024x654.png)
-
-<figcaption>Microsoft Flow error - Invalid type. Expected String but got Null.</figcaption>
-
-</figure>
+![](/uploads/2019/03/chrome_2019-03-11_08-30-13-1024x654.png)
 
 </div>
 

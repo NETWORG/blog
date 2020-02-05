@@ -52,7 +52,7 @@ So, I think that the best way to achieve this is to initialize empty forms in mo
 
 I’ll show you how I work with account main form in terms of our product (custom Model-driven app). I have one solution for default entity metadata, forms and views. In this solution I introduced our custom empty form, because I need to reference it from presentation solutions later.
 
-<figure class="wp-block-image is-resized">![](/uploads/2019/03/emptyAccountForm.png)</figure>
+![](/uploads/2019/03/emptyAccountForm.png)
 
 This is all it takes to initializes empty form.
 
@@ -64,13 +64,13 @@ And this is what I wanted to share with you guys, because I couldn’t find how 
 
 In the unmanaged version of the solution are changes held as a complete form, so you can import this unmanaged version without the empty base form in the downstream environment and it will be created:
 
-<figure class="wp-block-image is-resized">![](/uploads/2019/03/accountFormUnmanaged.png)</figure>
+![](/uploads/2019/03/accountFormUnmanaged.png)
 
 You can see that the formid element in the beginning of the form definition is the same as the one in empty form. That’s because I made all changes on the referenced form. But in this unmanaged version, it looks as complete definition that could be taken and imported in another environment. If I would take this definition and changed the id, environment would take it as a new account main form.
 
 It gets more interesting in the managed version of the presentation solution!
 
-<figure class="wp-block-image is-resized">![](/uploads/2019/03/accountFormManaged-Copy.png)</figure>
+![](/uploads/2019/03/accountFormManaged-Copy.png)
 
 Now this is the same form that is in the previous picture, but you can see new attributes, what’s the most interesting is “solutionaction” and “ordinalvalue”. It’s just description of what is added/deleted/modified and in what order it should be rendered.
 
@@ -90,11 +90,11 @@ With the following removal of the presentation solution, the form definition man
 
 It works the same way with views. The only difference is that the merging between layers doesn’t work. The last one wins. For example, look at my empty view for account:
 
-<figure class="wp-block-image is-resized">![](/uploads/2019/03/emptyAccountView.png)</figure>
+![](/uploads/2019/03/emptyAccountView.png)
 
 And this is definition from presentation solution:
 
-<figure class="wp-block-image is-resized">![](/uploads/2019/03/accountView.png)</figure>
+![](/uploads/2019/03/accountView.png)
 
 If I would take this managed view and changed it in unmanaged layer, the unmanaged version of view will be displayed, because there’s no merging.
 

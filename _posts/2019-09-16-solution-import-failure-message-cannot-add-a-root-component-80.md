@@ -36,7 +36,7 @@ The reason we get this error is because only one AppModule.xml is no longer enou
 
 This can be confirmed further by creating a new Model Driven App in our environment, exporting the solution and extracting it with the solution packager. The newest version will give us the following:  
 
-<figure class="wp-block-image is-resized">![](/uploads/2019/09/h.png)</figure>
+![](/uploads/2019/09/h.png)
 
 So to summarize:  
 

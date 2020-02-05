@@ -20,11 +20,7 @@ I gave myself a task to create custom dialog replicating the one that shows up w
 
 <div class="wp-block-image">
 
-<figure class="aligncenter is-resized">![](/uploads/2019/06/Close-Opportunity-as-Lost.png)
-
-<figcaption>Close Opportunity as Lost system dialog.</figcaption>
-
-</figure>
+![](/uploads/2019/06/Close-Opportunity-as-Lost.png)
 
 </div>
 
@@ -188,11 +184,7 @@ My custom dialog now looks like this. If you don't know how to create the button
 
 <div class="wp-block-image">
 
-<figure class="aligncenter">![](/uploads/2019/06/Close-My-Opportunity.png)
-
-<figcaption>You can see that I also added a description field, it is just a simple multiple lines of text field.</figcaption>
-
-</figure>
+![](/uploads/2019/06/Close-My-Opportunity.png)
 
 </div>
 

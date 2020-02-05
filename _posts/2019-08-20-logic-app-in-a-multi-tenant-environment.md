@@ -27,11 +27,7 @@ Ok, but how to authorize against it without someone creating us an account. We c
 
 Add new app registration. Specify the name of your app, optionally you can also specify the Redirect URI.
 
-<figure class="wp-block-image">![Add new App registration](/uploads/2019/08/image-2-1024x500.png)
-
-<figcaption>Add new App registration</figcaption>
-
-</figure>
+![Add new App registration](/uploads/2019/08/image-2-1024x500.png)
 
 Don't forget to make your app Multitenant. It is really up to you if you allow personal Microsoft accounts, it depends on your use case.
 
@@ -47,29 +43,17 @@ If you want your customer to approve, that your app can access his or her tenant
 
 In this link, replace {your_app_client_id} with your application id. You can find that in Azure portal. You can even setup _**redirect_uri**_ which is basically telling where to redirect after successful login, but that is up to you.
 
-<figure class="wp-block-image">![Application client id ](/uploads/2019/04/image.png)
-
-<figcaption>Application client id</figcaption>
-
-</figure>
+![Application client id ](/uploads/2019/04/image.png)
 
 ## Use the app
 
 First, we need to get client credentials for our app. You can either use Client secrets or Certificates. I will use client secrets for the sake of this demo. We can get them from App registrations.
 
-<figure class="wp-block-image">![Generate client secrets](/uploads/2019/08/image-1024x535.png)
-
-<figcaption>Generate client secrets</figcaption>
-
-</figure>
+![Generate client secrets](/uploads/2019/08/image-1024x535.png)
 
 Now in order to use the credentials in a standard connector, you need to switch to Active Directory OAuth. And then fill in the client credentials. If you are about to use Microsoft Graph, make sure to specify the Audience as well.
 
-<figure class="wp-block-image">![Use client credentials](/uploads/2019/08/image-1-1024x596.png)
-
-<figcaption>Use client credentials</figcaption>
-
-</figure>
+![Use client credentials](/uploads/2019/08/image-1-1024x596.png)
 
 Now you can easily get your app approved and don't need anyone to give you username or password. Also this approach is more suitable for cases when you need some organization wide data, like reading all calendars or modifying all contact lists.
 

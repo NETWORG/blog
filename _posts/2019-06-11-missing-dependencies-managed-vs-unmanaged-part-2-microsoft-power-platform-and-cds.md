@@ -40,7 +40,7 @@ Yeah, I know, I was asking myself the same questions and I'll provide you with a
 
 First of all we should understand why there is such a thing. If you already have overview of the _solution.xml_ file, you can skip this part.
 
-<figure class="wp-block-image is-resized">![](/uploads/2019/06/1.png)</figure>
+[](/uploads/2019/06/1.png)
 
 It's really simple as you can see. Every missing dependency contains a component **(and managed solution in which the component exists)** that is required by different dependent component.
 
