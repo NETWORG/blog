@@ -116,3 +116,9 @@ analytics:
   google:
     tracking_id: "UA-73142323-4"
     anonymize_ip: false # default
+
+reCaptcha:
+  siteKey: "6LfU-9UUAAAAAKoZxSz_xhPHYtXlMtpiPSHxN9uy"
+  # Encrypt reCaptcha secret key using Staticman /encrypt endpoint
+  # For more information, https://staticman.net/docs/encryption
+  secret: "L5/nbdGnElGJ5Lc66Os/t3Jf2QeD8czRcVqoDO/p4H9JoCewTQVfsFBHLKd0GD+pCiduF6dnjA3v8t4vfNjtmqgMP4ChfiwVD4vqFEsEl6AZq3hdzGh22Bk9y8KFA57ZGzvzWjLSOi1aFR5OvpMJ4wXEd0O3zgqE/y4aAiUTsHw="
