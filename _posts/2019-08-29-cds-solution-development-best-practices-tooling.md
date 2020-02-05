@@ -25,7 +25,7 @@ tags:
 
 ## Introduction.
 
-Hi all! Another week went by, another [page in the GitHub wiki](https://github.com/NETWORG/cds-solution-development-docs/wiki/Tooling) added... In case you're new here, read [this article]/2019/08/22/common-data-service-solution-development-best-practices/) which explains the motivation behind it all.
+Hi all! Another week went by, another [page in the GitHub wiki](https://github.com/NETWORG/cds-solution-development-docs/wiki/Tooling) added... In case you're new here, read [this article](/2019/08/22/common-data-service-solution-development-best-practices/) which explains the motivation behind it all.
 
 What are my thoughts on current CDS tooling? Let's get into it.
 

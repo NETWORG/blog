@@ -19,7 +19,7 @@ tags:
 
 ## Introduction.
 
-Hi all! Another week went by, another [page in the GitHub wiki](https://github.com/NETWORG/cds-solution-development-docs/wiki/Buildings) added… In case you’re new here, read [this article]/2019/08/22/common-data-service-solution-development-best-practices/) which explains the motivation behind it all.
+Hi all! Another week went by, another [page in the GitHub wiki](https://github.com/NETWORG/cds-solution-development-docs/wiki/Buildings) added… In case you’re new here, read [this article](/2019/08/22/common-data-service-solution-development-best-practices/) which explains the motivation behind it all.
 
 I wasn't able to add new content last week and I'm very sorry for that. Hopefully this week will make up for it.
 
