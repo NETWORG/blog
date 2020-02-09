@@ -1,5 +1,5 @@
 ---
-author: Jan Skála
+author: Jan Skala
 title: >-
   Support Logic Apps Polling Trigger in your .NET Core Web API
 slug: >-
