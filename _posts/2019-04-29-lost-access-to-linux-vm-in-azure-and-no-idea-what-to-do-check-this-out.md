@@ -21,7 +21,9 @@ Last week, we have hit a really interesting issue with our Linux machines in Azu
 
 While tryong to do some regular maintenance work, I noticed I couldn't sign in to a Linux VM running in Azure using [Azure AD Login for Linux extension](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/login-using-aad). So as a fall back, we have a regular account with SSH key setup for login - didn't work either. Always ended with following error:
 
-    Connection closed by XXX.XXX.XXX.XXX
+```
+Connection closed by XXX.XXX.XXX.XXX
+```
 
 So my initial thought was that something is wrong with SSH on the server, so I went ahead and [reset the configuration via Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/vmaccess#restart-ssh). Still, nothing, same behavior with Connection closed.
 

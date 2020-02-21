@@ -30,11 +30,7 @@ If any user mailbox is not in the CRM, just check if the user has O365 license.
 
 In case we need to track emails from a shared mailbox, we should create a queue. When creating a queue, you should create a proper name and fill in the incoming email address. Important thing is the ownership/access. We need to set it to private, so only the agents assigned to this queue will see its content. After you created the queue, go ahead and enable the mailbox.
 
-<div class="wp-block-image">
-
 ![This is an example of a queue for shared mailbox support@thenetw.org in Dynamics CRM.](/uploads/2019/10/image.png)
-
-</div>
 
 Regarding the security, we need to create owner team and assign the queue to this team. After you create the record, assign the users (agents) to this team. Then head back to your queue and assign it to the new created owner team.  
 _There may be an exception thrown, if so, then just check the security roles on the team and assign it the base CDS user security role._

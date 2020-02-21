@@ -35,7 +35,8 @@ This error message suggested that there is something wrong with the configuratio
 
 If you call _[Get-PartnerApplication](https://docs.microsoft.com/en-us/powershell/module/exchange/organization/get-partnerapplication)_ commandlet via PowerShell, you will end up with a list of two apps by default in hybrid setup - Exchange Online and Microsoft Graph. If you list the properties of Microsoft Graph, you end up with following:
 
-<pre class="wp-block-preformatted">RunspaceId                          : Redacted
+```
+RunspaceId                          : Redacted
 Enabled                             : True
 ApplicationIdentifier               : 00000003-0000-0000-c000-000000000000
 CertificateStrings                  : {}
@@ -66,12 +67,15 @@ Id                                  : Microsoft Graph
 OriginatingServer                   : ex01.exlab.labs.tntg.cz
 IsValid                             : True
 ObjectState                         : Unchanged</pre>
+```
 
 In the configuration above,the two most important line of all for us is _AppOnlyPermissions_ which has no configuration. Now this is where it gets confusing, _[Set-PartnerApplication](https://docs.microsoft.com/en-us/powershell/module/exchange/organization/set-partnerapplication?view=exchange-ps)_ can set the property, however according to the docs, it is reserved to Microsoft's internal use. However, that doesn't mean that it won't work!
 
-    $apps = Get-PartnerApplication
-    # Microsoft Graph is 2nd item in the array, if you are unsure, list the items by calling $apps first
-    $apps[1] | Set-PartnerApplication -AppOnlyPermissions $apps[1].ActAsPermissions
+```powershell
+$apps = Get-PartnerApplication
+# Microsoft Graph is 2nd item in the array, if you are unsure, list the items by calling $apps first
+$apps[1] | Set-PartnerApplication -AppOnlyPermissions $apps[1].ActAsPermissions
+```
 
 Simply running the PowerShell above is going to take the _ActAsPermissions_ and set it to _AppOnlyPermissions_. All you have to do then is to restart IIS and you should be good to go with using client_credentials flow!
 
