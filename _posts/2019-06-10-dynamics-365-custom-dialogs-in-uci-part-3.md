@@ -18,29 +18,80 @@ When I was reading the post, I immediately wanted to try it out in my own enviro
 
 I gave myself a task to create custom dialog replicating the one that shows up when user wants to close an opportunity as lost.
 
-<div class="wp-block-image">
-
 ![](/uploads/2019/06/Close-Opportunity-as-Lost.png)
-
-</div>
 
 I started by making custom Customizations.xml file, where I defined the custom dialog, inside the "Dialogs" element. If you don't know how to do it, you can follow the instructions in Bob's blog post.
 
 After that, I added the first field, which is the Status Reason field. It's an OptionSet data type field, which is defined by a global option set. _Note that you cannot use already existing fields, you have to always create new field and set the values equal to the existing field._
 
-<div class="wp-block-coblocks-gist">
-
-<noscript><a href="https://gist.github.com/MaceWindu1/3dc8de50375696ffedf9f872d9e79b5f#file-Customizations-xml">View this gist on GitHub</a></noscript>
-
-</div>
+```xml
+</tabfooter>
+<columns>
+    <column width="100%">
+        <sections>
+            <section id="{EB813F55-D4A8-4A95-AF10-162655D9FB91}" showbar="false" columns="1" name="Section">
+                <labels>
+                    <label description="Information" languagecode="1033" />
+                </labels>
+                <rows>
+                    <row>
+                        <cell id="{28AB7101-C235-4DEF-A3A9-5B3915AE153B}">
+                            <labels>
+                                <label description="Status Reason" languagecode="1033" />
+                            </labels>
+                            <control id="my_statuscode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" isunbound="true">
+                                <parameters>
+                                    <OptionSetName>my_dialogoptionset</OptionSetName>
+                                </parameters>
+                            </control>
+                        </cell>
+                    </row>
+                </rows>
+            </section>
+        </sections>
+    </column>
+</columns>
+</tab>
+</tabs>
+```
 
 You can see the global option set below.
 
-<div class="wp-block-coblocks-gist">
-
-<noscript><a href="https://gist.github.com/MaceWindu1/3dc8de50375696ffedf9f872d9e79b5f#file-OptionSet-xml">View this gist on GitHub</a></noscript>
-
-</div>
+```xml
+<optionsets>
+    <optionset Name="my_dialogoptionset" localizedName="Dialog Option Set">
+        <OptionSetType>picklist</OptionSetType>
+        <IsGlobal>1</IsGlobal>
+        <IntroducedVersion>1.0.0.0</IntroducedVersion>
+        <IsCustomizable>1</IsCustomizable>
+        <ExternalTypeName></ExternalTypeName>
+        <displaynames>
+            <displayname description="Dialog Option Set" languagecode="1033" />
+        </displaynames>
+        <Descriptions>
+            <Description description="" languagecode="1033" />
+        </Descriptions>
+        <options>
+            <option value="4" ExternalValue="" Color="#0000ff">
+                <labels>
+                    <label description="Canceled" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                    <Description description="" languagecode="1033" />
+                </Descriptions>
+            </option>
+            <option value="5" ExternalValue="" Color="#0000ff">
+                <labels>
+                    <label description="Out-Sold" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                    <Description description="" languagecode="1033" />
+                </Descriptions>
+            </option>
+        </options>
+    </optionset>
+</optionsets>
+```
 
 The most important thing about this is the **classid** value. There is only one class id for each data type in Dynamics. You can see the list of data types and their proper class id below.
 
@@ -182,40 +233,96 @@ The most important thing about this is the **classid** value. There is only one 
 
 My custom dialog now looks like this. If you don't know how to create the buttons, follow the instructions in Bob's blog post.
 
-<div class="wp-block-image">
-
-![](/uploads/2019/06/Close-My-Opportunity.png)
-
-</div>
+![Close My Opportunity](/uploads/2019/06/Close-My-Opportunity.png)
 
 The dialog consists of only two fields - _Status Reason_ and _Description_. I did want to include the _Actual Revenue_ field, however it seemed impossible to use, because the currency data type is not supported in custom dialogs (same for the _Competitor_ field which is a lookup data type). I didn't include the _Close Date_ field, we can just use the TS function _Date()_.
 
 Now there comes the interesting part. The system dialog box closes the opportunity in the chosen status reason and refreshes the page. How are we going to do this? Simply, we are going to write a TypeScript library which will contain all the functions we need. If you wonder why I'm using TypeScript, it's because of the async requests. I recommend you to use it, because you never know when you are going to need to do something asynchronous.
 
-<div class="wp-block-coblocks-gist">
+```typescript
+function OpenDialog() : void {
+    var options : any = 
+    {
+        dialogName: 'custom',
+        position: 1
+    };
+    var data : any =
+    {
+        my_guid: Xrm.Page.data.entity.getId(),
+    };
+    (Xrm.Navigation as any).openDialog("CustomDialog", options, data);
+}
 
-<noscript><a href="https://gist.github.com/MaceWindu1/3dc8de50375696ffedf9f872d9e79b5f#file-CustomDialogLibrary-ts">View this gist on GitHub</a></noscript>
+function onClick_Cancel() : void {
+    Xrm.Page.ui.close();
+}
 
-</div>
+async function onClick_OK() : Promise<void> {
+
+    var inputParameters : any = 
+    {
+        opportunityId : Xrm.Page.data.attributes.get("my_guid").getValue(),
+        statuscode : Xrm.Page.data.attributes.get("my_statuscode").getValue(),
+        description : Xrm.Page.data.attributes.get("my_description").getValue()
+    }
+
+    await CloseOpportunity(inputParameters);
+}
+```
 
 Those are all the functions we need. The first one opens the dialog and **is being called from our ribbon button**. Then, there is a function for the Cancel button and the OK button.
 
 You can see the _my_guid_ attribute in the _inputParameters_ object. I've added this field as query string input parameter. You can send to your dialog anything you need from the form context.
 
-<div class="wp-block-coblocks-gist">
-
-<noscript><a href="https://gist.github.com/MaceWindu1/3dc8de50375696ffedf9f872d9e79b5f#file-FormParameters-xml">View this gist on GitHub</a></noscript>
-
-</div>
+```xml
+<FormXml>
+    <forms type="dialog">
+        <form>
+            <formparameters>
+                <querystringparameter name="my_guid" type="SafeString" />
+            </formparameters>
+```
 
 Now that we have all the input that we need for the _loseOpportunity_ request, we can write the function that closes the opportunity.
 
-<div class="wp-block-coblocks-gist">
+```typescript
+async function CloseOpportunity(inputParameters : any) : Promise<void> {
+    var opportunityclose : any = {
+        "opportunityid@odata.bind": "/opportunities" + inputParameters.opportunityId.replace("{", "(").replace("}", ")"),
+        "@odata.type": "Microsoft.Dynamics.CRM.opportunityclose",
+        "actualrevenue": 0,
+        "actualend": new Date(),
+        "description": inputParameters.description
+    }
 
-<noscript><a href="https://gist.github.com/MaceWindu1/3dc8de50375696ffedf9f872d9e79b5f#file-CloseOpportunity-ts">View this gist on GitHub</a></noscript>
+    var loseOpportunityRequest : any = {
+        OpportunityClose: opportunityclose,
+        Status: inputParameters.statuscode,
 
-</div>
+        getMetadata: function () {
+            return {
+                boundParameter: null,
+                parameterTypes: {
+                    "OpportunityClose": {
+                        "typeName": "mscrm.opportunityclose",
+                        "structuralProperty": 5
+                    },
+                    "Status": {
+                        "typeName": "Edm.Int32",
+                        "structuralProperty": 1
+                    }
+                },
+                operationType: 0,
+                operationName: "LoseOpportunity"
+            };
+        }
+    };
+    await Xrm.WebApi.online.execute(loseOpportunityRequest);
+    await Xrm.Page.ui.close();
+    await parent.window.location.reload();
+}
+```
 
 And that's it! We have our fully working custom dialog. In order to use it, you have to create a button in the _Ribbon Workbench_ and include it on a form in your solution. You can download the solution here.
 
-<div class="wp-block-file aligncenter">[Download](/uploads/2019/06/CustomDialog.zip)</div>
+[Download](/uploads/2019/06/CustomDialog.zip)
