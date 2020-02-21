@@ -65,6 +65,15 @@ Jan Skala:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:jan.skala@thenetw.org"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://janskala.cz/"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/jan-skala/"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/skalahonza"
 
 Matej Samler:
   name        : "Matej Samler"
