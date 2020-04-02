@@ -5,7 +5,7 @@
 # To encrypt strings use the following endpoint:
 # https://api.staticman.net/v2/encrypt/{TEXT TO BE ENCRYPTED}
 
-# comments:
+comments:
   # (*) REQUIRED
   #
   # Names of the fields the form is allowed to submit. If a field that is
@@ -52,13 +52,13 @@
   moderation: true
 
   # Akismet spam detection.
-  # akismet:
-  #   enabled: true
-  #   author: "name"
-  #   authorEmail: "email"
-  #   authorUrl: "url"
-  #   content: "message"
-  #   type: "comment"
+  akismet:
+    enabled: true
+    author: "name"
+    authorEmail: "email"
+    authorUrl: "url"
+    content: "message"
+    type: "comment"
 
   # Name of the site. Used in notification emails.
   # name: "Your Site"
