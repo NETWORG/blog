@@ -41,7 +41,8 @@ To install this tool simply run:
 4. Run `dotnet build`
 5. Inside *obj* folder we can see that a file *PetStoreClient.cs* has been generated, it shares the name with our json file *PetStore.json*
 6. Now consume your client in your code
-```cs
+
+```csharp
 var client = new PetStoreClient(new HttpClient());
 var inventory = await client.GetInventoryAsync();
 foreach (var (key, value) in inventory.Select(x => (x.Key, x.Value)))
