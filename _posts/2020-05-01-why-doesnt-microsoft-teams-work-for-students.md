@@ -8,6 +8,7 @@ categories:
   - Office 365
 tags:
   - Office 365
+  - Microsoft Teams
 ---
 
 If you happen to be setting up a tenant for a school you my face a problem with Teams, meaning that Teams works for teachers, but not for students.
