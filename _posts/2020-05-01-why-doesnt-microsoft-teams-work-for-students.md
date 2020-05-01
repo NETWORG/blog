@@ -1,7 +1,7 @@
 ---
 author: Marek Dubsky
 title: >-
-  Why doesn't Microsoft Teams work for Students??
+  Why doesn't Microsoft Teams work for Students?
 date: '2020-05-01 17:13:00'
 categories:
   - English
@@ -9,8 +9,6 @@ categories:
 tags:
   - Office 365
 ---
-
-This is mainly post for admins who take care of IT at schools.
 
 If you happen to be setting up a tenant for a school you my face a problem with Teams, meaning that Teams works for teachers, but not for students.
 
