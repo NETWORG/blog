@@ -29,6 +29,7 @@ To install this tool simply run:
 1. Navigate to the folder with your csproj
 2. Run `dotnet openapi add url https://petstore.swagger.io/v2/swagger.json --output-file PetStore.json`
 3. Now your csproj should be modified like this:
+
 ```xml
 <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
@@ -38,6 +39,7 @@ To install this tool simply run:
     <OpenApiReference Include="PetStore.json" SourceUrl="https://petstore.swagger.io/v2/swagger.json" />
   </ItemGroup>
 ```
+
 4. Run `dotnet build`
 5. Inside *obj* folder we can see that a file *PetStoreClient.cs* has been generated, it shares the name with our json file *PetStore.json*
 6. Now consume your client in your code
