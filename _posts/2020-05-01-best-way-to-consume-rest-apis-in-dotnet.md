@@ -51,4 +51,4 @@ foreach (var (key, value) in inventory.Select(x => (x.Key, x.Value)))
 }
 ```
 
-
+Yes! It was that easy. For the best performance, consider using [IHttpClientFactory](https://docs.microsoft.com/en-us/dotnet/api/system.net.http.ihttpclientfactory?view=dotnet-plat-ext-3.1) for spawning your HttpClient. Also, as you can notice, the authorization is not generated unfortunately, so you will have to add authorization headers to the HttpClient by yourself.
