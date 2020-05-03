@@ -18,7 +18,7 @@ Let’s say, your company has no Windows PC and has no interest of buying one in
 
 Luckily not quite. There are two options to choose from. One is to subscribe Azure Cloud and use the Azure shell, which is not a very affordable solution to say the least, but it is definitely easier (aside a VM with Windows).
 
-You could save the cost, if you need PowerShell temporarily and opt in for the free trial, that will run 30 days, but her is a second option, Microsoft has in development, that I will cover here.
+You could save the cost, if you need PowerShell temporarily and opt in for the free trial, that will run 30 days, but there is a second option, Microsoft has in development, that I will cover here.
 
 Theoretically Microsoft did describe it pretty well in the Docs, but in practice it isn’t as straightforward. To sum it up, there are 3 crucial steps:
 
