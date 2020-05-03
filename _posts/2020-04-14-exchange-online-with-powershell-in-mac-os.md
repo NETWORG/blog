@@ -31,7 +31,7 @@ https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powersh
 
 The thing is, that it doesn’t work that simple, if you want to use the Exchange Online PowerShell Module to connect to EXO. Let me sum up how it went for me.
 
-As I followed the official guidelines, installed Homebrew and PowerShell, I went on and tried connecting, her is what happen as the output after establishing the connection:
+As I followed the official guidelines, installed Homebrew and PowerShell, I went on and tried connecting, here is what happen as the output after establishing the connection:
 
  ![Screenshot 1](/uploads/2020/04/EXO_Powershell_Mac_Error.png)
 
