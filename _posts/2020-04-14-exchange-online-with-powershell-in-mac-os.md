@@ -50,7 +50,7 @@ brew install https://github.com/tebelorg/Tump/releases/download/v1.0.0/openssl.r
 
 And afterwards it will work… Not yet, for me at least. 
 All depends, if you have Security Standards enabled, if you do, you will need to disable it to use Baseline policies, or the authentication will not work. I had them activated, which forces admins to use MFA, even if disabled and because of that, you can’t use basic authentication, which in this scenario is the only option, because the PowerShell module for MFA is only Windows compatible. 
-The error might be surprising, as it isn’t the same ion Mac OS and Windows. On the latter I saw “Access is denied”, whereas on Mac OS it was “Basic authentication failed for user”, but after several attempts I found the only solution is to go back to Baseline Polices as mentioned. No PowerShell trickery in Msol Shell will help, believe me, but it was fun to see it working on a Mac.
+The error might be surprising, as it isn’t the same on Mac OS and Windows. On the latter I saw “Access is denied”, whereas on Mac OS it was “Basic authentication failed for user”, but after several attempts I found the only solution is to go back to Baseline Polices as mentioned. No PowerShell trickery in Msol Shell will help, believe me, but it was fun to see it working on a Mac.
 
  ![Screenshot 2](/uploads/2020/04/EXO_PowerShell_Mac_working.png)
 
