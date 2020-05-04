@@ -42,6 +42,7 @@ As it turned out, the issue was known for longer and various solutions was sugge
 -	First of all, you install Homebrew, It is a crucial point to actually make use of PowerShell core and successfully connect to EXO
 -	Next you install the PowerShell Core, method is not important, the newest stable build from Homebrew and other releases should work fine
 -	The crucial thing Homebrew is really important for, is the version of OpenSSL, i.e. you need to install the version 1.02. Let’s assume, OpenSSL is already installed, just go the following path:
+
 brew uninstall openssl; to remove the most current stable release
 
 brew uninstall openssl; (to ensure nothing was left)
