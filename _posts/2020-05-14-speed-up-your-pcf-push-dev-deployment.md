@@ -19,7 +19,7 @@ The incremental push looks into the target environment, checks if the `ControlMa
 
 Since this feature is not enabled by default and there are not many references, I went ahead and tried to enable it myself (thank you [ILSpy](https://github.com/icsharpcode/ILSpy)). Turns out the incremental push is still i nthe tooling, it's just not enabled for some reason. So in order to enable it, you have to do the following:
 
-1. Go to: `%LOCALUSERPROFILE%\Microsoft\PowerAppsCLI\` open the CLI folder and the tools folder in it (for me it is `Microsoft.PowerApps.CLI.1.2.6\tools` at the time of writing)
+1. Go to: `%LOCALAPPDATA%\Microsoft\PowerAppsCLI\` open the CLI folder and the tools folder in it (for me it is `Microsoft.PowerApps.CLI.1.2.6\tools` at the time of writing)
 1. Open `featureflags.json` in your favorite editor ([VS Code](http://code.visualstudio.com/))
 1. And add the following flag:
   ```json
