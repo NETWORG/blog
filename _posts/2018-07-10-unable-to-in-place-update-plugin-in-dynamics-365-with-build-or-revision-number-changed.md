@@ -19,9 +19,11 @@ tags:
 
 UPDATE 19/9/18: It has been fixed in 9.0.2.5 version of Plugin Registration Tool https://www.nuget.org/packages/Microsoft.CrmSdk.XrmTooling.PluginRegistrationTool/9.0.2.5 If you use 9.0 version of Plugin Registration Tool to update your assemblies in Dynamics 365 you may encounter the following exception:
 
-<pre class="wrap:true lang:default highlight:0 decode:true ">ERROR: Occurred while checking whether the assembly exists
+```
+ERROR: Occurred while checking whether the assembly exists
 
-The PluginType(00000000-0000-0000-0000-000000000000) component cannot be deleted because it is referenced by 1 other components. For a list of referenced components, use the RetrieveDependenciesForDeleteRequest.</pre>
+The PluginType(00000000-0000-0000-0000-000000000000) component cannot be deleted because it is referenced by 1 other components. For a list of referenced components, use the RetrieveDependenciesForDeleteRequest.
+```
 
 ## **Here are the official guidelines for plugin upgrades and versioning:**
 

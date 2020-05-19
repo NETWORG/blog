@@ -28,8 +28,10 @@ So what to do next? Well I will describe a way how I figured it out, so if you w
 
 Initially, I thought that Exchange just didn't support the flow. But after doing some reading, I ended up with a conclusion that it had to be supported. I decided to try to enable IIS logging to capture the _WWW-Authenticate_ header, which Exchange Server sends along with responses. Thanks to that, I managed to get an error message:
 
-<pre class="wp-block-preformatted">Bearer+client_id="00000002-0000-0ff1-ce00-000000000000",+trusted_issuers="00000001-0000-0000-c000-000000000000@<REDACTED>",+token_types="app_asserted_user_v1+service_asserted_app_v1",+error="invalid_token"  
-2000008;reason="**The+token+should+have+valid+permissions+or+linked+account+associated+with+partner+application+'00000003-0000-0000-c000-000000000000**'.";error_category="invalid_grant" </pre>
+```
+Bearer+client_id="00000002-0000-0ff1-ce00-000000000000",+trusted_issuers="00000001-0000-0000-c000-000000000000@<REDACTED>",+token_types="app_asserted_user_v1+service_asserted_app_v1",+error="invalid_token"  
+2000008;reason="**The+token+should+have+valid+permissions+or+linked+account+associated+with+partner+application+'00000003-0000-0000-c000-000000000000**'.";error_category="invalid_grant"
+```
 
 This error message suggested that there is something wrong with the configuration. The key word here is _partner application_. If you do some search, you can find out that Partner Applications are used to allow access to the Exchange's REST API.
 
@@ -66,7 +68,7 @@ OrganizationId                      :
 Id                                  : Microsoft Graph
 OriginatingServer                   : ex01.exlab.labs.tntg.cz
 IsValid                             : True
-ObjectState                         : Unchanged</pre>
+ObjectState                         : Unchanged
 ```
 
 In the configuration above,the two most important line of all for us is _AppOnlyPermissions_ which has no configuration. Now this is where it gets confusing, _[Set-PartnerApplication](https://docs.microsoft.com/en-us/powershell/module/exchange/organization/set-partnerapplication?view=exchange-ps)_ can set the property, however according to the docs, it is reserved to Microsoft's internal use. However, that doesn't mean that it won't work!

@@ -54,7 +54,8 @@ As you may already know you can map some fields which have 1:N relationship. [ht
 7.  Make other modifications
 8.  Create the record
 
-<pre class="lang:c# decode:true">InitializeFromRequest request = new InitializeFromRequest();
+```csharp
+InitializeFromRequest request = new InitializeFromRequest();
 
 request.TargetEntityName = "contact";
 
@@ -70,7 +71,7 @@ newContactRecord.Attributes.Add("firstname", "Tomas");
 
 organizationService.Create(newContactRecord);
 }
-</pre>
+```
 
   The internal Sales solution uses this too. When you hit Create Order button they do this. But you don't see their EntityMaps in solution editor because there is no direct relationship between mapped entities. Field mappings aren’t actually defined within the entity relationships, but they are exposed in the relationship user interface. ![](/uploads/2018/11/POWERPNT_2018-11-03_14-29-42.png)
 
@@ -84,7 +85,8 @@ So can't edit mappings for these entities using UI editor for relationships beca
 
 > /XRMServices/2011/OrganizationData.svc/EntityMapSet?$select=EntityMapId&$filter=SourceEntityName%20eq%20%27<span style="color: #ff0000;">**salesorderdetail**</span>%27%20and%20TargetEntityName%20eq%20%27<span style="color: #ff0000;">**invoicedetail**</span>%27
 
-<pre class="lang:default highlight:0 decode:true"><?xml version="1.0" encoding="UTF-8"?>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xml:base="https://thenetworg.crm4.dynamics.com/XRMServices/2011/OrganizationData.svc/">
    <title type="text">EntityMapSet</title>
    <id>https://ABC.crm4.dynamics.com/XRMServices/2011/OrganizationData.svc/EntityMapSet</id>
@@ -106,8 +108,7 @@ So can't edit mappings for these entities using UI editor for relationships beca
       </content>
    </entry>
 </feed>
-
-</pre>
+```
 
 Look for the EntityMapId element and find the map ID. It is different in every environment since the metadata definition does not contain any identifier. In my case it is **6825c078-5459-e811-a84a-000d3ab6b1ed.** Now I need to open a designer directly using this URL with my Guid:
 
@@ -125,7 +126,8 @@ If you are able to construct the mapping during your build process or you have y
 
 <div>
 
-<pre class="lang:default highlight:0 decode:true"><?xml version="1.0" encoding="UTF-8"?>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <EntityMaps>
    <EntityMap>
       <EntitySource>quotedetail</EntitySource>
@@ -137,7 +139,8 @@ If you are able to construct the mapping during your build process or you have y
          </AttributeMap>
       </AttributeMaps>
    </EntityMap>
-</EntityMaps></pre>
+</EntityMaps>
+```
 
 After importing this CRM server will append the Attribute map to the existing EntityMap and you are good to go: ![](/uploads/2018/08/chrome_2018-08-25_22-33-57.png) Great!
 
@@ -147,7 +150,8 @@ Take this part more as notes from my research than a guide. After the initial eu
 
 Here is the code responsible for determining whether an EntityMap gets exported.
 
-<pre class="lang:c# decode:true">private bool DoesEntityMapNeedToBeSkipped(Hashtable entitiesTable, EntityMappingStruct mapping)
+```csharp
+private bool DoesEntityMapNeedToBeSkipped(Hashtable entitiesTable, EntityMappingStruct mapping)
 {
     if (entitiesTable != null)
     {
@@ -165,7 +169,8 @@ Here is the code responsible for determining whether an EntityMap gets exported.
         }
     }
     return false;
-}</pre>
+}
+```
 
 This indicates that the map will be skipped if:
 

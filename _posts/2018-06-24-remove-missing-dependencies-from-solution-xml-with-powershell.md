@@ -17,7 +17,8 @@ tags:
 
 _The import of the solution XYZ failed. The following components are missing in your system and are not included in the solution. Import the managed solutions that contain these components (Active) and then try importing this solution again._ If you ever run into this exception and there are all the components already present in the environment you just need to get rid of few lines in a solution definition in the ZIP file you are trying to import. **Do this only if you are absolutely sure that you know what you are doing.** This is caused by this section of solution.xml file which is inside your solution's ZIP file. ![](/uploads/2018/06/explorer_2018-06-24_21-40-05.png)   ![](/uploads/2018/06/Code_2018-06-24_21-42-02.png)   The import wizard does not perform any check whether the component is actually present in the environment. ![](/uploads/2018/06/solutionimport.png) There may be a situation when you have all the components in place and solution import should proceed without issues but the wizard throws this error. In this case you can delete dependencies from the definition. If you do it quite often or you need to make it part of your automated deployment, here is a PowerShell script just for that:
 
-<pre class="lang:ps decode:true">param (
+```powershell
+param (
     [string]$zipfileName
 )
 
@@ -48,7 +49,8 @@ $streamWriter.Flush()
 $streamWriter.Close()
 
 # Close the zip file
-$zip.Dispose()</pre>
+$zip.Dispose()
+```
 
   <span style="text-decoration: underline;">You can use it like this:</span>
 

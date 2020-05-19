@@ -34,7 +34,8 @@ Let me start with this statement: It’s not supported to use ILMerge (or any ot
 
 This is something that can be done with some research quite easily, there’s nothing hard/special, that you need to know. But I couldn’t find guide that solved all my issues, so I write this blogpost with all steps that I had to apply. I’ll try to explain them, so you can understand how it works. Let’s get to it. Before we start tweaking our .csproj, you need to install ILRepack nuget package to your project. Now it’s just about adding some parts into .csproj:
 
-<pre class="wrap:true lang:xhtml decode:true"><?xml version="1.0" encoding="utf-8"?>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 <!-- You start with something like this - new .csproj format -->
   <PropertyGroup>
@@ -51,7 +52,8 @@ This is something that can be done with some research quite easily, there’s no
     <ProjectReference Include="..\..\..\Infrastructure\Infrastructure.CompositionLayer\Infrastructure.CompositionLayer.csproj" />
     <ProjectReference Include="..\Features.ARES.Extension.BusinessLayer\Sales.Features.ARES.Extension.BusinessLayer.csproj" />
   </ItemGroup>
-</Project></pre>
+</Project>
+```
 
 <div>
 
@@ -59,7 +61,8 @@ This is something that can be done with some research quite easily, there’s no
 
 <div>
 
-<pre class="wrap:true lang:xhtml mark:18-25 decode:true"><?xml version="1.0" encoding="utf-8"?>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
@@ -84,11 +87,13 @@ This is something that can be done with some research quite easily, there’s no
     <Error Condition="!Exists(@(ILRepackPackage->'%(FullPath)'))" Text="You are trying to use the ILRepack package, but it is not installed or at the correct location" />
     <Exec Command="@(ILRepackPackage->'%(fullpath)') [<options>] /out:<output assembly> <main assembly> [<other assemblies>]" />
   </Target>
-</Project></pre>
+</Project>
+```
 
 Replace all values in angle brackets in "Exec" element. My result looks like this:
 
-<pre class="wrap:true lang:xhtml mark:20-23,26,30-33 decode:true"><?xml version="1.0" encoding="utf-8"?>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
@@ -122,7 +127,8 @@ Replace all values in angle brackets in "Exec" element. My result looks like thi
     <!-- CDS registers only signed assemblies, that's why we need to use option /keyfile -->
     <!-- @(OtherAssemblies,' ') prints all other assemblies from output directory separated by space - exactly as ILRepack requires it -->
   </Target>
-</Project></pre>
+</Project>
+```
 
 <div>
 
@@ -132,7 +138,8 @@ Replace all values in angle brackets in "Exec" element. My result looks like thi
 
 <div>
 
-<pre class="wrap:true lang:xhtml mark:18-23,37,41,44-51 decode:true "><?xml version="1.0" encoding="utf-8"?>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
@@ -183,7 +190,8 @@ Replace all values in angle brackets in "Exec" element. My result looks like thi
     </ItemGroup>
     <Delete Files="%(OtherFiles.Identity)" />
   </Target>
-</Project></pre>
+</Project>
+```
 
 ## As I said in the beginning – no breakthrough, but something like this would help me a lot!
 
