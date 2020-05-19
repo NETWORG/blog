@@ -1,0 +1,13 @@
+_id: c19dc250-9926-11ea-afc8-35737da49ef0
+message: >-
+  Hello Marek, I have been struggling so much.  Your description is easy to
+  follow so thanks for that. I am getting the same problem as Martin. I get this
+  message: “Confirm-MsolDomain : Unable to verify this domain because it is used
+  elsewhere in Office 365. Remove the verified domain from the other service
+  before adding it here.” I also checked and the TXT Record is set properly, so
+  I have no clue, what is wrong :-(.  Any help would be much appreciated.
+name: J9D
+email: c47d3cc57051afddcd699bea5e00982c
+url: ''
+hidden: ''
+date: '2020-05-18T16:43:53.086Z'

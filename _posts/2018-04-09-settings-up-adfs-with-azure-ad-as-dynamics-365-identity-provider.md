@@ -45,14 +45,16 @@ We are going to start off by adding Azure Active Directory as a claims provider 
 8.  Now you can use Azure AD as a claims provider in your ADFS.
 9.  One more thing that you need to do is to configure the UPN claim - since [Azure AD is not going to send it to you](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-claims-customization#restricted-claims), because without it, Dynamics wouldn't identify the user correctly (alternatively you could modify _IdentityClaim_ in Dynamics database like mentioned in previous article).
 10.  So after having the Trust created, go ahead and click _Edit Claim Rules..._
-11.  Add a new rule from template _Transform an Incoming Claim_ and set _Incoming claim type_ to _Name_ and _Outgoing claim type_ to _UPN_. [![](/uploads/2018/04/Dynamics_ADFS_Rule-279x300.png)](/uploads/2018/04/Dynamics_ADFS_Rule.png)
+11.  Add a new rule from template _Transform an Incoming Claim_ and set _Incoming claim type_ to _Name_ and _Outgoing claim type_ to _UPN_.
+
+[![](/uploads/2018/04/Dynamics_ADFS_Rule-279x300.png)](/uploads/2018/04/Dynamics_ADFS_Rule.png)
 
 ## Configuring relying party trust
 
 If you have set up the [Relying Party correctly](https://technet.microsoft.com/en-us/library/gg188595.aspx), you already have the UPN passthrough rule created for the relying party. If not, look at [Microsoft's tutorial](https://technet.microsoft.com/en-us/library/gg188595.aspx). Now we have to enable the Relying Party Trust to accept claims from Azure AD, we will have to use PowerShell (on the ADFS server) for this. First, we are going to check your relying party configuration:
 
 ```powershell
-Get-ADFSRelyingPartyTrust -Name "<your CRM IFD Relying Party Name>"
+Get-ADFSRelyingPartyTrust -Name "<your CRM IFD Relying Party Name>
 ```
 
 When you check _ClaimsProviderName_ property, you should have _Active Directory_ there. Now if you want to add Azure AD alongside AD, you would execute:
@@ -67,4 +69,6 @@ If you want to use exclusively Azure AD only, you would execute following, howev
 Set-AdfsRelyingPartyTrust -TargetName "<your CRM IFD Relying Party Name>" -ClaimsProviderName @("Azure AD")
 ```
 
-  Before you use exclusively Azure AD, you should modify at least one system administrator's User Name in Dynamics to match their User Principal Name in Azure AD, so for example: _Jan Hajek@thenetw.org_, else no one will be able to sign in. Generally, you should change your user's User Names in Dynamics first before migrating to Azure AD login. If you have same UPNs in Azure AD and Active Directory, their logins should work both logging through Azure AD and Active Directory claims providers. [![](/uploads/2018/04/Dynamics_FederatedUser-300x168.png)](/uploads/2018/04/Dynamics_FederatedUser.png)
+Before you use exclusively Azure AD, you should modify at least one system administrator's User Name in Dynamics to match their User Principal Name in Azure AD, so for example: _jan.hajek@thenetw.org_, else no one will be able to sign in. Generally, you should change your user's User Names in Dynamics first before migrating to Azure AD login. If you have same UPNs in Azure AD and Active Directory, their logins should work both logging through Azure AD and Active Directory claims providers.
+
+[![](/uploads/2018/04/Dynamics_FederatedUser-300x168.png)](/uploads/2018/04/Dynamics_FederatedUser.png)
