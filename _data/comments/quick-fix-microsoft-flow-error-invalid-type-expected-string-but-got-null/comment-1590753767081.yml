@@ -1,0 +1,7 @@
+_id: 4f32a8d0-a1a4-11ea-afc8-35737da49ef0
+message: "{\r\n  \"type\": \"object\",\r\n  \"properties\": {\r\n    \"Fields\": {\r\n      \"type\": \"array\",\r\n      \"items\": {\r\n        \"type\": \"object\",\r\n        \"properties\": {\r\n          \"FieldLabel\": {\r\n            \"type\": [\r\n              \"string\",\r\n              \"integer\"\r\n            ]\r\n          },\r\n          \"Item\": {\r\n            \"type\": \"string\"\r\n          },\r\n          \"ItemElementName\": {\r\n            \"type\": \"string\"\r\n          }\r\n        }\r\n      }\r\n    },\r\n    \"Links\": {\r\n      \"type\": \"array\",\r\n      \"items\": {\r\n        \"type\": \"object\",\r\n        \"properties\": {\r\n          \"rel\": {\r\n            \"type\": \"string\"\r\n          },\r\n          \"href\": {\r\n            \"type\": \"string\"\r\n          }\r\n        },\r\n        \"required\": [\r\n          \"rel\",\r\n          \"href\"\r\n        ]\r\n      }\r\n    },\r\n    \"Id\": {\r\n      \"type\": \"integer\"\r\n    },\r\n    \"Title\": {\r\n      \"type\": \"string\"\r\n    }\r\n  }\r\n}\r\n\r\nDoesn't work form me, \r\n\r\nError\r\nAction 'Parse_JSON_from_File' failed\r\n\r\nAny other ideas?"
+name: Rostyslav
+email: 7883a872b51d2bade92fc8d321769a10
+url: ''
+hidden: ''
+date: '2020-05-29T12:02:47.077Z'
