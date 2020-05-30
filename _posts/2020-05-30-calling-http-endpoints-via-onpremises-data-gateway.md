@@ -36,4 +36,4 @@ I then tried to call their on-premises authorization server to obtain the token 
 
 Next up, was the need to make the actual call to customer's API. So I parsed the JSON response from the token endpoint, added the token into the `Authorization: Bearer <token>` header and made the call which went through the gateway and retrieved the data!
 
-So a story with a good ending. I was honestly surprised that a connector called [HTTP with Azure AD](https://docs.microsoft.com/en-us/connectors/webcontents/) (I already used the connector in past to call Azure AD protected APIs in the cloud) would let me call on-premises REST API via the on-premises data gateway.
+So a story with a good ending. I was honestly surprised that a connector called [HTTP with Azure AD](https://docs.microsoft.com/en-us/connectors/webcontents/) (I already used the connector in past to call Azure AD protected APIs in the cloud) would let me call on-premises REST API via the on-premises data gateway. Obviously, if you don't require the use of `Authorization` header in your on-premises API requests, you are best off with making the custom connector instead.
