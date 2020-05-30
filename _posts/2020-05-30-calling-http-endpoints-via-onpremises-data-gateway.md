@@ -1,7 +1,7 @@
 ---
 author: Jan Hajek
 title: Calling HTTP endpoints via On-premises data gateway
-date: '2020-05-30 7:30:00'
+date: '2020-05-30T7:30:00+0200'
 categories:
   - English
   - Power Platform

@@ -90,7 +90,17 @@ footer:
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/thenetworg"
 
+collections:
+  authors:
+    output: true
+
 defaults:
+  # _authors
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
   # _posts
   - scope:
       path: ""
