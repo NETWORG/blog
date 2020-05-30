@@ -13,6 +13,7 @@ Jan Hajek:
   name        : "Jan Hajek"
   bio         : "Technical Fellow"
   avatar      : "/assets/images/hajekj.jpg"
+  permalink   : "/author/jan-hajek"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -34,6 +35,7 @@ Tomas Prokop:
   name        : "Tomas Prokop"
   bio         : "CEO"
   avatar      : "/assets/images/tomas.prokop.png"
+  permalink   : "/author/tomas-prokop"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -43,6 +45,7 @@ Jan Kostejn:
   name        : "Jan Kostejn"
   bio         : "Engineering Lead"
   avatar      : "/assets/images/jan.kostejn.jpeg"
+  permalink   : "/author/jan-kostejn"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"

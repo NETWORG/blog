@@ -2,16 +2,21 @@
 layout: default
 ---
 {% assign author = site.data.authors[page.name] %}
+{% assign page.author = site.data.authors[page.name] %}
 
-<h1>{{ author.name }}</h1>
-<h2>{{ author.position }}</h2>
+<div id="main" role="main">
+    <div class="sidebar sticky">
+        {% include author-profile-custom.html %}
+    </div>
 
-{{ author.bio }}
-
-<h2>Posts</h2>
-<ul>
-    {% assign filtered_posts = site.posts | where: 'author', page.name %}
-    {% for post in filtered_posts %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-</ul>
+    <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+        <h2>Posts by {{ author.name }}</h2>
+        <div>{{ content }}</div>
+        <ul>
+            {% assign filtered_posts = site.posts | where: 'author', page.name %}
+            {% for post in filtered_posts %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </article>
+</div>

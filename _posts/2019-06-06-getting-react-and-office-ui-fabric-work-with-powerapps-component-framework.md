@@ -107,6 +107,7 @@ Next, you need to modify the _ControlManifest_ to include the library (and chang
 
 Next we go back to _control.tsx_ and modify it to include Office Fabric UI and add some component:
 
+{% raw %}
 ```typescript
 import * as React from 'react';
 import { TagPicker, ITag } from 'office-ui-fabric-react';
@@ -154,6 +155,7 @@ export class HelloFabric extends React.Component<{}> {
     }
 }
 ```
+{% endraw %}
 
 And then all you have to do is to call it from _index.ts_:
 

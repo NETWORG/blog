@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div id="main" role="main">
+    <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+        <h2>Authors</h2>
+        <ul>
+            {% assign sorted_authors = site.data.authors | sort %}
+            {% for author in sorted_authors %}
+                {% assign author_name = author | first %}
+                {% if author_name != "NETWORG" %}
+                    {% assign author_profile = site.data.authors[author_name] %}
+                    <li>
+                        {% if author_profile.permalink %}
+                            <a href="{{ author_profile.permalink }}">{{ author_profile.name }}</a>
+                        {% else %}
+                            {{ author_profile.name }}
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </article>
+</div>
