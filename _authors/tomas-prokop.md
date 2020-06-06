@@ -1,4 +1,4 @@
 ---
 name: Tomas Prokop
-permalink: /author/tomas-prokop
+permalink: /author/tomas-prokop/
 ---

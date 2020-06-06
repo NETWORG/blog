@@ -1,4 +1,4 @@
 ---
 name: Jan Kostejn
-permalink: /author/jan-kostejn
+permalink: /author/jan-kostejn/
 ---
