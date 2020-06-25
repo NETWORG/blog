@@ -1,5 +1,5 @@
 ---
-author: Matěj Samler
+author: Matej Samler
 title: Power Automate triggers inside of a loop
 date: '2020-06-25T18:20:00+0200'
 categories:
@@ -11,8 +11,6 @@ tags:
   - Microsoft Flow
   - Power Automate
 ---
-
-# Power Automate triggers inside of a loop
 
 As we all probably know, every Flow in Power Automate begins with a trigger and continues with multiple actions, branches and conditions. But have you ever considered putting a trigger in the middle of a flow? 
 
