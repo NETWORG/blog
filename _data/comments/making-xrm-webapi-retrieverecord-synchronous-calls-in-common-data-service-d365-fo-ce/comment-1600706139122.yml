@@ -1,0 +1,7 @@
+_id: 7b19a0f0-fc28-11ea-aa2a-e327314aef7f
+message: "Can I access response outside of thebelow method.Like I want to access the result globally  Xrm.WebApi.online.retrieveRecord(\"new_roombooking\", \"00000000-0000-0000-0000-000000000000\", \"null\").then(\r\n    function success(result) {\r\n        var new_roombookingid = result[\"new_roombookingid\"];\r\n    },\r\n    function(error) {\r\n        Xrm.Utility.alertDialog(error.message);\r\n    }\r\n);Xrm.WebApi.online.retrieveRecord(\"new_roombooking\", \"00000000-0000-0000-0000-000000000000\", \"null\").then(\r\n    function success(result) {\r\n        var new_roombookingid = result[\"new_roombookingid\"];\r\n    },\r\n    function(error) {\r\n        Xrm.Utility.alertDialog(error.message);\r\n    }\r\n);"
+name: Manoj
+email: c536abe940e4f2ce63343d30bc8e123d
+url: ''
+hidden: ''
+date: '2020-09-21T16:35:39.042Z'
