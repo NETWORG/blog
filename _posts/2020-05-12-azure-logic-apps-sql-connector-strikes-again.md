@@ -31,7 +31,13 @@ And truly, you cannot compare datetime(s) this way. Or at least not when using A
 
 Old Query: `change ge variables('Timestamp')`
 
-New Query: `((year(change) ge year(@{variables('Timestamp')}) and month(change) ge month(@{variables('Timestamp')})  and day(change) ge day(@{variables('Timestamp')}) and hour(change) ge hour(@{variables('Timestamp')}) and minute(change) ge minute(@{variables('Timestamp')})))`
+New Query: `(year(change) gt year(@{variables('Timestamp')}) or ((year(change) eq year(@{variables('Timestamp')})) and (month(change) gt month(@{variables('Timestamp')}) or ((month(change) eq month(@{variables('Timestamp')})) and (day(change) gt day(@{variables('Timestamp')}) or ((day(change) eq day(@{variables('Timestamp')})) and (hour(change) gt hour(@{variables('Timestamp')}) or ((hour(change) eq hour(@{variables('Timestamp')})) and (minute(change) ge minute(@{variables('Timestamp')}))))))))))`
 
-As you can see I had to compare every part separately and that solved my issue.
+As you can see I had to compare every part separately and that solved my issue. 
+
+## The main idea of the query
+Compare first part
+* if greater --> return true
+* if equals --> compare the rest recursively
+* otherwise --> return false
 
