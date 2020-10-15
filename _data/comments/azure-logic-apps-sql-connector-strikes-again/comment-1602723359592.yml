@@ -1,0 +1,7 @@
+_id: 3054b580-0e81-11eb-ac76-a58a3fa366b0
+message: "This approach will fail in many cases. Using your original criteria: change ge 2020-05-12T15:17:43.1729282Z\r\n\r\nIf the change occurred in the future at 2020-07-12T11:00:00 then it will fail on the hour & min check, unless I am missing something here?"
+name: Pete
+email: db2a442b1a36c8866c937134b50a9f62
+url: ''
+hidden: ''
+date: '2020-10-15T00:55:59.465Z'
