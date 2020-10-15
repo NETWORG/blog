@@ -1,0 +1,7 @@
+_id: 8f3ebca0-0ef2-11eb-ac76-a58a3fa366b0
+message: "Hi Pete,\r\nYes you are right. I forgot to update this blog post. I had to eventually create a much more complicated query. I created an CLI tool for building it\r\nhttps://gist.github.com/skalahonza/3a2e8c497c9b3a5e72a8f8803e3da6f6\r\n\r\nThe main idea is that \r\nif year is >= return TRUE\r\nelse if year is == then everything else has to be >=\r\nand so on\r\notherwiste return False"
+name: Jan Skála
+email: eccb39eca6f862c016c8c1a8ec4d5384
+url: 'https://janskala.cz/'
+hidden: ''
+date: '2020-10-15T14:27:31.847Z'
