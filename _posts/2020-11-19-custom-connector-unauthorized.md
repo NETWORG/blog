@@ -1,7 +1,7 @@
 ---
 author: Matej Samler
 title: Custom Connector suddenly unauthorized - Fix/Workaround
-date: '2020-06-25T18:20:00+0200'
+date: '2020-11-19T14:50:00+0200'
 categories:
   - English
   - Power Platform
