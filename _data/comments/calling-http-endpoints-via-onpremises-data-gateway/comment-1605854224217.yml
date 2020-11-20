@@ -1,0 +1,7 @@
+_id: cd161860-2afa-11eb-bbcc-89f9faeb7e37
+message: "Good findings. I'm also stuck with custom connector with set host policy. When I use this set host policy it looks its not taking on-premises gateway and gives me error as \"The remote name could not be resolved:\". But, if I use it without set host policy, it works. \r\nIs there any way where we can ask user to select on-premises gateway in connection parameters when we test/incorporate this custom connector in Flow.\r\nPlease let me know if you have anything around the same.\r\nThanks,\r\nAmey"
+name: Amey
+email: f56018275cd00b1bcc33bf263f84f688
+url: ''
+hidden: ''
+date: '2020-11-20T06:37:04.203Z'
