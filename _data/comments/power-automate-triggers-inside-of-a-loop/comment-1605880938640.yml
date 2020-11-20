@@ -1,0 +1,11 @@
+_id: 003055b0-2b39-11eb-bbcc-89f9faeb7e37
+message: >-
+  Microsoft said that you cannot put a trigger in the middle of the flow. It is
+  something they don't officially support.  At first the workflow worked well
+  with multiple triggers then I received a timeout error and it never worked
+  again.
+name: Francesca Hooper
+email: 9feff32dfae69652f013ecdeded1cd0b
+url: ''
+hidden: ''
+date: '2020-11-20T14:02:18.630Z'
