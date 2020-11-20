@@ -1,0 +1,7 @@
+_id: 0b9b0140-2abf-11eb-b576-290167ffcd14
+message: "I had a different issue \r\n\r\nMake sure your array has more than 1 object in it, else it fails with the same error because an array is only an array if it has more than 1 object.\r\n\r\nThis had me stumpped for a couple of hours"
+name: Paul Bartram
+email: 3cff19b6b4c7234a5cf8725897199a22
+url: ''
+hidden: ''
+date: '2020-11-19T23:29:19.233Z'
