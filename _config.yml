@@ -22,6 +22,19 @@ github_username: networg
 minimal_mistakes_skin: default
 search: true
 
+twitter:
+  username: "thenetworg"
+social:
+  type: Organization
+  name: NETWORG
+  links:
+    - "https://networg.com"
+    - "https://twitter.com/thenetworg"
+    - "https://www.facebook.com/thenetworg"
+    - "https://instagram.com/thenetworg"
+    - "https://github.com/networg"
+    - "https://www.linkedin.com/company/networg/"
+
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
@@ -74,6 +87,9 @@ author:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/thenetworg"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/company/networg/"
 
 footer:
   links:
@@ -89,6 +105,9 @@ footer:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/thenetworg"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/company/networg/"
 
 collections:
   authors:
