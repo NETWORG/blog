@@ -149,6 +149,9 @@ tag_archive:
 feed:
   path: /feed/index.xml
 
+atom_feed:
+  path: "/feed/"
+
 analytics:
   provider: "google-gtag"
   google:
