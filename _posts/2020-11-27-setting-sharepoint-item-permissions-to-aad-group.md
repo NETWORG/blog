@@ -1,6 +1,6 @@
 ---
 title: Setting SharePoint item-level permissions to Azure AD Group with API
-date: 2020-11-26T16:50:00+02:00
+date: 2020-11-26T15:50:00+02:00
 author: Jan Hajek
 categories:
   - Microsoft
