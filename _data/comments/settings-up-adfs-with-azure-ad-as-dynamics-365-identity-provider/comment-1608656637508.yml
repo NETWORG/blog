@@ -1,0 +1,7 @@
+_id: ad3d3a00-4477-11eb-ad4e-dd8fe69e1aec
+message: "Hi Jan,\r\n\r\nI came across your article while researching a problem that I am currently troubleshooting.  Although my scenario is different, perhaps this will help. I am trying to integrate Dynamics 365 on premise with Okta SSO using ws federation.  In this scenario, Okta is providing the secure token service rather than ADFS.  I did get it working, but only just.  The web client connections are working, but the SDK connections all fail with a message: the authentication endpoint Username was not found on the configured Secure Token Service.  I am guessing that \"Username\" is an endpoint specific to ADFS and the SDK connections submit the username to this endpoint, which does not exist in our case because we are using Okta.  Perhaps if we add Okta as a Claims Provider Trust to ADFS, it will work.  Do you have any ideas or have you done a similar implementation?  I am doubtful that it is possible at this point."
+name: Adam
+email: 5583db5fe3bad2e651de4d4fd2a2a4ef
+url: ''
+hidden: ''
+date: '2020-12-22T17:03:57.416Z'
