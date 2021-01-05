@@ -66,3 +66,9 @@ There are some well-known role IDs, but you can also make a custom one, in case 
 All in all, I just wish that Microsoft made it as easy as with Document Libraries, because this is quite obscure...
 
 > Answer also posted to the [Stack Exchange thread](https://sharepoint.stackexchange.com/questions/286524/add-role-assignment-using-office-365-group/287302#287302).
+
+**Update:**
+
+In case the principal (group) doesn't exist in the site yet, you need to provision it in the site via [EnsureUser](https://docs.microsoft.com/en-us/previous-versions/office/sharepoint-csom/ee540898(v=office.15)) method. It will go to AAD behind the scenes and create a SharePoint principal for it. Fun!
+
+So first, obtain the `FormDigestValue` from `/_api/contextinfo` endpoint. This is a regular `GET` request. Next, call `_api/web/ensureuser('c:0t.c|tenant|<your_aad_group_id>')`, it is a `POST` request, and you need to include the `X-RequestDigest` header with value obtained from the *contextinfo* request. Then simply send it and the group will get provisioned. It will also contain the `Id` field which you can use directly.
