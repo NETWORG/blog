@@ -10,7 +10,6 @@ tags:
   - PowerApps
   - Model-driven Apps
 ---
-![](/uploads/2021/01/2021-01-06-hiding-rolodex-in-subgrid-01.png)
 
 If you want to hide rolodex on your subgrid (the bar on the bottom with whole alphabet), this post is for you. While working with dashboards, one line caught my eye in their XML definition - **\<EnableJumpBar\>false\</EnableJumpBar\>**.
 
@@ -37,6 +36,8 @@ If you want to hide rolodex on your subgrid (the bar on the bottom with whole al
 ```
 
 As I noticed the one subgrid did not have rolodex on it. So I tried to copy the line from this dashboard subgrid definition to another subgrid definition and it worked as expected. Rolodex from the other subgrid disappeared.
+
+![](/uploads/2021/01/2021-01-06-hiding-rolodex-in-subgrid-01.png)
 
 To achieve the same result you will have to export solution which contains the form where you want to hide rolodex. After unpacking solution, you'll have to find the form xml file and open it. You want to locate the subgrid there and pass this line inside it's definition - **\<EnableJumpBar\>false\</EnableJumpBar\>**. 
 
