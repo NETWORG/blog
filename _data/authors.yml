@@ -104,3 +104,15 @@ Jakub Wyczanski:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:jakub.wyczanski@networg.com"
+
+Ondrej Juda:
+  name        : "Ondrej Juda"
+  bio         : "Application Developer"
+  avatar      : "/assets/images/ondrej.juda.png"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:ondrej.juda@thenetworg.com"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/ondrej-juda/"
