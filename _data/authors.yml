@@ -120,7 +120,7 @@ Ondrej Juda:
 Julie Kotatkova:
   name        : "Julie Kotatkova"
   bio         : "Product Experience"
-  avatar      : "/assets/images/julie.kotatkova.png"
+  avatar      : "/assets/images/julie.kotatkova.jpg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
