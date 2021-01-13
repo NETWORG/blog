@@ -116,3 +116,15 @@ Ondrej Juda:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/ondrej-juda/"
+      
+Julie Kotatkova:
+  name        : "Julie Kotatkova"
+  bio         : "Product Experience"
+  avatar      : "/assets/images/julie.kotatkova.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:julie.kotatkova@networg.com"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/julie-kotatkova/"
