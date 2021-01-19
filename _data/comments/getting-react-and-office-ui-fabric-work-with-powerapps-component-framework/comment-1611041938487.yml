@@ -1,0 +1,10 @@
+_id: 63dda080-5a29-11eb-ad4e-dd8fe69e1aec
+message: >-
+  Hey Paul, PCF has already changed the way how it gets loaded, please refer to
+  Microsoft's sample:
+  https://docs.microsoft.com/en-us/powerapps/developer/component-framework/sample-controls/react-facepile-control
+name: Jan Hajek
+email: 0bf773a272fb7bd72c40e7f735a4a597
+url: 'https://hajekj.net'
+hidden: ''
+date: '2021-01-19T07:38:58.471Z'
