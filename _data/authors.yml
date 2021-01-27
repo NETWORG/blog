@@ -128,3 +128,12 @@ Julie Kotatkova:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/julie-kotatkova/"
+
+Josef Chvala:
+  name        : "Josef Chvala"
+  bio         : "Marketing"
+  avatar      : "/assets/images/josef.chvala.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:josef.chvala@networg.com"
