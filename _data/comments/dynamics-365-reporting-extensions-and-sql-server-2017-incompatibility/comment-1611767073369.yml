@@ -1,0 +1,7 @@
+_id: b9f974a0-60c1-11eb-bd11-6dc7150b8ec1
+message: "Indeed you need a version 9.0.3 or higher so you need to patch the Reporting Extensions installer \"on the fly\".\r\nThis explains why and how to do it: https://blog.hshilling.com/Blog/post/dynamics-365-v9-srs-data-connector-and-sql-20171"
+name: Daniel Martins
+email: 108093afdb788b8ff63ab8511603d2db
+url: ''
+hidden: ''
+date: '2021-01-27T17:04:33.365Z'
