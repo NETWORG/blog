@@ -137,3 +137,15 @@ Josef Chvala:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:josef.chvala@networg.com"
+
+Zdenek Srejber:
+  name        : "Zdenek Srejber"
+  bio         : "Application Developer"
+  avatar      : "/assets/images/zdenek.srejber.png"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:zdenek.srejber@thenetw.org"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/zdeneksrejber/"
