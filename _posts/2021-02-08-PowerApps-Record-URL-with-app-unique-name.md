@@ -47,11 +47,11 @@ https://yourenvurl.crm4.dynamics.com/apps/uniquename/app_uniquename
 We have struggled for a while to combine the two above mentioned URLs, yet the solution was quite simple. You will start with URL that includes uniquename, then apppend /main.aspx? and specify parameters of a record and window to open in.
 
 ```
-https://yourenvurl.crm4.dynamics.com/apps/uniquename/['app_uniquename']/main.aspx?etn=['ent_logicalname']&id=['record_id']&newWindow=true&pagetype=entityrecord
+https://yourenvurl.crm4.dynamics.com/apps/uniquename/['app_uniquename']/main.aspx?etn=['ent_logicalname']&id=['{record_id}']&newWindow=true&pagetype=entityrecord
 ```
 
 ['app_uniquename'] = unique name of your app
 
 ['ent_logicalname'] = logical name of record entity
 
-['record_id'] = guid of a record
+['{record_id}'] = guid of a record in curly brackets
