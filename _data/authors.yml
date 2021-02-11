@@ -141,7 +141,7 @@ Josef Chvala:
 Zdenek Srejber:
   name        : "Zdenek Srejber"
   bio         : "Application Developer"
-  avatar      : "/assets/images/zdenek.srejber.png"
+  avatar      : "/assets/images/zdenek.srejber.jpg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
