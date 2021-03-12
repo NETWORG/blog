@@ -1,0 +1,10 @@
+_id: fb2a56b0-811e-11eb-8439-6d74d944e7b6
+message: >-
+  Thank you for this post; it was very helpful!  I wanted to mention I bumped
+  into an error with the call to contextinfo; appears PUT is the only supported
+  method.  After that change, the call was successful.  Thanks again!
+name: Shawn Eingle
+email: 67145f9ace907fe75b79f1b58231d054
+url: ''
+hidden: ''
+date: '2021-03-09T21:32:43.434Z'
