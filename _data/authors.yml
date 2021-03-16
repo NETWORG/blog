@@ -64,6 +64,7 @@ Jan Skala:
   name        : "Jan Skala"
   bio         : "Integration Architect"
   avatar      : "/assets/images/jan.skala.jpeg"
+  permalink   : "/author/jan-skala"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
