@@ -1,0 +1,10 @@
+_id: 08e212e0-93a6-11eb-bd9d-59e96091b54e
+message: >-
+  Does this work in Dynamic schema? as soon as I change the type from only
+  "object" to "type": [ "object", "null" ], I get the error: The response from
+  API with status code '200' does not contain a valid OpenAPI schema object.
+name: Cage
+email: e4697373489fdcb258ab0d2085144aae
+url: ''
+hidden: ''
+date: '2021-04-02T11:24:49.118Z'
