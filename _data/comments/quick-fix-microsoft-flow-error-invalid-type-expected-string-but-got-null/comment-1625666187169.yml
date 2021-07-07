@@ -1,0 +1,7 @@
+_id: 1f61e830-df2b-11eb-a50e-656b7fb39fed
+message: "I just changed: \r\n   \"type\": \"string\"\r\nto\r\n   \"type\": []\r\n\r\nand it worked."
+name: Brian
+email: 91aa962e7d647bef24c7da507fa72195
+url: ''
+hidden: ''
+date: '2021-07-07T13:56:27.159Z'
