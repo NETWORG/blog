@@ -1,0 +1,10 @@
+_id: 65460d00-103a-11ec-8e14-258a816d0006
+message: >-
+  I agree with @Caleb response.  Choosing On Prem now has “Azure AD resource
+  URI” as a mandatory field and if we don't give valid value it automatically
+  turns connection to Connect directly (cloud-services).
+name: Ravish
+email: 842186ef134f1d559e1bf27fa8f1ac55
+url: ''
+hidden: ''
+date: '2021-09-08T00:19:13.962Z'
