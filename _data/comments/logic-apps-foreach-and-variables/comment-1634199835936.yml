@@ -1,0 +1,10 @@
+_id: 122c0980-2cc8-11ec-9ca4-d999fbb6fa6f
+message: >-
+  Another option is to you Compose instead of setting the variables inside the
+  loop. That way you achieve concurrency and also avoid the race condition of
+  variables being set at the global level
+name: SMITHAN JOHN
+email: f7fe224e6be1d9c597e9e72b83e98a14
+url: ''
+hidden: ''
+date: '2021-10-14T08:23:55.899Z'
