@@ -1,7 +1,7 @@
 ---
 author: Jan Hajek
 title: Parallel upsert in Dataverse ends up with HTTP 412
-date: "2022-01-29T19:35:00+0200"
+date: "2022-01-29T17:00:00+0200"
 categories:
   - English
   - Power Platform
