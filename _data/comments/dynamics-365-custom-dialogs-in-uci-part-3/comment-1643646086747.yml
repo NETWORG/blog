@@ -1,0 +1,7 @@
+_id: d672e900-82b1-11ec-b94b-6b9aa0d8f3c0
+message: "Hey @Reddy Raja,\r\nDepends if you are compiling your solution and using Solution Packager or if you are editing just the Customizations.xml file.\r\nIf you are using Solution Packager, just add more definitions to the Dialogs folder.\r\nIf you need to edit the Customizations.xml file, add more definitions under the <forms type=\"dialog\"> element.\r\nDon't forget to reference dialog IDs in the root components in the solution.xml file.\r\nOnce you have more dialogs in your solution, simply reference their UniqueName in your client-side code.\r\n\r\nI hope this answered your question.\r\n\r\nRegards, Frantisek"
+name: Frantisek Capek
+email: 1dbf07e3ed3f9037af438d1ca0327a72
+url: ''
+hidden: ''
+date: '2022-01-31T16:21:26.691Z'
