@@ -55,11 +55,7 @@ This is something that can be done with some research quite easily, there’s no
 </Project>
 ```
 
-<div>
-
-<div>You start with something like this - new .csproj format. Now you can add ILRepack element:</div>
-
-<div>
+You start with something like this - new .csproj format. Now you can add ILRepack element:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -130,13 +126,9 @@ Replace all values in angle brackets in "Exec" element. My result looks like thi
 </Project>
 ```
 
-<div>
+But this won't work, because this would also merge Microsoft.CrmSdk.CoreAssemblie and Microsoft.CrmSdk.Workflow from nuget packages into my main assembly. If we would do this, plugin registration tool wouldn't let us register it (ambiguity).
 
-<div>But this won't work, because this would also merge Microsoft.CrmSdk.CoreAssemblie and Microsoft.CrmSdk.Workflow from nuget packages into my main assembly. If we would do this, plugin registration tool wouldn't let us register it (ambiguity).</div>
-
-<div>So we need to reference them, but not merge them. We can achieve this by:</div>
-
-<div>
+So we need to reference them, but not merge them. We can achieve this by:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -194,11 +186,3 @@ Replace all values in angle brackets in "Exec" element. My result looks like thi
 ```
 
 ## As I said in the beginning – no breakthrough, but something like this would help me a lot!
-
-</div>
-
-</div>
-
-</div>
-
-</div>
