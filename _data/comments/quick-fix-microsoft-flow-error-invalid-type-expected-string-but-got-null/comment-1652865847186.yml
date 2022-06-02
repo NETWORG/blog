@@ -1,0 +1,10 @@
+_id: 43d79490-d68c-11ec-b49b-170e97877b33
+message: >-
+  Thank you this worked for me where I was parsing users and one user had no
+  department value which was causing the flow to fail.  Updating the schema in
+  this way solved the issue.
+name: Ben Tatham
+email: 4db9a2cf4d244a0dc89ab45bd10358f2
+url: ''
+hidden: ''
+date: '2022-05-18T09:24:07.080Z'
