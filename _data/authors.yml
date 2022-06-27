@@ -150,3 +150,15 @@ Zdenek Srejber:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/zdeneksrejber/"
+
+Daniel Klein:
+  name        : "Daniel Klein"
+  bio         : "Associate Software Engineer"
+  avatar      : "/assets/images/daniel.klein.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:daniel.klein@networg.com"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/daniel-klein-001987190/"
