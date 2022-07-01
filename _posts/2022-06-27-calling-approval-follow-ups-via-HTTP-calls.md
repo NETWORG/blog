@@ -55,7 +55,7 @@ Cool, let's peek into the body of the request:
 }
 ```
 Now, we know how the call looks, and we can re-create this request in a flow. <br>
-We will be using the HTTP with Azure AD connector (to ensure authentication), and its Action Invoke an HTTP request. For this, we need to create an HTTP with Azure AD connection, that will look like this: <br>
+We will be using the HTTP with Azure AD connector (to ensure authentication), and its action Invoke an HTTP request. For this, we need to create an HTTP with Azure AD connection, that will look like this: <br>
 ![Connections](/uploads/2022/06/2022-06-27-calling-approval-follow-ups-via-HTTP-calls-02.png)
 
 ```
@@ -64,7 +64,7 @@ Azure AD Resource URI (Application ID URI): https://approvals.teams.microsoft.co
 ```
 Now, we can re-create our HTTP request. I found that you can cut a few lines from the body so, in the end, the request is a bit simpler.
 The basic shot at the implementation can look like this: <br>
-![FirstImplemantation](/uploads/2022/06/2022-06-27-calling-approval-follow-ups-via-HTTP-calls-05.png)
+![FirstImplemantation](/uploads/2022/06/2022-06-27-calling-approval-follow-ups-via-HTTP-calls-05.png)<br>
 Now, we can fill in values from previous steps (e.g. from listing All Approvals and obtaining needed properties) and our final implementation can look something like this:<br>
 ![Final](/uploads/2022/06/2022-06-27-calling-approval-follow-ups-via-HTTP-calls-06.png).
 
@@ -75,8 +75,8 @@ Also, our Approver gets notified in Teams.
 
 ### Limitations of Follow ups
 
-Currently, you cannot send follow ups to yourself (funny thing - there is a button for it in Teams, that literary does nothing, leading to some [confusions](https://powerusers.microsoft.com/t5/General-Power-Automate/Approval-App-Follow-up-button-does-nothing/td-p/1184418).
+Currently, you cannot send follow ups to yourself (funny thing - there is a button for it in Teams, that literary does nothing, leading to some [confusions](https://powerusers.microsoft.com/t5/General-Power-Automate/Approval-App-Follow-up-button-does-nothing/td-p/1184418)).
 
-When called by an HTTP call, a follow up for yourself gets made, however, the notifications insides, are, sadly, messed up. 
+When called by an HTTP call, a Follow up for yourself gets made, however, the notifications insides, are, sadly, messed up. 
 
 ![MessedUp](/uploads/2022/06/2022-06-27-calling-approval-follow-ups-via-HTTP-calls-03.png)
