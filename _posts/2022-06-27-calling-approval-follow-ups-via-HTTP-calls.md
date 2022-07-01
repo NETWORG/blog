@@ -11,14 +11,14 @@ categories:
 tags:
   - Teams
   - PowerApps
+  - Power Automate
   - Approval
+  - Microsoft Flow
   - Follow up
   - Approval Follow up
 ---
 
-TODO:// Last check
-
-Recently, I encountered a case where I needed to send Follow up via Power Automate Flow, to automatically notify users about pending Approvals. Let's take a look at the possible solution.
+Recently, I encountered a case where I needed to send a Follow up via Power Automate Flow, to automatically notify users about pending Approvals. Let's take a look at the possible solution.
 
 ### What are Approvals and what is a Follow up?
 To quote Microsoft:
@@ -28,16 +28,16 @@ That is the basic gist. You send an Approval, and chosen Approver decides on wha
 
 >You can follow up on approval requests to remind people to take action. You can send a follow-up notification from the Sent list in the Approvals hub, or in the details of the approval itself
 
-Follow up lets you notify Approver that they have an Approval that is waiting for their response that was not yet provided. Quite handy, considering that agenda these days is fully packed and people often forget ?stuff? (and Approves).
+Follow up lets you notify Approver that they have an Approval that is waiting for their response that was not yet provided. Quite handy, considering that agenda these days is fully packed.
 
 You can read more on Approvals [here](https://support.microsoft.com/en-us/office/what-is-approvals-a9a01c95-e0bf-4d20-9ada-f7be3fc283d3) and [here](https://powerautomate.microsoft.com/en-us/connectors/details/shared_approvals/approvals/). 
 
 ### Trigerring Follow up with a HTTP call
-Now, normally, you would trigger a Follow up from Teams, from this ?beautiful?  button:
+Now, normally, you would trigger a Follow up from Teams, from this button, located on the tab of a given Approval:
 ![FollowUpButton](/uploads/2022/06/2022-06-27-calling-approval-follow-ups-via-HTTP-calls-01.png)
 However, what if we wanted to trigger a Follow up a different way, so that we could use it, for example, in Power Automate Flow?
 With a bit of Fiddler trickery, we can see what endpoint is called and what body is sent when triggering a Follow up. 
-The URL Teams is pointing with a POST is <br>
+The URL Teams is pointing at with a POST method is <br>
 <code>https://approvals.teams.microsoft.com/api/sendReminder</code><br>
 Cool, let's peek into the body of the request:
 ```json
@@ -55,17 +55,17 @@ Cool, let's peek into the body of the request:
 }
 ```
 Now, we know how the call looks, and we can re-create this request in a flow. <br>
-?First, we will be using the HTTP with Azure AD connector (to ensure authentication)?, and its Action Invoke an HTTP request. For this, we need to create a HTTP with Azure AD connection, that will look like this: <br>
+We will be using the HTTP with Azure AD connector (to ensure authentication), and its Action Invoke an HTTP request. For this, we need to create a HTTP with Azure AD connection, that will look like this: <br>
 ![Connections](/uploads/2022/06/2022-06-27-calling-approval-follow-ups-via-HTTP-calls-02.png)
 
 ```json
 Base Resource URL: https://approvals.teams.microsoft.com/
 Azure AD Resource URI (Application ID URI): https://approvals.teams.microsoft.com/
 ```
-Now, we can create an HTTP request. I found that you can cut a few lines from the body so, the request is a bit simpler.
-So, the basic shot at the implementation can look like this: <br>
+Now, we can re-create our HTTP request. I found that you can cut a few lines from the body so, in the end, the request is a bit simpler.
+The basic shot at the implementation can look like this: <br>
 ![FirstImplemantation](/uploads/2022/06/2022-06-27-calling-approval-follow-ups-via-HTTP-calls-05.png)
-Now, we can fill in values from previous steps (eg. from listing All Approvals) and our final implementation can look something like this:<br>
+Now, we can fill in values from previous steps (e.g. from listing All Approvals and obtaining needed properties) and our final implementation can look something like this:<br>
 ![Final](/uploads/2022/06/2022-06-27-calling-approval-follow-ups-via-HTTP-calls-06.png).
 
 We can see that in a correct call, the Output is an object with an ApprovalId.
