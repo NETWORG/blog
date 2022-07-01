@@ -26,8 +26,7 @@ To quote Microsoft:
 
 That is the basic gist. You send an Approval, and chosen Approver decides on whatever he wants to actually approve your approval, or reject it. Now, what is a Follow up? Again, let's quote Microsoft:
 
->You can follow up on approval requests to remind people to take action. You can send a follow-up notification from the Sent list in the Approvals hub, or in the details of the approval itself
-
+>You can follow up on approval requests to remind people to take action. You can send a follow-up notification from the Sent list in the Approvals hub, or in the details of the approval itself.
 Follow up lets you notify the Approver that they have an Approval waiting for their response that was not yet provided. Quite handy, considering that the agenda these days is fully packed.
 
 You can read more on Approvals [here](https://support.microsoft.com/en-us/office/what-is-approvals-a9a01c95-e0bf-4d20-9ada-f7be3fc283d3), [here](https://powerautomate.microsoft.com/en-us/connectors/details/shared_approvals/approvals/) and [here](https://support.microsoft.com/en-us/office/follow-up-on-your-approval-requests-in-teams-bb5206e9-407d-49fc-a136-c1e2a05a3ec9).
