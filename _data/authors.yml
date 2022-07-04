@@ -154,7 +154,7 @@ Zdenek Srejber:
 Daniel Klein:
   name        : "Daniel Klein"
   bio         : "Associate Software Engineer"
-  avatar      : "/assets/images/daniel.klein.jpg"
+  avatar      : "/assets/images/daniel.klein.png"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
