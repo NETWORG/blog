@@ -1,0 +1,9 @@
+_id: fbf80b30-a069-11ec-90f3-855606d70f34
+message: >-
+  Can this work with passthrough (without explicitly providing credentials)?
+  something like curl --ntlm -u : http://foo.com
+name: Victor
+email: 3d4ead73cf25658123411c5c640b40f2
+url: ''
+hidden: ''
+date: '2022-03-10T12:02:40.681Z'
