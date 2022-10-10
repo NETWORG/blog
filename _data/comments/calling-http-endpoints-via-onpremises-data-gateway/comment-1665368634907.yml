@@ -1,0 +1,7 @@
+_id: 95a73c80-4842-11ed-9fae-23e152705e13
+message: "Hi,\r\n\r\nI have Azure AD post login request. Once successful, it returns the session to be used in the next HTTP request. Is there anyway that I could pass session to the next Azure AD in the header from previous Azure AD? The session is being massaged by the data gateway and was invalid in the second Azure AD request."
+name: Shwu
+email: 068d2f064dd33f2b953055650a205977
+url: ''
+hidden: ''
+date: '2022-10-10T02:23:54.758Z'
