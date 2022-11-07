@@ -1,6 +1,6 @@
 ---
 author: Ondrej Juda
-title: Remove variables from apply to each action.
+title: Remove variables from apply to each action
 date: '2022-06-27T15:00:00+0200'
 categories:
   - Power Platform

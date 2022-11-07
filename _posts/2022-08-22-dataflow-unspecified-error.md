@@ -1,6 +1,6 @@
 ---
 author: Ondrej Juda
-title: There was a problem refreshing the dataflow.
+title: There was a problem refreshing the dataflow
 date: '2022-08-22T11:00:00+0200'
 categories:
   - Power Platform
