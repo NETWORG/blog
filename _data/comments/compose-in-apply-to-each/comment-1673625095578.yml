@@ -1,0 +1,7 @@
+_id: 278d6130-935a-11ed-b3dd-07eee53b02da
+message: "Hi Ondrej,\r\n\r\nThank you for the article! Clever use of Compose to improve performance.\r\n\r\nCan you describe \" You just need to create a child flow\" in a little more detail when using compose inside a nested loop? Does this mean creating a second flow to return data for this flow? Would that have an affect on performance?"
+name: Ricky
+email: 8dac9de85d0c6373a70d74a7eb89094f
+url: ''
+hidden: ''
+date: '2023-01-13T15:51:35.539Z'
