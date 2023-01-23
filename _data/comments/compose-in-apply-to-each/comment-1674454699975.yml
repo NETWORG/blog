@@ -1,0 +1,7 @@
+_id: ba5cddf0-9ae5-11ed-8577-49244156baf6
+message: "Hi Ondrej, \r\n\r\nI am struggling with this part:\r\n\" You just need to create a child flow, that will handle the nested apply for each and return the outcome you want.\"\r\n\r\nI have an Apply for each 1, and an Apply for each 2 (inside of Afe1), however i cannot reference a compose inside of Afe2, outside of it (still inside Afe1)."
+name: Hristo
+email: e4bfa15ff2826e84b7deb02bdd75ceae
+url: ''
+hidden: ''
+date: '2023-01-23T06:18:19.949Z'
