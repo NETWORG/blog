@@ -1,0 +1,7 @@
+_id: 84757b70-3248-11ee-8aa2-61380e1dd7d3
+message: "I was also trying to use the Invoke HTTP Request and I have the body of the request already formatted with angular and sent to the flow. All I ever get is a 200 response with no records updated. Then I was reading the docs on this connector located here:\r\nhttps://learn.microsoft.com/en-us/connectors/webcontents/\r\n\r\nAnd the 1st item they talk about says this \"The connector encodes the request body into base64 encoding, hence it should be used to call backend services which expect the request body in this format. You cannot use this connector to call a backend service that expects the request body in raw binary format.\"\r\n\r\nThis is a problem...how do you get around this?"
+name: David S.
+email: 61b76053907e02d44e0c6aa1ce8ff562
+url: ''
+hidden: ''
+date: '2023-08-03T21:55:54.150Z'
