@@ -16,13 +16,17 @@ tags:
   - Power Fx
 ---
 
-The goal of the feature being implemented was clear
+The built in permission system in Dataverse is fine for most usecases and offers flexible way of managing access to diferent entities. However, it's not really usable for more complex authorization rules, that might be different for specific users. We also want these rules to work with runtime variables or data in the system itself, which may change frequently.
 
-We have users connecting into Dataverse using external API, and we want to limit what they can and cannot do using Power Fx expressions to set their permissions.
+To get this flexibility, we opted for Power FX which the customizers are already familiar with and it is slowly getting used on more places in Power Platform (not just Canvas Power Apps)
+
+Few weeks ago Low-code Dataverse plugins were introduced as a preview feature. This feature could have been used but we would have gotten limited control over impersonation / privilege elevation which is necessary in our case. Also we wanted to provide administrators with an easy-to-use UI for configuration and make the expressions to contain the least possible amount of code. This approach also doesn't allow us to use our own custom functions, which turned out to be neccessary, as you will see bellow.
+
+Lastly, since we wanted these rules to work outside of Dataverse plugins, in our external API connected to dataverse, as well, we settled on implementing it ourselves.
 
 Thanks to the [Power Fx GitHub repo](https://github.com/microsoft/Power-Fx), this task wasn’t as daunting as it might have looked. I would like to praise the team behind it for providing great range of tests, from which I could easily see, how to use the library.
 
-Problem 1: Execution time objects
+## Problem 1: Run-time (vs. design-time) objects
 
 Because we want to use this as a permission model, that would decide if the user were or were not allowed to perform an action, we need to have some form of context of the request. We want to be able to check, what the user wants to change, so we need to parse and use the Request object.
 
@@ -43,7 +47,7 @@ We can also check if the property value inside is a JArray and cast it approprie
  FormulaValue.NewSingleColumnTable(arrayOfPrimitives.Select(x => FormulaValue.New((string)x!)))
 ```
 
-You might think there may have been an “obvious” choice on how to achieve the same result using the build in function “ParseJSON”, but that returns an Untyped object which you would then need to cast with functions such as Boolean or Value.
+You might think there may have been an “obvious” choice on how to achieve the same result using the built in function “ParseJSON”, but that returns an Untyped object which you would then need to cast with functions such as Boolean or Value.
 
 In case of update or delete requests, we can also provide a reference to the record that’s being affected with a handy object Record.
 
@@ -57,10 +61,10 @@ Consider the following example: We want to restrict the user from disabling a re
 If(RequestBody.statuscode <> 1, true, false) //If for emphasis
 ```
 
-This will work correctly if the user actually tries to disable the record, but wont work in other cases, because the statuscode will not be defined and we’ll get an error.
+This will work correctly if the user actually tries to disable the record, but wont work in other cases, because the statuscode will not be present in the requestbody and we’ll get an error.
 
-```
-Errors: Error 1-3: Name isn't valid. 'statuscode' isn't recognized.¨
+```error
+Errors: Error 1-3: Name isn't valid. 'statuscode' isn't recognized.
 ```
 
 We can solve this problem using custom functions.
@@ -123,13 +127,17 @@ public class TryEqualsString : ReflectionFunction
 
 Lucky for us, Power Fx custom functions support overloading by defining the same name of a function, in our case "TryEquals" and different parameters (One takes a decimal, the other a string). With this we can safely work with objects that are not known to us on design time.
 
-Problem 2: Connection with Dataverse
+```csharp
+    TryEquals(RequestBody, "statuscode", 2)
+```
+
+## Problem 2: Connection with Dataverse
 
 But let's talk about the main deal: How do we connect to Dataverse and replicate the ability of Check and Autocomplete with Power Fx? We want something similar to how Canvas Apps function.
 
 In Cavas Apps, if you want to use a Dataverse table inside your expression, you have to add it explicitly as a data source. Once you do that, you get access to the same type checking and intelisence that you would expect. In our case, there is no way to "add a datasource". So, can we do better? Yeah.
 
-We can use the build in tokenizer to help us visualize our expression. Take a look at this Power Fx playground to see how that works. We can split our expression into tokens and detect the datasources that we'll require. Here's an example of an expression we can use:
+We can use the built in tokenizer to help us visualize our expression. We can split our expression into tokens and detect the datasources that we'll require. Here's an example of an expression we can use:
 
 ```csharp
 First(Accounts)
@@ -144,7 +152,7 @@ We can only focus on those tokens, that are identifying something (Ident).
 _powerFxEngine.Tokenize(expression).Where(x => x.Kind == TokKind.Ident);
 ```
 
-After that, let's get rid of those tokens that we know we don't need. On such example are Functions. We know that the Ident "First" is not going to be a Dataverse table but a Function name. So let's get rid of known function names
+After that, let's get rid of those tokens that we know we don't need. One such example are Functions. We know that the Ident "First" is not going to be a Dataverse table but a Function name. So let's get rid of known function names
 
 ```csharp
 // Filter out the tokens that are present in _powerFxEngine.SupportedFunctions
@@ -167,6 +175,16 @@ case AttributeTypeCode.String:
     break;
 ```
 
+In short: Create a RecordType. For each Dataverse table you are using, add a TableType into it, filled with NamedFormulaTypes for each Dataverse column. Return the RecordType and use it whereever you may need.
+
+```csharp
+// Intelisence
+Intellisense.IIntellisenseResult intelisence = _powerFxEngine.Suggest(expression, GetContextFromMetadata(expression), expression.Length);
+
+// Checking for errors
+CheckResult check = _powerFxEngine.Check(expression, GetContextFromMetadata(expression));
+```
+
 Some pro tips:
 
 - If you have fields on your table that share a Display name (In our case it was Email Address 1), Canvas apps add the logical name in parentheses after it into the display name, so that the user can differentiate.
@@ -174,3 +192,5 @@ Some pro tips:
 - When marshalling the AttributeTypeCode.Lookup, you can check if the expression requires the whole object or not. For example: If I'm adding a property with a display name 'Parent Account', I can check if the original expression contains an Ident token with the same name. If not, I can say that the FormulaType of this is just TableEmpty, which will be the correct type but no additional metadata. If we have this Ident token in the expression, we can recursively download the Table add it (You will find the related Table name in the targets property). Now, your expression will have access the metadata of the two required tables.
 
 ![tokenSplit](/uploads/2023/08/using-powerfx-with-dataverse1.png)
+
+- The expression in Power Fx is made to be as user friendly as possible. That's why, when writing it, we use display names of tables and fields or a specific culture (There may be a difference between using a comma or a dot for decimal numbers). When moving this from environment to environment however, we will need to transform the expression to be as neutral as possible. For this, you can use the `CheckResult.ApplyGetInvariant()` method, which will do exactly that.
