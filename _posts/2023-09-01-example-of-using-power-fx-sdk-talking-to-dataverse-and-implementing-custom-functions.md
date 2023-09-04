@@ -1,6 +1,6 @@
 ---
 author: Matej Samler
-title: Using Power Fx with Dataverse context outside of Dataverse
+title: Example of using Power FX SDK, talking to Dataverse and implementing custom functions
 date: '2023-09-01T15:00:00+0200'
 categories:
   - Power Platform
