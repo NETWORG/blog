@@ -1,5 +1,5 @@
 ---
-author: Matěj Samler
+author: Matej Samler
 title: Using Power Fx with Dataverse context outside of Dataverse
 date: '2023-09-01T15:00:00+0200'
 categories:
