@@ -81,12 +81,15 @@ Jan Skala:
 
 Matej Samler:
   name        : "Matej Samler"
-  bio         : "Business Apps Developer"
+  bio         : "Senior Software Engineer"
   avatar      : "/assets/images/matej.samler.jpeg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:matej.samler@thenetw.org"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/mat%C4%9Bj-samler-704b84104/"
 
 Marek Dubsky:
   name        : "Marek Dubsky"
