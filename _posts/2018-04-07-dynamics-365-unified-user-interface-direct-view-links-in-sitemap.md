@@ -1,6 +1,6 @@
 ---
 author: Tomas Prokop
-title: 'Dynamics 365 Unified User Interface: Direct View Links in SiteMap'
+title: 'Power Apps Sitemap: Open a specific view from sitemap'
 slug: dynamics-365-unified-user-interface-direct-view-links-in-sitemap
 id: 48
 date: '2018-04-07 13:21:33'
@@ -15,23 +15,24 @@ tags:
   - Unified User Interface
 ---
 
-You may have used direct links to specific view in the past but you don't see these sub areas now in your UUI App. You could have achieved this by using a special URL in the sitemap sub area with the view's parameters and Dynamics managed to detect your intent when rendering the application navigation. This is still working but the format has changed for UUI Apps.
+You may need to point your sitemap items to a specific table view. You can achieve this by using a special URL in the sitemap sub area with the view's parameters and Power Apps host will manage to detect your intent when rendering the application navigation.
 
-## Web Client / MoCA
-
-![](/uploads/2018/04/chrome_2018-04-07_13-39-43-300x260.png) To achieve this you can go to your SiteMap editor and create an URL Sub Area with the following link: <span style="color: #000000;">/_root/homepage.aspx?e</span>tn=**opportunity**&viewid={**73E5C4A5-6727-E811-80FF-00155D036800**} ![](/uploads/2018/04/chrome_2018-04-07_13-49-55.png)
-
-## Unified User Interface
-
-If you have used your existing sitemap while creating an App or tried to use the former approach, these custom links don't show up in the navigation panel. Every App makes its own sitemap even when you use an existing solution to create the App so you don't need to worry about breaking your current user experience. To make it work you just need to make a slight modification in the URL.
-
-#### New format:
+## Model-driven Power Apps (UCI) format:
 
 <span style="color: #ff0000;">**/main.aspx?pagetype=entitylist&**</span>etn=**opportunity**&viewid={**83DCA8EC-B505-E811-80FB-00155D036800**}
 
-#### Former:
+## Old Dynamics 365 Web Client / MoCA format
+If you used your existing sitemap from Dynamics 365 Web Client while creating an App or tried to use the former URL style, these custom links don't show up in the navigation panel of model-driven apps. Every App makes its own sitemap even when you use an existing solution to create the App so you don't need to worry about breaking your current user experience. 
 
-<span style="color: #ff0000;">**/_root/homepage.aspx?**</span>etn=**opportunity**&viewid={**73E5C4A5-6727-E811-80FF-00155D036800**} And now if you hit Publish button you will see respective sub areas in the navigation panel. ![](/uploads/2018/04/chrome_2018-04-07_13-46-58.png)
+<span style="color: #ff0000;">**/_root/homepage.aspx?**</span>etn=**opportunity**&viewid={**73E5C4A5-6727-E811-80FF-00155D036800**}
+
+And now if you hit Publish button you will see respective sub areas in the navigation panel.
+
+![](/uploads/2018/04/chrome_2018-04-07_13-46-58.png)
+
+![](/uploads/2018/04/chrome_2018-04-07_13-39-43-300x260.png)
+
+![](/uploads/2018/04/chrome_2018-04-07_13-49-55.png)
 
 ## Note
 
