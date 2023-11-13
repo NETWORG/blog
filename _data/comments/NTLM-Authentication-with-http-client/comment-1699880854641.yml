@@ -1,0 +1,7 @@
+_id: 9c2279d0-8225-11ee-9ce0-719b699e8126
+message: "It does not work on linux ... \r\nMy app is trying to connect to ExchangeServer which uses NTLM, the app is using Microsoft.Exchange.WebServices library, and yet your proposal did not work. ExchangeServer does not understand that my client is trying to use NTLM.\r\nAfter the first request ExchangeServer sends 401 Unauthorised with two headers:\r\nWWW-Authenticate: NTLM\r\nWWW-Authenticate: Negotiate\r\n\r\nDo you know solution? \r\nHow to use NTLM on Linux?"
+name: Dreamtree Miller
+email: 4f84833b10ec18c062b64dff97acf1a0
+url: ''
+hidden: ''
+date: '2023-11-13T13:07:34.628Z'
