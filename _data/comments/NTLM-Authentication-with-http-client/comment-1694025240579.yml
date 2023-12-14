@@ -1,0 +1,7 @@
+_id: f2260850-4ce3-11ee-9ce0-719b699e8126
+message: "Wow! Worked perfectly almost as-is. One caveat: if you are using docker be sure to change the dockerfile to include:\r\nRUN apt-get update && apt-get install -y --no-install-recommends apt-utils gss-ntlmssp"
+name: Brian Urbancic
+email: 12eee8a95b39bd1b9eb6f0dc6639d340
+url: ''
+hidden: ''
+date: '2023-09-06T18:34:00.564Z'
