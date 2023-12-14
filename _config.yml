@@ -160,13 +160,4 @@ analytics:
 
 repository: networg/blog # Git username/repo-name e.g. "mmistakes/minimal-mistakes"
 comments:
-  provider: "staticman_v2"
-  staticman:
-    branch: "master"
-    endpoint: https://hajekj-staticman.azurewebsites.net/v3/entry/github/
-
-reCaptcha:
-  siteKey: "6LfU-9UUAAAAAKoZxSz_xhPHYtXlMtpiPSHxN9uy"
-  # Encrypt reCaptcha secret key using Staticman /encrypt endpoint
-  # For more information, https://staticman.net/docs/encryption
-  secret: "d9rizJFrrCJ2iNHhM0+y71EkuIuLI7eaRaehzFrBdzemBhXuCprSa03v1Lj41LCsE9NMUrs/TWQEqjoGj1zN+XAFj65axEdOaGPx64XryzlJTK1hI/S3HUe2WyDsmGoXJtgUxqpwRVj52H0k9PjmdqLXoNm+1tEffZIYpunnLm0vAXcUjKxPclAf6olZSsNyJuZtPnHiuS9pbadgz8SDFqtBD1lwHXGk9UBy+Wbl6YdeJAKek4jRaTa/HlNB2tGl30uM+jGgdUMJjAc3L7Qhv8mTGb8zQBY28M8Fs38Bumf4LpRUhFw+ZG9nr5SrbUzaFDZ6+3lAkkikqNEM3h+RJQ=="
+  provider: "custom"
