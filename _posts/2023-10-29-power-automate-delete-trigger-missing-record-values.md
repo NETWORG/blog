@@ -1,7 +1,7 @@
 ---
 title: Power Automate Delete Trigger - Missing record values
 date: 2023-10-29T11:00:00+02:00
-author: Adel Šabić
+author: Adel Sabic
 categories:
   - Microsoft
   - Power Platform

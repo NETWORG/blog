@@ -168,3 +168,12 @@ Daniel Klein:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/daniel-klein-001987190/"
+
+Adel Sabic:
+  name        : "Adel Sabic"
+  bio         : "Software Engineer"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:adel.sabic@networg.com"
+
