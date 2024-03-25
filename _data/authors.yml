@@ -1,19 +1,19 @@
 # /_data/authors.yml
 
 NETWORG:
-  name        : "NETWORG"
-  bio         : ""
-  avatar      : "/assets/images/networg.png"
+  name: "NETWORG"
+  bio: ""
+  avatar: "/assets/images/networg.png"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:hello@networg.com"
 
 Jan Hajek:
-  name        : "Jan Hajek"
-  bio         : "Technical Fellow"
-  avatar      : "/assets/images/hajekj.jpg"
-  permalink   : "/author/jan-hajek"
+  name: "Jan Hajek"
+  bio: "Technical Fellow"
+  avatar: "/assets/images/hajekj.jpg"
+  permalink: "/author/jan-hajek"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -32,39 +32,39 @@ Jan Hajek:
       url: "https://fb.me/hajekj"
 
 Tomas Prokop:
-  name        : "Tomas Prokop"
-  bio         : "CEO"
-  avatar      : "/assets/images/tomas.prokop.png"
-  permalink   : "/author/tomas-prokop"
+  name: "Tomas Prokop"
+  bio: "CEO"
+  avatar: "/assets/images/tomas.prokop.png"
+  permalink: "/author/tomas-prokop"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:tomas.prokop@thenetw.org"
 
 Jan Kostejn:
-  name        : "Jan Kostejn"
-  bio         : "Engineering Program Manager"
-  avatar      : "/assets/images/jan.kostejn.jpeg"
-  permalink   : "/author/jan-kostejn"
+  name: "Jan Kostejn"
+  bio: "Engineering Program Manager"
+  avatar: "/assets/images/jan.kostejn.jpeg"
+  permalink: "/author/jan-kostejn"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:jan.kostejn@thenetw.org"
 
 Frantisek Capek:
-  name        : "Frantisek Capek"
-  bio         : "Business Apps Developer"
-  avatar      : "/assets/images/frantisek.capek.png"
+  name: "Frantisek Capek"
+  bio: "Business Apps Developer"
+  avatar: "/assets/images/frantisek.capek.png"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:frantisek.capek@thenetw.org"
 
 Jan Skala:
-  name        : "Jan Skala"
-  bio         : "Integration Architect"
-  avatar      : "/assets/images/jan.skala.jpeg"
-  permalink   : "/author/jan-skala"
+  name: "Jan Skala"
+  bio: "Integration Architect"
+  avatar: "/assets/images/jan.skala.jpeg"
+  permalink: "/author/jan-skala"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -80,9 +80,9 @@ Jan Skala:
       url: "https://github.com/skalahonza"
 
 Matej Samler:
-  name        : "Matej Samler"
-  bio         : "Senior Software Engineer"
-  avatar      : "/assets/images/matej.samler.jpeg"
+  name: "Matej Samler"
+  bio: "Senior Software Engineer"
+  avatar: "/assets/images/matej.samler.jpeg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -92,27 +92,27 @@ Matej Samler:
       url: "https://www.linkedin.com/in/mat%C4%9Bj-samler-704b84104/"
 
 Marek Dubsky:
-  name        : "Marek Dubsky"
-  bio         : "Product Experience"
-  avatar      : "/assets/images/marek.dubsky.png"
+  name: "Marek Dubsky"
+  bio: "Product Experience"
+  avatar: "/assets/images/marek.dubsky.png"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:marek.dubsky@thenetw.org"
 
 Jakub Wyczanski:
-  name        : "Jakub Wyczanski"
-  bio         : "Product Experience"
-  avatar      : "/assets/images/jakub.wyczanski.png"
+  name: "Jakub Wyczanski"
+  bio: "Product Experience"
+  avatar: "/assets/images/jakub.wyczanski.png"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:jakub.wyczanski@networg.com"
 
 Ondrej Juda:
-  name        : "Ondrej Juda"
-  bio         : "Application Developer"
-  avatar      : "/assets/images/ondrej.juda.png"
+  name: "Ondrej Juda"
+  bio: "Application Developer"
+  avatar: "/assets/images/ondrej.juda.png"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -123,11 +123,11 @@ Ondrej Juda:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/ondrej-juda/"
-      
+
 Julie Kotatkova:
-  name        : "Julie Kotatkova"
-  bio         : "Product Experience"
-  avatar      : "/assets/images/julie.kotatkova.jpg"
+  name: "Julie Kotatkova"
+  bio: "Product Experience"
+  avatar: "/assets/images/julie.kotatkova.jpg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -137,18 +137,18 @@ Julie Kotatkova:
       url: "https://www.linkedin.com/in/julie-kotatkova/"
 
 Josef Chvala:
-  name        : "Josef Chvala"
-  bio         : "Marketing"
-  avatar      : "/assets/images/josef.chvala.jpg"
+  name: "Josef Chvala"
+  bio: "Marketing"
+  avatar: "/assets/images/josef.chvala.jpg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:josef.chvala@networg.com"
 
 Zdenek Srejber:
-  name        : "Zdenek Srejber"
-  bio         : "Application Developer"
-  avatar      : "/assets/images/zdenek.srejber.jpg"
+  name: "Zdenek Srejber"
+  bio: "Application Developer"
+  avatar: "/assets/images/zdenek.srejber.jpg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -158,9 +158,9 @@ Zdenek Srejber:
       url: "https://www.linkedin.com/in/zdeneksrejber/"
 
 Daniel Klein:
-  name        : "Daniel Klein"
-  bio         : "Associate Software Engineer"
-  avatar      : "/assets/images/daniel.klein.png"
+  name: "Daniel Klein"
+  bio: "Associate Software Engineer"
+  avatar: "/assets/images/daniel.klein.png"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -170,10 +170,18 @@ Daniel Klein:
       url: "https://www.linkedin.com/in/daniel-klein-001987190/"
 
 Adel Sabic:
-  name        : "Adel Sabic"
-  bio         : "Software Engineer"
+  name: "Adel Sabic"
+  bio: "Software Engineer"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:adel.sabic@networg.com"
 
+Jan Losenicky:
+  name: "Jan Losenicky"
+  bio: "Software Engineer"
+  avatar: "/assets/images/jan.losenicky.png"
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/jan-losenick%C3%BD-a848b5238/"
