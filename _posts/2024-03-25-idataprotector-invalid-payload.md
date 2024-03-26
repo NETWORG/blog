@@ -13,6 +13,8 @@ tags:
 Ensuring the security of sensitive data within Azure Functions is paramount for maintaining data integrity and compliance. However, encountering errors such as "The Payload was invalid" when using `IDataProtector` can be frustrating and challenging to debug. In this post, we'll dive into a possible root cause of this error.
 
 ## Understanding the Error
+Exception Type: `System.Security.Cryptography.CryptographicException` <br>
+Message: `Exception while executing function: WebhookCallback The payload was invalid. For more information go to http://aka.ms/dataprotectionwarning`
 
 "The Payload was invalid" error typically occurs when attempting to decrypt data using `IDataProtector` in Azure Functions. This error indicates that the encrypted payload cannot be decrypted due to inconsistencies in purposes of protected token.
 
