@@ -95,3 +95,6 @@ public static async GetEnvironmentVariableValue(variableSchemaName) {
 And that's it! By using environment variables, you can dynamically embed PowerBI reports into your forms without hard-coding the report IDs.
 
 ![DetailsList](/uploads/2024/10/embedded-powerbi.png)
+
+## Credits
+To the user "NODAL" from [Dynamics Community](https://community.dynamics.com/forums/thread/details/?threadid=55ffe60a-aec6-4d1a-8fca-7063a4a3661c) for coming up with the script.
