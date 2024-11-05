@@ -185,3 +185,15 @@ Jan Losenicky:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/jan-losenick%C3%BD-a848b5238/"
+
+Stepan Houdek:
+  name: "Stepan Houdek"
+  bio: "Senior Software Engineer"
+  avatar: "/assets/images/stepan.houdek.png"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:stepan.houdek@networg.com"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/stepan-houdek/"
