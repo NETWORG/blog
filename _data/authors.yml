@@ -11,7 +11,7 @@ NETWORG:
 
 Jan Hajek:
   name: "Jan Hajek"
-  bio: "Technical Fellow"
+  bio: "Microsoft MVP, Technical Fellow"
   avatar: "/assets/images/hajekj.jpg"
   permalink: "/author/jan-hajek"
   links:
@@ -33,17 +33,26 @@ Jan Hajek:
 
 Tomas Prokop:
   name: "Tomas Prokop"
-  bio: "CEO"
+  bio: "Microsoft MVP, Solution Architect"
   avatar: "/assets/images/tomas.prokop.png"
   permalink: "/author/tomas-prokop"
   links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/prokoptomas/"
+    - label: "Sessionize"
+      icon: "fab fa-fw fa-bullhorn"
+      url: "https://linkedin.com/in/prokoptomas/"
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:tomas.prokop@thenetw.org"
+      url: "mailto:tomas.prokop@networg.com"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/prokytom"
 
 Jan Kostejn:
   name: "Jan Kostejn"
-  bio: "Engineering Program Manager"
+  bio: "Implementation Services Manager"
   avatar: "/assets/images/jan.kostejn.jpeg"
   permalink: "/author/jan-kostejn"
   links:
@@ -53,7 +62,7 @@ Jan Kostejn:
 
 Frantisek Capek:
   name: "Frantisek Capek"
-  bio: "Business Apps Developer"
+  bio: "Senior Software Engineer"
   avatar: "/assets/images/frantisek.capek.png"
   links:
     - label: "Email"
@@ -62,7 +71,7 @@ Frantisek Capek:
 
 Jan Skala:
   name: "Jan Skala"
-  bio: "Integration Architect"
+  bio: "Senior Software Engineer"
   avatar: "/assets/images/jan.skala.jpeg"
   permalink: "/author/jan-skala"
   links:
@@ -111,7 +120,7 @@ Jakub Wyczanski:
 
 Ondrej Juda:
   name: "Ondrej Juda"
-  bio: "Application Developer"
+  bio: "Senior Software Engineer"
   avatar: "/assets/images/ondrej.juda.png"
   links:
     - label: "Email"
@@ -126,7 +135,7 @@ Ondrej Juda:
 
 Julie Kotatkova:
   name: "Julie Kotatkova"
-  bio: "Product Experience"
+  bio: "Test Engineer"
   avatar: "/assets/images/julie.kotatkova.jpg"
   links:
     - label: "Email"
@@ -147,7 +156,7 @@ Josef Chvala:
 
 Zdenek Srejber:
   name: "Zdenek Srejber"
-  bio: "Application Developer"
+  bio: "Project Manager"
   avatar: "/assets/images/zdenek.srejber.jpg"
   links:
     - label: "Email"
