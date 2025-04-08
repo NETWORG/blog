@@ -17,7 +17,7 @@ tags:
   - Copilot
   - AI
 ---
-I might be the first one to come up with the term "Deagentification". It is exactly what it says - diabling AI. The following blogpost will show you how to remove Copilot, agents and other AI clutter from your Dataverse-backed environment (and possibly more). I will keep this post updated with the latest turn off switches. 🙂 
+I might be the first one to come up with the term "Deagentification". It is what it says - disabling AI. The following blogpost will show you how to remove Copilot, agents and other AI clutter from your Dataverse-backed environment (and possibly more). I will keep this post updated with the latest turn off switches. 🙂 
 
 ## Option 1: Power Platform Admin center (PPAC)
 Ideal when you managed just one or maybe a handful of environments without a healthy ALM process established.
