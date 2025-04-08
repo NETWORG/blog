@@ -1,5 +1,5 @@
 ---
-title: "Decopiloting your dataverse environment"
+title: "Deagentification of Power Platform environments"
 date: 2025-04-07T11:00:00+02:00
 author: Zdenek Srejber
 categories:
@@ -18,7 +18,7 @@ tags:
   - AI
 ---
 # Deagentification of Power Platform environments
-I might be the first one to come up with the term "Deagentification". It is exactly what it says. The following blogpost will show you how to remove Copilot, agents and other AI clutter from your Dataverse-backed environment (and possibly more). I will keep this post updated with the latest turn off switches. 🙂 
+I might be the first one to come up with the term "Deagentification". It is exactly what it says - diabling AI. The following blogpost will show you how to remove Copilot, agents and other AI clutter from your Dataverse-backed environment (and possibly more). I will keep this post updated with the latest turn off switches. 🙂 
 
 ## Option 1: Power Platform Admin center
 Ideal when you managed just one or maybe a handful of environments without a healthy ALM process established.
