@@ -1,6 +1,6 @@
 ---
 title: "Decopiloting your dataverse environment"
-date: 2025-04-207T11:00:00+02:00
+date: 2025-04-07T11:00:00+02:00
 author: Zdenek Srejber
 categories:
   - Microsoft
