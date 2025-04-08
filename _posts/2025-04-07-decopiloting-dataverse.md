@@ -18,7 +18,7 @@ tags:
   - AI
 ---
 # Decopiloting your dataverse environment
-I might be the first one to come up with the term "Decopiloting" and it does exactly what you would expect. The following blogpost will show you how remove copilot and AI clutter from your dataverse environment (and possibly more). 
+I might be the first one to come up with the term "Decopiloting" and it does exactly what you would expect. The following blogpost will show you how to remove copilot and AI clutter from your dataverse environment (and possibly more). 
 
 ## Option 1: Power Platform Admin center
 Ideal when you managed just one or maybe a handful of environments without a strong ALM.
@@ -33,20 +33,22 @@ Ideal when you managed just one or maybe a handful of environments without a str
    1. AI prompts
 
 ## Option 2: Maker Portal
-Suitable when you want to distribute decopiloting across multiple environments or code first approach is your jam. You will need to make changes at two places:
+Suitable when you want to distribute decopiloting across multiple environments or code first approach is your jam.
 1. Open https://make.preview.powerapps.com/
 1. Select your environment and create a new solution
-1. Add following existing components from the Setting category
+1. Add the following existing components from the Setting category
    1. AI insight cards on forms (logical name `EnableFormInsights`)
    1. Allow AI to generate predictions on edit forms. (logical name `FormPredictEnabled`)
    1. Copilot control (logical name `appcopilotenabled`)
    1. Enable Copilot answer control (logical name `EnablEnableCopilotAnswerControleFormInsights`)
 1. Set properties of the components to `false` or `1` based on the input type and publish the changes.
-1. Every environment has an entity called 'organization'. Add it to your solution as well.
-1. In its data you will find exactly one record named after your environment. Its used for settings of the environment too. You will need to update the following properties of that record
+1. From here you can export the solution and distribute the changes to other environments.
+1. Every environment has an entity called 'organization'. In its data you will find exactly one record named after your environment. Its used for settings of the environment too. You will need to update the following properties of that record
    1. Display Preview Feature for this organization (logical name `paipreviewscenarioenabled`)
    1. Enable bot for makers. (logical name `powerappsmakerbotenabled`)
    1. Enable AI Promps (logical name `aipromptsenabled`)
+1. If you want to distribute changes to the organization record, you can either use the code samples below.
+
 
 ### Code approach to update organization record
 Simple JavaScript to run in you
@@ -102,10 +104,7 @@ private void DisableDataverseAiTools(CrmServiceClient CrmSvc)
             }
 ```
 
-## Credits
-@Tomas Prokop
-
+## Sources
 https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/ai-overview#disable-copilot-in-power-apps
+
 https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/organization?view=dataverse-latest
-## Special mention
-https://ludic.mataroa.blog/blog/i-will-fucking-piledrive-you-if-you-mention-ai-again/
