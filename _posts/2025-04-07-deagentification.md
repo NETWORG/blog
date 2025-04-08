@@ -49,8 +49,8 @@ Suitable when you want to distribute Deagentification across multiple environmen
 1. If you want to distribute changes to the organization record, you can use the code samples below.
 
 
-### Code approach to update organization record
-Simple JavaScript to run in you
+### Code approach to update the organization record
+Simple JavaScript snippet which you can run in your model-driven app DevTools console:
 ```ts
 const data = await Xrm.WebApi.retrieveMultipleRecords("organization",`?$select=organizationid,name`)
 await Xrm.WebApi.updateRecord("organization", data.entities[0]['organizationid'], { 
