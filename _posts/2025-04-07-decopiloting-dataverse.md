@@ -17,11 +17,11 @@ tags:
   - Copilot
   - AI
 ---
-# Decopiloting your dataverse environment
-I might be the first one to come up with the term "Decopiloting" and it does exactly what you would expect. The following blogpost will show you how to remove copilot and AI clutter from your dataverse environment (and possibly more). 
+# Deagentification of Power Platform environments
+I might be the first one to come up with the term "Deagentification". It is exactly what it says. The following blogpost will show you how to remove Copilot, agents and other AI clutter from your Dataverse-backed environment (and possibly more). I will keep this post updated with the latest turn off switches. 🙂 
 
 ## Option 1: Power Platform Admin center
-Ideal when you managed just one or maybe a handful of environments without a strong ALM.
+Ideal when you managed just one or maybe a handful of environments without a healthy ALM process established.
 1. Open https://admin.powerplatform.microsoft.com/manage/environments
 1. Open the target environment and hit Settings and then Features
    - All features here are well described and you should be able to clearly understand what you are disabling.
@@ -33,7 +33,7 @@ Ideal when you managed just one or maybe a handful of environments without a str
    1. AI prompts
 
 ## Option 2: Maker Portal
-Suitable when you want to distribute decopiloting across multiple environments or code first approach is your jam.
+Suitable when you want to distribute Deagentification across multiple environments or code-first approach is your jam.
 1. Open https://make.preview.powerapps.com/
 1. Select your environment and create a new solution
 1. Add the following existing components from the Setting category
@@ -43,11 +43,11 @@ Suitable when you want to distribute decopiloting across multiple environments o
    1. Enable Copilot answer control (logical name `EnablEnableCopilotAnswerControleFormInsights`)
 1. Set properties of the components to `false` or `1` based on the input type and publish the changes.
 1. From here you can export the solution and distribute the changes to other environments.
-1. Every environment has an entity called 'organization'. In its data you will find exactly one record named after your environment. Its used for settings of the environment too. You will need to update the following properties of that record
+1. Every environment has an table called 'organization'. In its data you will find exactly one record named after your environment. It's used for storing some of the settings of your environment. You can update the following properties of that record
    1. Display Preview Feature for this organization (logical name `paipreviewscenarioenabled`)
    1. Enable bot for makers. (logical name `powerappsmakerbotenabled`)
    1. Enable AI Promps (logical name `aipromptsenabled`)
-1. If you want to distribute changes to the organization record, you can either use the code samples below.
+1. If you want to distribute changes to the organization record, you can use the code samples below.
 
 
 ### Code approach to update organization record
@@ -60,7 +60,7 @@ await Xrm.WebApi.updateRecord("organization", data.entities[0]['organizationid']
     ["aipromptsenabled"]: false
 })
 ```
-Sample C# code to include in your package deployer extension. 
+Sample C# code to include in your package deployer code extension. 
 ```c#
 private void DisableDataverseAiTools(CrmServiceClient CrmSvc)
         {
