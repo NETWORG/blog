@@ -40,7 +40,7 @@ Suitable when you want to distribute Deagentification across multiple environmen
    1. Allow AI to generate predictions on edit forms. (logical name `FormPredictEnabled`)
    1. Copilot control (logical name `appcopilotenabled`)
    1. Enable Copilot answer control (logical name `EnablEnableCopilotAnswerControleFormInsights`)
-1. Set properties of the components to `false` or `1` based on the input type and publish the changes.
+1. Set properties of the components to `false` or `0` based on the input type and publish the changes.
 1. From here you can export the solution and distribute the changes to other environments.
 1. Every environment has an table called 'organization'. In its data you will find exactly one record named after your environment. It's used for storing some of the settings of your environment. You can update the following properties of that record
    1. Display Preview Feature for this organization (logical name `paipreviewscenarioenabled`)
