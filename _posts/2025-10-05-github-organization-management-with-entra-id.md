@@ -17,5 +17,4 @@ We are continuously trying to release some of our internal work as open source i
 
 <!-- more -->
 
-
 **[Full article](https://hajekj.net/2025/09/21/github-organization-management-with-entra-id/)**
