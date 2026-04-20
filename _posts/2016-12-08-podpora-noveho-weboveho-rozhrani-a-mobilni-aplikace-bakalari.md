@@ -4,6 +4,9 @@ title: Podpora nového webového rozhraní a mobilní aplikace Bakaláři
 slug: podpora-noveho-weboveho-rozhrani-a-mobilni-aplikace-bakalari
 id: 1066
 date: '2016-12-08 19:38:20'
+hidden: true
+search: false
+sitemap: false
 categories:
   - Novinky
 tags:

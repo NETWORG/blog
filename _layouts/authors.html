@@ -6,18 +6,11 @@ layout: default
     <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
         <h2>Authors</h2>
         <ul>
-            {% assign sorted_authors = site.data.authors | sort %}
-            {% for author in sorted_authors %}
-                {% assign author_name = author | first %}
-                {% if author_name != "NETWORG" %}
-                    {% assign author_profile = site.data.authors[author_name] %}
-                    <li>
-                        {% if author_profile.permalink %}
-                            <a href="{{ author_profile.permalink }}">{{ author_profile.name }}</a>
-                        {% else %}
-                            {{ author_profile.name }}
-                        {% endif %}
-                    </li>
+            {% assign sorted_authors = site.authors | sort: "name" %}
+            {% for author_page in sorted_authors %}
+                {% assign visible_posts = site.posts | where_exp: "post", "post.author == author_page.name and post.hidden != true" %}
+                {% if author_page.name != "NETWORG" and visible_posts.size > 0 %}
+                    <li><a href="{{ author_page.url | relative_url }}">{{ author_page.name }}</a></li>
                 {% endif %}
             {% endfor %}
         </ul>

@@ -4,6 +4,9 @@ title: Zabezpečte vaše weby pomocí HTTPS!
 slug: zabezpecte-vase-weby-pomoci-https
 id: 328
 date: '2017-06-18 09:43:54'
+hidden: true
+search: false
+sitemap: false
 categories:
   - IT Pro
 tags:

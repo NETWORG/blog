@@ -1,0 +1,45 @@
+{% assign items_max = 0 %}
+{% for item in include.taxonomies %}
+  {% assign visible_posts = item[1] | where_exp: "post", "post.hidden != true" %}
+  {% assign visible_size = visible_posts | size %}
+  {% if visible_size > items_max %}
+    {% assign items_max = visible_size %}
+  {% endif %}
+{% endfor %}
+
+{% if items_max > 0 %}
+<ul class="taxonomy__index">
+  {% for i in (1..items_max) reversed %}
+    {% for item in include.taxonomies %}
+      {% assign visible_posts = item[1] | where_exp: "post", "post.hidden != true" %}
+      {% assign visible_size = visible_posts | size %}
+      {% if visible_size == i %}
+        <li>
+          <a href="#{{ item[0] | slugify }}">
+            <strong>{{ item[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% assign entries_layout = page.entries_layout | default: "list" %}
+{% for i in (1..items_max) reversed %}
+  {% for taxonomy in include.taxonomies %}
+    {% assign visible_posts = taxonomy[1] | where_exp: "post", "post.hidden != true" %}
+    {% assign visible_size = visible_posts | size %}
+    {% if visible_size == i %}
+      <section id="{{ taxonomy[0] | slugify }}" class="taxonomy__section">
+        <h2 class="archive__subtitle">{{ taxonomy[0] }}</h2>
+        <div class="entries-{{ entries_layout }}">
+          {% for post in visible_posts %}
+            {% include archive-single.html type=entries_layout %}
+          {% endfor %}
+        </div>
+        <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: "Back to Top" }} &uarr;</a>
+      </section>
+    {% endif %}
+  {% endfor %}
+{% endfor %}

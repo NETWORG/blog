@@ -4,6 +4,9 @@ title: Premiéra SkolniLogin.cz na Slovensku
 slug: premiera-skolnilogin-cz-na-slovensku
 id: 1054
 date: '2015-03-30 07:25:21'
+hidden: true
+search: false
+sitemap: false
 categories:
 ---
 

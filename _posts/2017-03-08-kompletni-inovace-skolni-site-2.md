@@ -4,6 +4,9 @@ title: Kompletní inovace školní sítě
 slug: kompletni-inovace-skolni-site-2
 id: 1068
 date: '2017-03-08 08:40:11'
+hidden: true
+search: false
+sitemap: false
 categories:
   - Novinky
 ---

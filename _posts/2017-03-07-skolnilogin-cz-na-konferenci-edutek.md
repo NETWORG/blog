@@ -4,6 +4,9 @@ title: SkolniLogin.cz na konferenci EDUTEK
 slug: skolnilogin-cz-na-konferenci-edutek
 id: 1067
 date: '2017-03-07 16:44:13'
+hidden: true
+search: false
+sitemap: false
 categories:
 ---
 

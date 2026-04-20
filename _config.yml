@@ -73,7 +73,7 @@ author:
   avatar : "/assets/images/networg.png"
   bio    : "Read our experiences while we help others"
   links:
-    - label: "Website"
+    - label: "Company"
       icon: "fas fa-fw fa-link"
       url: "https://networg.com"
     - label: "Facebook"
@@ -127,6 +127,8 @@ defaults:
       type: posts
     values:
       layout: single
+      classes:
+        - wide
       author_profile: true
       read_time: true
       comments: true

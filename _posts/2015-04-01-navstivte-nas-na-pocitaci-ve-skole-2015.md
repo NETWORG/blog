@@ -4,6 +4,9 @@ title: Navštivte nás na Počítači ve Škole 2015
 slug: navstivte-nas-na-pocitaci-ve-skole-2015
 id: 1055
 date: '2015-04-01 12:59:02'
+hidden: true
+search: false
+sitemap: false
 categories:
 ---
 

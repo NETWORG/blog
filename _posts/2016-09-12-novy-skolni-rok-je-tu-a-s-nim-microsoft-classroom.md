@@ -4,6 +4,9 @@ title: Nový školní rok je tu a s ním Microsoft Classroom
 slug: novy-skolni-rok-je-tu-a-s-nim-microsoft-classroom
 id: 1065
 date: '2016-09-12 08:00:40'
+hidden: true
+search: false
+sitemap: false
 categories:
 ---
 
