@@ -12,7 +12,8 @@ layout: default
     <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
         <h2>Posts by {{ author.name }}</h2>
         <div>{{ content }}</div>
-        {% assign filtered_posts = site.posts | where_exp: "post", "post.author == page.name and post.hidden != true" %}
+        {% assign author_posts = site.posts | where: "author", page.name %}
+        {% assign filtered_posts = author_posts | where_exp: "post", "post.hidden != true" %}
         <ul>
             {% for post in filtered_posts %}
             <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>

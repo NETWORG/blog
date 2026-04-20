@@ -8,7 +8,8 @@ layout: default
         <ul>
             {% assign sorted_authors = site.authors | sort: "name" %}
             {% for author_page in sorted_authors %}
-                {% assign visible_posts = site.posts | where_exp: "post", "post.author == author_page.name and post.hidden != true" %}
+                {% assign author_posts = site.posts | where: "author", author_page.name %}
+                {% assign visible_posts = author_posts | where_exp: "post", "post.hidden != true" %}
                 {% if author_page.name != "NETWORG" and visible_posts.size > 0 %}
                     <li><a href="{{ author_page.url | relative_url }}">{{ author_page.name }}</a></li>
                 {% endif %}
