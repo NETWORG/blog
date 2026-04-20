@@ -20,7 +20,7 @@ excerpt: "When pac solution import isn't enough. Package Deployer gives you mult
 > 2. [Making Dataverse solution imports fast](/making-solution-imports-fast/)
 > 3. **Package Deployer for solutions, data, and migrations** (you are here)
 
-Package Deployer is the most flexible deployment option for Dataverse. If you are deploying a single solution with no special requirements, PAC CLI is simpler and does the job. Package Deployer is for when you outgrow that.
+Package Deployer is the most advanced deployment option for Dataverse. If you are deploying a single solution with no special requirements, PAC CLI is simpler and does the job. Package Deployer is for when you outgrow that.
 
 ## When and why Package Deployer
 
@@ -31,11 +31,9 @@ Package Deployer is the most flexible deployment option for Dataverse. If you ar
 - **Custom code execution at every stage** - Seven hooks in the lifecycle, from initialization to post-deployment.
 - **Explicit control over import type per solution** - Force a specific import action, skip solutions conditionally, override flags per solution.
 
-That said, Package Deployer does not make solution architecture concerns disappear. Keep the number of solutions as low as practical and avoid overlapping unmanaged ownership and cross-solution dependencies where you can. PD is excellent at orchestration, not a substitute for clean layering.
-
 ## Default parameter values
 
-Package Deployer's defaults differ from PAC CLI in one important way:
+Package Deployer's defaults differ from PAC CLI in one way:
 
 | Parameter | Package Deployer default | PAC CLI default |
 |---|---|---|
@@ -60,7 +58,7 @@ Package Deployer also does not change the underlying Dataverse rules covered in 
 
 ## Version-skip logic
 
-Package Deployer applies this decision matrix before every import:
+Package Deployer applies this decision matrix before every individual solution import:
 
 | Condition | Action | Import runs? |
 |---|---|---|
@@ -88,7 +86,7 @@ The [two-step holding path](/making-solution-imports-fast/#two-step-upgrades-and
 
 If a managed upgrade removes a custom table or column, the platform can remove that schema and the data stored in it. That is one of the main reasons to do migrations before `DeleteAndPromote`.
 
-### Cross-solution dependency cleanup
+### Cross-solution dependency cleanup or component deprecation
 
 When removing a component referenced by higher layers, you need to control the upgrade order. Import affected solutions as holding and then apply upgrades top-down (reverse order) so the upper layer drops the dependency before the base layer is upgraded.
 
@@ -120,30 +118,48 @@ public override void InitializeCustomExtension()
 }
 ```
 
-Pass runtime settings from the CLI: `--settings SkipData:true`
+Pass runtime settings from the CLI: `--settings SkipData=true`
 
 Key properties you can set here:
 - `DataImportBypass` - skip all CMT data imports
 - `OverrideDataImportSafetyChecks` - skip safety checks on CMT data import (only for clean environments, speeds up data import)
 
-### 2. BeforeImportStage
+### 2. OverrideSolutionImportDecision
 
 ```csharp
-public override bool BeforeImportStage()
+public override UserRequestedImportAction OverrideSolutionImportDecision(
+    string solutionUniqueName,
+    Version organizationVersion,
+    Version packageSolutionVersion,
+    Version inboundSolutionVersion,
+    Version deployedSolutionVersion,
+    ImportAction systemSelectedImportAction)
 ```
 
-Called once before the solution import loop begins. Return `true` to continue, `false` to abort. Use it for environment validation, pre-deployment checks, or data preparation.
+From [`IImportExtensions3`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.tooling.packagedeployment.crmpackageextentionbase.iimportextensions3). Called after the version-skip check, once per solution. `systemSelectedImportAction` is the `ImportAction` value PD already picked (for example `SkipSameVersion`, `SkipLowerVersion`, or `Import`). Return a `UserRequestedImportAction` to override it:
+
+- `Default` - accept the system decision
+- `Skip` - skip this solution
+- `ForceUpdate` - import even if the system would have skipped the same version (has no effect when the system chose `SkipLowerVersion`)
 
 ```csharp
-public override bool BeforeImportStage()
+public override UserRequestedImportAction OverrideSolutionImportDecision(
+    string solutionUniqueName,
+    Version organizationVersion,
+    Version packageSolutionVersion,
+    Version inboundSolutionVersion,
+    Version deployedSolutionVersion,
+    ImportAction systemSelectedImportAction)
 {
-    var orgVersion = CrmSvc.ConnectedOrgVersion;
-    if (orgVersion < new Version("9.2.21013.00131"))
+    // Skip satellite solutions in non-production environments
+    if (solutionUniqueName.EndsWith("_Satellite")
+        && RuntimeSettings != null
+        && RuntimeSettings.ContainsKey("Environment")
+        && RuntimeSettings["Environment"]?.ToString() != "Production")
     {
-        PackageLog.Log("Org version too old for single-step upgrade", TraceEventType.Error);
-        return false;
+        return UserRequestedImportAction.Skip;
     }
-    return true;
+    return UserRequestedImportAction.Default;
 }
 ```
 
@@ -175,46 +191,7 @@ public override void PreSolutionImport(
 }
 ```
 
-### 4. OverrideSolutionImportDecision
-
-```csharp
-public override UserRequestedImportAction OverrideSolutionImportDecision(
-    string solutionUniqueName,
-    Version organizationVersion,
-    Version packageSolutionVersion,
-    Version inboundSolutionVersion,
-    Version deployedSolutionVersion,
-    ImportAction systemSelectedImportAction)
-```
-
-From [`IImportExtensions3`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.tooling.packagedeployment.crmpackageextentionbase.iimportextensions3). Called after the version-skip check, once per solution. `systemSelectedImportAction` is the `ImportAction` value PD already picked (for example `SkipSameVersion`, `SkipLowerVersion`, or `Import`). Return a `UserRequestedImportAction` to override it:
-
-- `Default` - accept the system decision
-- `Skip` - skip this solution
-- `ForceUpdate` - import even if the system would have skipped (same or lower version)
-
-```csharp
-public override UserRequestedImportAction OverrideSolutionImportDecision(
-    string solutionUniqueName,
-    Version organizationVersion,
-    Version packageSolutionVersion,
-    Version inboundSolutionVersion,
-    Version deployedSolutionVersion,
-    ImportAction systemSelectedImportAction)
-{
-    // Skip satellite solutions in non-production environments
-    if (solutionUniqueName.EndsWith("_Satellite")
-        && RuntimeSettings != null
-        && RuntimeSettings.ContainsKey("Environment")
-        && RuntimeSettings["Environment"]?.ToString() != "Production")
-    {
-        return UserRequestedImportAction.Skip;
-    }
-    return UserRequestedImportAction.Default;
-}
-```
-
-### 5. RunSolutionUpgradeMigrationStep
+### 4. RunSolutionUpgradeMigrationStep
 
 ```csharp
 public override void RunSolutionUpgradeMigrationStep(
@@ -248,6 +225,40 @@ public override void RunSolutionUpgradeMigrationStep(
 
 > **Important:** If you implement this method with real code (not just an empty override), Package Deployer automatically switches to the two-step holding path for that solution. The one-step upgrade is not used. You can confirm this from PD's log: `User Provided Upgrade code is not detected in package. if allowed, Package Deployer will use one step upgrade pattern for this package.`
 
+### 5. BeforeImportStage
+
+```csharp
+public override bool BeforeImportStage()
+```
+
+Called after all solutions are imported, before data and flat file imports begin. Return `true` to continue, `false` to abort all remaining data and file imports.
+
+```csharp
+public override bool BeforeImportStage()
+{
+    // Guard: this package's CMT data assigns records to a shared team.
+    // Validate that prerequisite before data import starts.
+    var query = new QueryExpression("team")
+    {
+        ColumnSet = new ColumnSet("teamid"),
+        TopCount = 1,
+        Criteria = new FilterExpression
+        {
+            Conditions =
+            {
+                new ConditionExpression("name", ConditionOperator.Equal, "Operations")
+            }
+        }
+    };
+    if (CrmSvc.RetrieveMultiple(query).Entities.Count == 0)
+    {
+        PackageLog.Log("Required team 'Operations' is missing; aborting data import.", TraceEventType.Error);
+        return false;
+    }
+    return true;
+}
+```
+
 ### 6. OverrideConfigurationDataFileLanguage
 
 ```csharp
@@ -269,15 +280,37 @@ Called after all solutions and data have been imported. Return `true` if success
 ```csharp
 public override bool AfterPrimaryImport()
 {
-    // Activate cloud flows that were imported as draft
-    ActivateFlows(new[] { "ApprovalFlow", "NotificationFlow" });
+    CreateProgressItem("Activating post-import workflows");
 
-    // Create application users
-    EnsureApplicationUser("00000000-0000-0000-0000-000000000001", "IntegrationUser");
+    // Activate specific cloud flows by unique name
+    var flowNames = new[] { "contoso_ApprovalFlow", "contoso_NotificationFlow" };
+    foreach (var flowName in flowNames)
+    {
+        var query = new QueryExpression("workflow")
+        {
+            ColumnSet = new ColumnSet("workflowid"),
+            Criteria = new FilterExpression
+            {
+                Conditions =
+                {
+                    new ConditionExpression("uniquename", ConditionOperator.Equal, flowName),
+                    new ConditionExpression("statecode", ConditionOperator.Equal, 0) // inactive
+                }
+            }
+        };
+        var flow = CrmSvc.RetrieveMultiple(query).Entities.FirstOrDefault();
+        if (flow != null)
+        {
+            CrmSvc.Update(new Entity("workflow", flow.Id)
+            {
+                ["statecode"] = new OptionSetValue(1),
+                ["statuscode"] = new OptionSetValue(2)
+            });
+            RaiseUpdateEvent($"Activated flow: {flowName}", ProgressPanelItemStatus.Working);
+        }
+    }
 
-    // Update environment-specific connection references
-    ConfigureConnectionReferences();
-
+    PackageLog.Log("AfterPrimaryImport complete.");
     return true;
 }
 ```
@@ -317,7 +350,7 @@ Both are first-party platform tables (no `msdyn_` prefix). **Neither has a forei
 - **Orchestration queuing (PD 4.0+):** Packages can be submitted as a single async job via `QueuePackageDeployment`. Falls back to the per-solution loop if unsupported.
 - **`AsyncRibbonProcessing`:** PD can pass `AsyncRibbonProcessing=true` per-solution when configured (org ≥ 9.1.0.15400). PAC CLI has no flag for this.
 
-Package Deployer ships as .NET Framework (net462) assemblies, **Windows-only**. The modern .NET version of PAC CLI (net10.0) dropped Package Deployer and CMT entirely rather than porting them. If you need to run Package Deployer or CMT data imports on Linux or macOS (e.g., containerized CI agents), [TALXIS CLI](https://github.com/TALXIS/tools-cli) (`txc`) solves this by IL-patching the original net462 assemblies with Mono.Cecil at startup so they load on modern .NET cross-platform. Commands: `txc environment deploy <package>` for Package Deployer, `txc data import <path>` for CMT data packages.
+Package Deployer ships as .NET Framework (net462) assemblies, **Windows-only**. The modern .NET version of PAC CLI (net10.0) dropped Package Deployer and CMT entirely rather than porting them. If you need to run Package Deployer or CMT data imports on Linux or macOS (e.g., containerized CI agents), [TALXIS CLI](https://github.com/TALXIS/tools-cli) (`txc`) solves this by IL-patching the original net462 assemblies with Mono.Cecil at startup so they load on modern .NET cross-platform. Commands: `txc deploy package <package>` for Package Deployer, `txc data package import <path>` for CMT data packages.
 
 ## Catalog: platform-managed Package Deployer {#catalog}
 
@@ -352,7 +385,7 @@ var request = new mspcat_InstallCatalogItemByCIDRequest
 {
     CID = "MyCatalogItem@2.0.0.0",
     DeployToOrganizationUrl = "https://target-org.crm.dynamics.com/",
-    Settings = "SkipData:true|Environment:Production"
+    Settings = "SkipData=true|Environment=Production"
 };
 ```
 

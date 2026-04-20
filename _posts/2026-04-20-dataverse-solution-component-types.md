@@ -29,7 +29,7 @@ A managed solution is a ZIP file. The most important files inside:
 
 - **`solution.xml`** - the manifest. Lists `RootComponents` with their type codes and schema names. Contains solution metadata like version, publisher, and dependencies.
 - **`customizations.xml`** - the definitions. This is where platform component definitions live. Entities, attributes, relationships, forms, views, sitemap fragments, ribbons, all packed into one XML file.
-- **Individual payload files** - some components (plugins, web resources, reports, SCF components) have separate files referenced from the manifest.
+- **Individual payload files** - some components (plugins, web resources, SCF components) have separate files referenced from the manifest.
 
 When you unpack a solution with [Solution Packager](https://learn.microsoft.com/en-us/power-platform/alm/solution-packager-tool), it splits `customizations.xml` into individual files organized by component type. Each entity gets a folder. Each form gets a file. This is what ends up in source control.
 
@@ -124,13 +124,13 @@ SCF components are registered via `solutioncomponentdefinition` metadata, brough
 
 ### How SCF differs from platform components
 
-**Runtime-assigned type codes.** SCF components use `objecttypecode` values typically above 1000. These codes are assigned at runtime and can differ between environments. Dataverse resolves SCF components by their unique component names on import, not by type code.
+**Runtime-assigned type codes** - SCF components use `objecttypecode` values typically above 1000. These codes are assigned at runtime and can differ between environments. Dataverse resolves SCF components by their unique component names on import, not by type code.
 
-**No static schema.** Each component owner decides the export format. Some use JSON. Some use XML. There is no single schema reference for validation.
+**No static schema** - Each component owner decides the export format. Some use JSON. Some use XML. There is no single schema reference for validation.
 
-**Lax import validation.** SCF component types vary in how strictly they validate incoming payloads. Some accept values that only fail at runtime rather than at import time, so errors can surface later than you would expect.
+**Lax import validation** - SCF component types vary in how strictly they validate incoming payloads. Some accept values that only fail at runtime rather than at import time, so errors can surface later than you would expect.
 
-**Worse readability in source control.** SCF component files are typically opaque blobs. JSON payloads with GUIDs and encoded properties. Not friendly for code review or conflict resolution.
+**Worse readability in source control** - SCF component files are typically files with non-descriptive name and unnecessary folder nesting. JSON payloads with GUIDs and encoded properties. Not friendly for code review or conflict resolution.
 
 ### SmartDiff for SCF components
 
