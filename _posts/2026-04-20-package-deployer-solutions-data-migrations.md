@@ -44,19 +44,6 @@ Package Deployer's defaults differ from PAC CLI in one important way:
 
 The `PublishWorkflows` difference matters if your solution contains cloud flows or SDK message steps. Both tools default to `false` for `OverwriteUnmanagedCustomizations`, so [SmartDiff](/making-solution-imports-fast/#smartdiff) is enabled by default in both. The `PreSolutionImport` hook lets a package override both flags per-solution at runtime.
 
-## Version-skip logic
-
-Package Deployer applies this decision matrix before every import:
-
-| Condition | Action | Import runs? |
-|---|---|---|
-| Incoming version == installed | `SkipSameVersion` | **No** |
-| Incoming version < installed | `SkipLowerVersion` | **No** |
-| Incoming version > installed | `Import` | Yes |
-| Package min CRM version > org version | `SkipOrganizationVersionInCompatible` | **No** |
-
-Both `SkipSameVersion` and `SkipLowerVersion` are silent. They produce an info log entry and the deployment continues as successful. An operator cannot distinguish "was imported" from "was skipped" without reading Package Deployer logs. The `OverrideSolutionImportDecision` hook lets package code force-reimport the same version or skip a version that would otherwise be imported.
-
 ## Automatic one-step vs two-step path selection
 
 Package Deployer 4.0+ automatically decides between one-step and two-step upgrade at runtime. It inspects your package to see whether `RunSolutionUpgradeMigrationStep` contains real migration code. An empty override is treated as "no migration code" and the one-step path is chosen (provided the org supports single-step upgrades, version 9.2.21013.00131+). You can confirm the decision from PD's log line `User Provided Upgrade code is not detected in package.`. Under the hood, PD sets `USESTAGEANDUPGRADEMODE=true` on the import request so `ServiceClient` issues a `StageAndUpgradeRequest` instead of a classic `ImportSolutionRequest`.
@@ -71,9 +58,47 @@ When the two-step path runs, `RunSolutionUpgradeMigrationStep` is called **after
 
 Package Deployer also does not change the underlying Dataverse rules covered in [Part 1](/dataverse-solution-component-types/). Dependencies still have to resolve. Publisher ownership can still determine if you can perform operations. [Managed properties](/dataverse-solution-component-types/#managed-properties) decide how much a managed component can be customized downstream.
 
+## Version-skip logic
+
+Package Deployer applies this decision matrix before every import:
+
+| Condition | Action | Import runs? |
+|---|---|---|
+| Incoming version == installed | `SkipSameVersion` | **No** |
+| Incoming version < installed | `SkipLowerVersion` | **No** |
+| Incoming version > installed | `Import` | Yes |
+| Package min CRM version > org version | `SkipOrganizationVersionInCompatible` | **No** |
+
+Both `SkipSameVersion` and `SkipLowerVersion` are silent. They produce an info log entry and the deployment continues as successful. An operator cannot distinguish "was imported" from "was skipped" without reading Package Deployer logs. The `OverrideSolutionImportDecision` hook lets package code force-reimport the same version or skip a version that would otherwise be imported.
+
+## Configuration data and reference data
+
+One of the most practical reasons to use Package Deployer is that it can move schema and reference data together. Package Deployer supports [CMT (Configuration Migration Tool)](https://learn.microsoft.com/en-us/power-platform/admin/manage-configuration-data) data packages defined in `ImportConfig.xml`. The `cmtdatafiles` element lists data files with LCID (Locale ID) based language variants.
+
+Import ordering: solutions first, then data. This ensures schema is in place before records are created.
+
+Key properties for data import:
+
+- **`DataImportBypass = true`** - skip all CMT data imports. Useful when deploying to environments that already have reference data. Set this in `InitializeCustomExtension` based on `RuntimeSettings`.
+- **`OverrideDataImportSafetyChecks = true`** - skip duplicate detection and other safety checks during data import. Only use on clean/empty environments. Significant performance gain for initial data loads.
+
+## Data migrations during upgrades
+
+The [two-step holding path](/making-solution-imports-fast/#two-step-upgrades-and-when-they-are-still-useful) exists for a reason. When you need to transform data between solution versions, the migration window provided by `RunSolutionUpgradeMigrationStep` is the supported approach.
+
+If a managed upgrade removes a custom table or column, the platform can remove that schema and the data stored in it. That is one of the main reasons to do migrations before `DeleteAndPromote`.
+
+### Cross-solution dependency cleanup
+
+When removing a component referenced by higher layers, you need to control the upgrade order. Import affected solutions as holding and then apply upgrades top-down (reverse order) so the upper layer drops the dependency before the base layer is upgraded.
+
+Example: a UI solution references a table you plan to drop from the Data Model solution. If you upgrade the Data Model first, the delete is blocked by dependencies from the UI solution.
+
+In simpler cases, you do not always need to remove the dependency and the component in the same release. A safer pattern is to split the change across two deployments: in release **N**, remove the dependency and make the old component inert or clearly deprecated; in release **N+1**, remove the component once higher layers no longer reference it. That reduces upgrade coordination pressure and can avoid forcing a holding-upgrade sequence just to clean up one lingering dependency.
+
 ## Package lifecycle and custom code hooks
 
-A PD package contains an [`ImportConfig.xml`](https://learn.microsoft.com/en-us/power-platform/alm/package-deployer-tool?tabs=cli) manifest (lists solutions to import, CMT data files, and import settings) and a .NET assembly with a C# class that provides overridable hooks. Running [`pac package init`](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/package#pac-package-init) scaffolds the project from a `dotnet new` template (shortName `pp-pdpackage`).
+If the built-in defaults above are not enough, this is where Package Deployer becomes more than a solution importer. A PD package contains an [`ImportConfig.xml`](https://learn.microsoft.com/en-us/power-platform/alm/package-deployer-tool?tabs=cli) manifest (lists solutions to import, CMT data files, and import settings) and a .NET assembly with a C# class that provides overridable hooks. Running [`pac package init`](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/package#pac-package-init) scaffolds the project from a `dotnet new` template (shortName `pp-pdpackage`).
 
 Package Deployer exposes seven overridable methods in a fixed execution order. Your package class inherits from the SDK's `ImportExtension` base class (which implements [`IImportExtensions2`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.tooling.packagedeployment.crmpackageextentionbase.iimportextensions2) through `IImportExtensions8`). The scaffolded class called `PackageImportExtension` extends `ImportExtension` and is discovered at runtime via MEF (`[Export(typeof(IImportExtensions))]`). You override the methods you need.
 
@@ -256,29 +281,6 @@ public override bool AfterPrimaryImport()
     return true;
 }
 ```
-
-## Data migrations during upgrades
-
-The [two-step holding path](/making-solution-imports-fast/#two-step-upgrades-and-when-they-are-still-useful) exists for a reason. When you need to transform data between solution versions, the migration window provided by `RunSolutionUpgradeMigrationStep` is the supported approach.
-
-If a managed upgrade removes a custom table or column, the platform can remove that schema and the data stored in it. That is one of the main reasons to do migrations before `DeleteAndPromote`.
-
-### Cross-solution dependency cleanup
-
-When removing a component referenced by higher layers, you need to control the upgrade order. Import affected solutions as holding and then apply upgrades top-down (reverse order) so the upper layer drops the dependency before the base layer is upgraded.
-
-Example: a UI solution references a table you plan to drop from the Data Model solution. If you upgrade the Data Model first, the delete is blocked by dependencies from the UI solution.
-
-## Configuration data and reference data
-
-Package Deployer supports [CMT (Configuration Migration Tool)](https://learn.microsoft.com/en-us/power-platform/admin/manage-configuration-data) data packages defined in `ImportConfig.xml`. The `cmtdatafiles` element lists data files with LCID (Locale ID) based language variants.
-
-Import ordering: solutions first, then data. This ensures schema is in place before records are created.
-
-Key properties for data import:
-
-- **`DataImportBypass = true`** - skip all CMT data imports. Useful when deploying to environments that already have reference data. Set this in `InitializeCustomExtension` based on `RuntimeSettings`.
-- **`OverrideDataImportSafetyChecks = true`** - skip duplicate detection and other safety checks during data import. Only use on clean/empty environments. Significant performance gain for initial data loads.
 
 ## Observability
 
