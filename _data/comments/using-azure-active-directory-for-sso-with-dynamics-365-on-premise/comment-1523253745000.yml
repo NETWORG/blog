@@ -3,7 +3,7 @@ name: >-
   | Blog
 date: '2018-04-09 08:02:25'
 url: >-
-  https://blog.thenetw.org/2018/04/09/settings-up-adfs-with-azure-ad-as-dynamics-365-identity-provider/
+  https://blog.networg.com/2018/04/09/settings-up-adfs-with-azure-ad-as-dynamics-365-identity-provider/
 message: >-
   [&#8230;] In previous article, we have looked at the possibility to connect
   Dynamics 365 on-premise directly with Azure AD, which is on one hand really

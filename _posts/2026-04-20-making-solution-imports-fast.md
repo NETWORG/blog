@@ -85,6 +85,32 @@ For classic platform components (entities, attributes, relationships, forms, vie
 
 > **Important:** Setting `OverwriteUnmanagedCustomizations` to `true` disables SmartDiff. The check happens before any comparison. If the flag is true, Dataverse skips the optimization and processes all components unconditionally. Force-overwrite significantly slows managed solution imports. If the real problem is unmanaged drift in nondevelopment environments, use **[Block unmanaged customizations](https://learn.microsoft.com/en-us/power-platform/admin/prevent-unmanaged-customizations)** instead of leaving force-overwrite enabled.
 
+## Two-step upgrades and when they are still useful
+
+> **Important:** The two-step "Stage for upgrade" path is the slowest of all upgrade methods. It does not benefit from SmartDiff. The Maker UI uses synchronous `DeleteAndPromote` for the apply step, a blocking HTTP call with no progress feedback, though `DeleteAndPromoteAsync` is also available via the Web API for automation. Only use this path when you genuinely need the migration window, not for routine deployments.
+
+### How it works
+
+The Maker UI "Stage for upgrade" button calls `ImportSolutionAsync` with `HoldingSolution: true` (not `StageAndUpgradeAsync`). This imports a temporary `{SolutionName}_Upgrade` holding solution injected above the base solution layer and below any solution sitting above it. Because `importcontext = ImportHolding`, SmartDiff does not apply. All components are processed unconditionally.
+
+Applying the upgrade fires `DeleteAndPromote`, which removes the old base layer and any pending patches, then renames the `_Upgrade` solution by stripping the suffix. Every component is touched twice across the two phases with no optimization.
+
+### Why single-step is different
+
+`StageAndUpgradeRequest` was designed differently. Instead of creating a separate layer and promoting it, it works like the Update path, modifying the existing solution layer in place and additionally deleting components no longer present in the new version. Because it shares the in-place update architecture, SmartDiff applies the same way it does to Update imports. No `_Upgrade` solution is created. If the operation fails, the transaction rolls back cleanly.
+
+### When to use two-step anyway
+
+The two-step flow is the right choice when you need a controlled **migration window**. "Stage for upgrade" imports the new version but defers deletion of the previous version. Select this option when you need both old and new versions installed concurrently to run data migrations before completing the upgrade.
+
+For example, you can stage the new version, run migrations or transform data (you can use Package Deployer's [RunSolutionUpgradeMigrationStep](https://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.tooling.packagedeployment.crmpackageextentionbase.iimportextensions.runsolutionupgrademigrationstep?view=dataverse-sdk-latest)), then apply the upgrade. [Part 3](/package-deployer-solutions-data-migrations/) covers this in detail.
+
+> **Note:** Package Deployer automatically detects whether your package has a meaningful implementation of `RunSolutionUpgradeMigrationStep`. If custom migration code is detected, PD switches to the two-step holding path and calls your migration code after the holding import completes but before `DeleteAndPromote` fires. You can confirm this from PD's log output: `User Provided Upgrade code is not detected in package. if allowed, Package Deployer will use one step upgrade pattern for this package.`
+
+### Dependency cleanup
+
+The two-step path also helps with **dependency cleanup across solution layers**. When removing a component referenced by higher layers, you need to control the upgrade order so the upper layer drops the dependency first. [Part 3](/package-deployer-solutions-data-migrations/#cross-solution-dependency-cleanup) covers the practical details.
+
 ## Benchmark
 
 The following numbers are from a real managed solution with 79 components, measured on a single environment. Each version contained one changed component (a single column label edit) against the prior version, so the SmartDiff delta was consistent across runs.
@@ -113,58 +139,6 @@ The `msdyn_suboperation` values map to: **1** = Install, **2** = HoldingImport /
 > **Note:** `msdyn_solutionhistory` alone cannot tell you which imports came from Package Deployer vs direct API calls. `msdyn_packagename`, `msdyn_packageversion`, and `msdyn_correlationid` are not populated by PD. PD writes to a separate `packagehistory` platform entity. See [Part 3](/package-deployer-solutions-data-migrations/#observability) for how to correlate them.
 
 > **Note:** [Power Platform Pipelines](https://learn.microsoft.com/en-us/power-platform/alm/pipelines) abstracts the import entirely. The Maker Portal calls `DeployPackageAsync { StageRunId }` and the actual import action, `OverwriteUnmanagedCustomizations`, `PublishWorkflows`, and all other parameters are decided server-side by the Pipelines service.
-
-## Import speed evolution
-
-Dynamics CRM 2011 had no supported way of deleting components during upgrade. Developers used a "holding solution" trick: export, unzip, rename the solution unique name, import, delete the old one, re-import with the correct name, then remove the temporary solution.
-
-**Dynamics CRM 2016** introduced "Stage for upgrade" and "Apply solution upgrade." This imports a temporary holding solution (with `_Upgrade` suffix) above the base solution layer and below other layers. Applying the upgrade fires `DeleteAndPromoteRequest` to remove the old version and any components not present in the new package. This process is **very slow** as it manipulates all components multiple times.
-
-**v9.0** added an "Upgrade" option in the UI that combined both steps in one click. Still a holding import followed by promote under the hood, but initiated as a single user action. If an error occurred during promote, it left the `_Upgrade` solution behind.
-
-**2021:** Microsoft introduced **SmartDiff for the Update import type** (cloud SKU). The platform stores each imported solution in blob storage and compares incoming components at the XML/metadata level on subsequent imports. Only changed components are processed when SmartDiff is active.
-
-**Jan 2021 (org ≥ `9.2.21013.00131`):** The `StageAndUpgradeRequest` SDK message shipped as a single-step atomic upgrade path. At first it was plumbing only. SmartDiff did **not** yet apply to it.
-
-**Late 2023 / early 2024:** PAC CLI exposed the `--stage-and-upgrade` switch (from version 1.28 onward), and Power Platform Build Tools / GitHub Actions added the flag. This made the one-step path practical for CI/CD.
-
-**2024:** Microsoft began rolling out **SmartDiff on the `StageAndUpgrade` path** in waves. Before this, upgrades touched every component multiple times (holding import + `DeleteAndPromote`). After this, the one-step upgrade can skip unchanged components. Shan McArthur (Principal PM, Dataverse ALM) flagged an expected ~45 % improvement over the classic upgrade pattern.
-
-## Two-step upgrades and when they are still useful
-
-> **Important:** The two-step "Stage for upgrade" path is the slowest of all upgrade methods. It does not benefit from SmartDiff. The Maker UI uses synchronous `DeleteAndPromote` for the apply step, a blocking HTTP call with no progress feedback, though `DeleteAndPromoteAsync` is also available via the Web API for automation. Only use this path when you genuinely need the migration window, not for routine deployments.
-
-### How it works
-
-The Maker UI "Stage for upgrade" button calls `ImportSolutionAsync` with `HoldingSolution: true` (not `StageAndUpgradeAsync`). This imports a temporary `{SolutionName}_Upgrade` holding solution injected above the base solution layer and below any solution sitting above it. Because `importcontext = ImportHolding`, SmartDiff does not apply. All components are processed unconditionally.
-
-Applying the upgrade fires `DeleteAndPromote`, which removes the old base layer and any pending patches, then renames the `_Upgrade` solution by stripping the suffix. Every component is touched twice across the two phases with no optimization.
-
-### Why single-step is different
-
-`StageAndUpgradeRequest` was designed differently. Instead of creating a separate layer and promoting it, it works like the Update path, modifying the existing solution layer in place and additionally deleting components no longer present in the new version. Because it shares the in-place update architecture, SmartDiff applies the same way it does to Update imports. No `_Upgrade` solution is created. If the operation fails, the transaction rolls back cleanly.
-
-### When to use two-step anyway
-
-The two-step flow is the right choice when you need a controlled **migration window**. "Stage for upgrade" imports the new version but defers deletion of the previous version. Select this option when you need both old and new versions installed concurrently to run data migrations before completing the upgrade.
-
-For example, you can stage the new version, run migrations or transform data (you can use Package Deployer's [RunSolutionUpgradeMigrationStep](https://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.tooling.packagedeployment.crmpackageextentionbase.iimportextensions.runsolutionupgrademigrationstep?view=dataverse-sdk-latest)), then apply the upgrade. [Part 3](/package-deployer-solutions-data-migrations/) covers this in detail.
-
-> **Note:** Package Deployer automatically detects whether your package has a meaningful implementation of `RunSolutionUpgradeMigrationStep`. If custom migration code is detected, PD switches to the two-step holding path and calls your migration code after the holding import completes but before `DeleteAndPromote` fires. You can confirm this from PD's log output: `User Provided Upgrade code is not detected in package. if allowed, Package Deployer will use one step upgrade pattern for this package.`
-
-### Dependency cleanup
-
-The two-step path also helps with **dependency cleanup across solution layers**. When removing a component referenced by higher layers, you need to control the upgrade order so the upper layer drops the dependency first. [Part 3](/package-deployer-solutions-data-migrations/#cross-solution-dependency-cleanup) covers the practical details.
-
-## Solution versioning and version-skip optimization
-
-Power Platform Maker UI presents "Update," "Upgrade," and "Stage for Upgrade" options when the system already contains the same managed solution with a lower version number. If you import a solution with the same version number that already exists, the "Update" type is used. Lower versions can't be uploaded through the UI (as of 2025), but [it was recently allowed through CLI/API](https://github.com/microsoft/powerplatform-build-tools/discussions/743#discussioncomment-8421894) to enable rollback scenarios in Power Platform pipelines.
-
-### Skipping unchanged solutions
-
-For projects with components segmented into multiple solutions, import speed can be improved by incrementing solution versions only when changes are detected in the solution project folder. Tools like GitVersion can determine the version at build time and overwrite the value in `solution.xml`. Solutions with matching versions can then be skipped entirely. Their ZIP files never even get uploaded. [Smaller solution boundaries and smaller table payloads](/dataverse-solution-component-types/#table-segmentation-keeps-layers-cleaner) also reduce unnecessary layers before the import starts.
-
-Package Deployer defaults to skipping same or lower versions (see [version-skip logic in Part 3](/package-deployer-solutions-data-migrations/#version-skip-logic)). For PAC CLI, use the `--skip-lower-version` flag.
 
 ## Troubleshooting import performance
 
@@ -203,7 +177,17 @@ Many organizations still run outdated tooling that doesn't support modern import
   - `AsyncRibbonProcessing` cannot be set via PAC CLI. No flag exists. Call the API directly if needed.
   - `--skip-lower-version` skips import if the **same or higher** version is already installed.
 - **Package Deployer PowerShell (`Microsoft.PowerApps.PackageDeployment` / `Microsoft.PowerApps.PackageDeployment.PowerShell`)**: keep up to date. Older releases predate the single-step upgrade pattern. If you hit trouble, upgrade the module before investigating further. Version 3.3.0.1039+ (Package Deployer 4.0.0.183+).
-- **Azure DevOps Tasks**: Avoid community tasks like `dyn365-ce-vsts-tasks` that reference outdated PowerShell versions.
+- **Azure DevOps Tasks**: If you use third-party tasks such as `dyn365-ce-vsts-tasks`, check which PowerShell and tooling versions they invoke.
+
+## Solution versioning and version-skip optimization
+
+Power Platform Maker UI presents "Update," "Upgrade," and "Stage for Upgrade" options when the system already contains the same managed solution with a lower version number. If you import a solution with the same version number that already exists, the "Update" type is used. Lower versions can't be uploaded through the UI (as of 2025), but [it was recently allowed through CLI/API](https://github.com/microsoft/powerplatform-build-tools/discussions/743#discussioncomment-8421894) to enable rollback scenarios in Power Platform pipelines.
+
+### Skipping unchanged solutions
+
+For projects with components segmented into multiple solutions, import speed can be improved by incrementing solution versions only when changes are detected in the solution project folder. Tools like GitVersion can determine the version at build time and overwrite the value in `solution.xml`. Solutions with matching versions can then be skipped entirely. Their ZIP files never even get uploaded. [Smaller solution boundaries and smaller table payloads](/dataverse-solution-component-types/#table-segmentation-keeps-layers-cleaner) also reduce unnecessary layers before the import starts.
+
+Package Deployer defaults to skipping same or lower versions (see [version-skip logic in Part 3](/package-deployer-solutions-data-migrations/#version-skip-logic)). For PAC CLI, use the `--skip-lower-version` flag.
 
 ## Upload and validation via the staging endpoint
 
@@ -224,6 +208,22 @@ PAC CLI 2.6.3 always calls `StageSolution` first, even for a plain `pac solution
 At the API level, Dataverse exposes both `ImportSolutionAsync` (with an optional `HoldingSolution` parameter) and a dedicated `StageAndUpgradeAsync` action. Two separate API paths for upgrades.
 
 > **Important:** `StageSolutionRequest` is a validation-only endpoint. It does not import any solution and does not create a holding solution. It cannot create the two-solution state required for upgrade-time migrations. For migrations, use `ImportSolutionAsyncRequest` with `HoldingSolution=true` instead.
+
+## Import speed evolution
+
+Dynamics CRM 2011 had no supported way of deleting components during upgrade. Developers used a "holding solution" trick: export, unzip, rename the solution unique name, import, delete the old one, re-import with the correct name, then remove the temporary solution.
+
+**Dynamics CRM 2016** introduced "Stage for upgrade" and "Apply solution upgrade." This imports a temporary holding solution (with `_Upgrade` suffix) above the base solution layer and below other layers. Applying the upgrade fires `DeleteAndPromoteRequest` to remove the old version and any components not present in the new package. This process is **very slow** as it manipulates all components multiple times.
+
+**v9.0** added an "Upgrade" option in the UI that combined both steps in one click. Still a holding import followed by promote under the hood, but initiated as a single user action. If an error occurred during promote, it left the `_Upgrade` solution behind.
+
+**2021:** Microsoft introduced **SmartDiff for the Update import type** (cloud SKU). The platform stores each imported solution in blob storage and compares incoming components at the XML/metadata level on subsequent imports. Only changed components are processed when SmartDiff is active.
+
+**Jan 2021 (org ≥ `9.2.21013.00131`):** The `StageAndUpgradeRequest` SDK message shipped as a single-step atomic upgrade path. At first it was plumbing only. SmartDiff did **not** yet apply to it.
+
+**Late 2023 / early 2024:** PAC CLI exposed the `--stage-and-upgrade` switch (from version 1.28 onward), and Power Platform Build Tools / GitHub Actions added the flag. This made the one-step path practical for CI/CD.
+
+**2024:** Microsoft began rolling out **SmartDiff on the `StageAndUpgrade` path** in waves. Before this, upgrades touched every component multiple times (holding import + `DeleteAndPromote`). After this, the one-step upgrade can skip unchanged components. Shan McArthur (Principal PM, Dataverse ALM) flagged an expected ~45 % improvement over the classic upgrade pattern.
 
 ## How does native Git integration relate to this?
 
