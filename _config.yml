@@ -14,6 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: "NETWORG | Blog"
+locale: en
 email: hello@networg.com
 description: >- # this means to ignore newlines until "baseurl:"
   Read our experiences while we help others
@@ -47,6 +48,9 @@ enable_copy_code_button: true
 
 include:
   - _pages
+
+exclude:
+  - temp/
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
