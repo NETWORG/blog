@@ -6,12 +6,13 @@ layout: default
     <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
         <h2>Authors</h2>
         <ul>
-            {% assign sorted_authors = site.authors | sort: "name" %}
+            {% assign sorted_authors = site.authors | sort: "title" %}
             {% for author_page in sorted_authors %}
-                {% assign author_posts = site.posts | where: "author", author_page.name %}
+                {% assign author_name = author_page.title | default: author_page.name %}
+                {% assign author_posts = site.posts | where: "author", author_name %}
                 {% assign visible_posts = author_posts | where_exp: "post", "post.hidden != true" %}
-                {% if author_page.name != "NETWORG" and visible_posts.size > 0 %}
-                    <li><a href="{{ author_page.url | relative_url }}">{{ author_page.name }}</a></li>
+                {% if author_name != "NETWORG" and visible_posts.size > 0 %}
+                    <li><a href="{{ author_page.url | relative_url }}">{{ author_name }}</a></li>
                 {% endif %}
             {% endfor %}
         </ul>

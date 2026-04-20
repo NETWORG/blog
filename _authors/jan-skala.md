@@ -1,4 +1,5 @@
 ---
+title: Jan Skala
 name: Jan Skala
 permalink: /author/jan-skala/
 ---

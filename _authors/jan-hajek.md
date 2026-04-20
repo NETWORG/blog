@@ -1,4 +1,5 @@
 ---
+title: Jan Hajek
 name: Jan Hajek
 permalink: /author/jan-hajek/
 ---
