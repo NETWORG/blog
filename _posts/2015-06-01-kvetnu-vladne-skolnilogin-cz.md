@@ -4,6 +4,9 @@ title: Květnu vládne SkolniLogin.cz
 slug: kvetnu-vladne-skolnilogin-cz
 id: 1056
 date: '2015-06-01 10:53:23'
+hidden: true
+search: false
+sitemap: false
 categories:
 ---
 

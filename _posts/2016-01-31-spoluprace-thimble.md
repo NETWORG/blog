@@ -4,6 +4,9 @@ title: Spolupráce s agenturou Thimble na projektu SkolniWeby.cz
 slug: spoluprace-thimble
 id: 1062
 date: '2016-01-31 18:28:27'
+hidden: true
+search: false
+sitemap: false
 categories:
   - Novinky
 tags:

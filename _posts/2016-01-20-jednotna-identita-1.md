@@ -4,6 +4,9 @@ title: 'Jak na jednotnou identitu: 1. část - Adresářové služby'
 slug: jednotna-identita-1
 id: 158
 date: '2016-01-20 20:48:33'
+hidden: true
+search: false
+sitemap: false
 categories:
   - IT Pro
 tags:

@@ -1,0 +1,22 @@
+---
+search: false
+---
+
+@charset "utf-8";
+
+// Use more of the desktop viewport for article content while keeping the left sidebar.
+$max-width: 1440px;
+$right-sidebar-width-narrow: 220px;
+$right-sidebar-width: 240px;
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
+
+// iOS Safari can expose page-level horizontal scroll even when tables/code blocks
+// scroll correctly inside their own containers. Hide only the page overflow; the
+// theme's built-in `pre` and `table` overflow behavior stays intact.
+html,
+body,
+.initial-content {
+  overflow-x: hidden;
+}

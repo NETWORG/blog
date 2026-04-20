@@ -14,6 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: "NETWORG | Blog"
+locale: en
 email: hello@networg.com
 description: >- # this means to ignore newlines until "baseurl:"
   Read our experiences while we help others
@@ -48,6 +49,9 @@ enable_copy_code_button: true
 include:
   - _pages
 
+exclude:
+  - temp/
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -73,7 +77,7 @@ author:
   avatar : "/assets/images/networg.png"
   bio    : "Read our experiences while we help others"
   links:
-    - label: "Website"
+    - label: "Company"
       icon: "fas fa-fw fa-link"
       url: "https://networg.com"
     - label: "Facebook"
@@ -127,6 +131,8 @@ defaults:
       type: posts
     values:
       layout: single
+      classes:
+        - wide
       author_profile: true
       read_time: true
       comments: true

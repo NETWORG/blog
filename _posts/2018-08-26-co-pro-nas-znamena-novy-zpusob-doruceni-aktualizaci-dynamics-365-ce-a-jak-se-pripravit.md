@@ -71,4 +71,4 @@ Hodně lidí se v posledním roce ptá a strachuje, jak to bude s on-premises in
 
 # Jste Microsoft Partner a máte zájem o pomoc?
 
-V TheNetw.org se zaměřujeme na technickou realizaci projektů Power Platform (Dynamics 365). Věříme, že naše technické kapacity nejlépe využijeme pro B2B projekty. Nabízíme konzultace architektury, implementaci projektů, údržbu a rozvoj pro zákazníky našich partnerů jejich jménem. 24.9\. začínáme sérii partnerských školení Business Apps Camp: [https://www.microsoftevents.com/profile/form/index.cfm?PKformID=0x4628382abcd](https://www.microsoftevents.com/profile/form/index.cfm?PKformID=0x4628382abcd)
+V NETWORG se zaměřujeme na technickou realizaci projektů Power Platform (Dynamics 365). Věříme, že naše technické kapacity nejlépe využijeme pro B2B projekty. Nabízíme konzultace architektury, implementaci projektů, údržbu a rozvoj pro zákazníky našich partnerů jejich jménem. 24.9\. začínáme sérii partnerských školení Business Apps Camp: [https://www.microsoftevents.com/profile/form/index.cfm?PKformID=0x4628382abcd](https://www.microsoftevents.com/profile/form/index.cfm?PKformID=0x4628382abcd)

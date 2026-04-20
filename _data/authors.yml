@@ -13,12 +13,12 @@ Jan Hajek:
   name: "Jan Hajek"
   bio: "Microsoft MVP, Technical Fellow"
   avatar: "/assets/images/hajekj.jpg"
-  permalink: "/author/jan-hajek"
+  permalink: "/author/jan-hajek/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:jan.hajek@thenetw.org"
-    - label: "Website"
+    - label: "Company"
       icon: "fas fa-fw fa-link"
       url: "https://hajekj.net"
     - label: "LinkedIn"
@@ -35,7 +35,7 @@ Tomas Prokop:
   name: "Tomas Prokop"
   bio: "Microsoft MVP, Solution Architect"
   avatar: "/assets/images/tomas.prokop.png"
-  permalink: "/author/tomas-prokop"
+  permalink: "/author/tomas-prokop/"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
@@ -57,7 +57,7 @@ Jan Kostejn:
   name: "Jan Kostejn"
   bio: "Implementation Services Manager"
   avatar: "/assets/images/jan.kostejn.jpeg"
-  permalink: "/author/jan-kostejn"
+  permalink: "/author/jan-kostejn/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -67,6 +67,7 @@ Frantisek Capek:
   name: "Frantisek Capek"
   bio: "Senior Software Engineer"
   avatar: "/assets/images/frantisek.capek.png"
+  permalink: "/author/frantisek-capek/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -76,12 +77,12 @@ Jan Skala:
   name: "Jan Skala"
   bio: "Senior Software Engineer"
   avatar: "/assets/images/jan.skala.jpeg"
-  permalink: "/author/jan-skala"
+  permalink: "/author/jan-skala/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:jan.skala@thenetw.org"
-    - label: "Website"
+    - label: "Company"
       icon: "fas fa-fw fa-link"
       url: "https://janskala.cz/"
     - label: "LinkedIn"
@@ -95,6 +96,7 @@ Matej Samler:
   name: "Matej Samler"
   bio: "Senior Software Engineer"
   avatar: "/assets/images/matej.samler.jpeg"
+  permalink: "/author/matej-samler/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -107,6 +109,7 @@ Marek Dubsky:
   name: "Marek Dubsky"
   bio: "Product Experience"
   avatar: "/assets/images/marek.dubsky.png"
+  permalink: "/author/marek-dubsky/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -116,6 +119,7 @@ Jakub Wyczanski:
   name: "Jakub Wyczanski"
   bio: "Product Experience"
   avatar: "/assets/images/jakub.wyczanski.png"
+  permalink: "/author/jakub-wyczanski/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -125,11 +129,12 @@ Ondrej Juda:
   name: "Ondrej Juda"
   bio: "Senior Software Engineer"
   avatar: "/assets/images/ondrej.juda.png"
+  permalink: "/author/ondrej-juda/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:ondrej.juda@networg.com"
-    - label: "Website"
+    - label: "Company"
       icon: "fas fa-fw fa-link"
       url: "https://ondrejjuda.com"
     - label: "LinkedIn"
@@ -140,6 +145,7 @@ Julie Kotatkova:
   name: "Julie Kotatkova"
   bio: "Test Engineer"
   avatar: "/assets/images/julie.kotatkova.jpg"
+  permalink: "/author/julie-kotatkova/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -152,6 +158,7 @@ Josef Chvala:
   name: "Josef Chvala"
   bio: "Marketing"
   avatar: "/assets/images/josef.chvala.jpg"
+  permalink: "/author/josef-chvala/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -161,6 +168,7 @@ Zdenek Srejber:
   name: "Zdenek Srejber"
   bio: "Project Manager"
   avatar: "/assets/images/zdenek.srejber.jpg"
+  permalink: "/author/zdenek-srejber/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -173,6 +181,7 @@ Daniel Klein:
   name: "Daniel Klein"
   bio: "Associate Software Engineer"
   avatar: "/assets/images/daniel.klein.png"
+  permalink: "/author/daniel-klein/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -184,6 +193,7 @@ Daniel Klein:
 Adel Sabic:
   name: "Adel Sabic"
   bio: "Software Engineer"
+  permalink: "/author/adel-sabic/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -193,6 +203,7 @@ Jan Losenicky:
   name: "Jan Losenicky"
   bio: "Software Engineer"
   avatar: "/assets/images/jan.losenicky.png"
+  permalink: "/author/jan-losenicky/"
   links:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
@@ -202,6 +213,7 @@ Stepan Houdek:
   name: "Stepan Houdek"
   bio: "Senior Software Engineer"
   avatar: "/assets/images/stepan.houdek.png"
+  permalink: "/author/stepan-houdek/"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"

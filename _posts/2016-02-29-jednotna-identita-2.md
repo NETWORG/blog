@@ -4,6 +4,9 @@ title: 'Jak na jednotnou identitu: 2. část - Protokoly'
 slug: jednotna-identita-2
 id: 1063
 date: '2016-02-29 21:48:15'
+hidden: true
+search: false
+sitemap: false
 categories:
   - IT Pro
 tags:
