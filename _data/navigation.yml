@@ -1,6 +1,8 @@
 main:
   - title: "Company"
     url: https://networg.com
+  - title: "Tools & Components"
+    url: https://github.com/talxis/
   - title: "Posts"
     url: /posts/
   - title: "Authors"
