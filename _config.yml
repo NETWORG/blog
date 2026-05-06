@@ -39,7 +39,7 @@ social:
 
 # Build settings
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes@4.28.0
+theme: minimal-mistakes-jekyll
 # Outputting
 permalink: /:year/:month/:day/:title/
 paginate: 10 # amount of posts to show
