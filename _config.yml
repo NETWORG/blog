@@ -163,7 +163,7 @@ atom_feed:
 analytics:
   provider: "google-gtag"
   google:
-    tracking_id: "UA-73142323-4"
+    tracking_id: "G-WN7DF4R7BT"
     anonymize_ip: false # default
 
 repository: networg/blog # Git username/repo-name e.g. "mmistakes/minimal-mistakes"
