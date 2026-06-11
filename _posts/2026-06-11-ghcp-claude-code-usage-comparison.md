@@ -13,7 +13,7 @@ The same numbers come up again and again, but the sources behind them are either
 - Claude Max 20x is "worth about $5,000 of API compute, around 25 times the price." This traces to one developer's estimate, passed around pricing blogs with no measurement shown ([findskill](https://findskill.ai/blog/claude-code-subscription-pricing-guide/)).
 - Max 20x gets "roughly 220,000 tokens per 5 hour window." This is stated as a flat figure with no method behind it ([faros](https://www.faros.ai/blog/claude-code-token-limits)).
 
-The gap exists because **Anthropic does not publish a token number for the window** ([usage limits](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)). It describes limits in relative terms rather than fixed token counts, so how much you actually get shifts with the model, the length of the conversation, attachments, and current demand. People fill that gap with guesses, and the guesses get copied. The number is not unknowable though. Community tools like ccusage read Claude Code's own local logs and report the tokens and the API equivalent cost of each run. That is the method this post uses.
+The gap exists because **Anthropic does not publish a token number for the window** ([usage limits](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work) and it describes limits in relative terms rather than fixed token counts. The number is not unknowable though. Community tools like ccusage read Claude Code's own local logs and report the tokens and the API equivalent cost of each run. That is the method this post uses.
 
 ## How the two meters work
 
@@ -33,11 +33,11 @@ Copilot meters every token at the model's own rate, the same price Anthropic cha
 | Cache write | $3.75 |
 | Output | $15.00 |
 
-Claude Code is different. The $200 Max 20x plan is **flat**, and usage is gated by a rolling five hour window ([higher limits](https://www.anthropic.com/news/higher-limits-spacex)). Anthropic gives no token number for that window, only that **Max 20x is twenty times the Pro plan** ([Max plan](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)).
+Claude is different. The $200 Max 20x plan is **flat**, and usage is gated by a rolling five hour window ([higher limits](https://www.anthropic.com/news/higher-limits-spacex)). Anthropic gives no token number for that window, only that **Max 20x is twenty times the Pro plan** ([Max plan](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)).
 
 The five hour window is not the only ceiling. Anthropic also caps usage over **a rolling week**, again with no published token number. This post measures both. The results show the weekly cap sitting well above what a normal working day reaches, so the five hour window is the one that decides the figures below.
 
-These limits used to bite harder. Through 2025 Claude Code capped usage aggressively and throttled during peak hours. In May 2026, after a compute deal with SpaceX, Anthropic **doubled the five hour limits and removed the peak hour throttling** for Pro and Max ([higher limits](https://www.anthropic.com/news/higher-limits-spacex)). So the window a 9 to 5 developer runs into today is more generous than the one the older blog numbers were written against.
+These limits used to bite harder. Through 2025 Claude capped usage aggressively and throttled during peak hours. In May 2026, after a compute deal with SpaceX, Anthropic **doubled the five hour limits and removed the peak hour throttling** for Pro and Max ([higher limits](https://www.anthropic.com/news/higher-limits-spacex)). So the window a 9 to 5 developer runs into today is more generous than the one the older blog numbers were written against.
 
 ## Method
 
@@ -69,9 +69,9 @@ The first run produced 50,638 output tokens for 11 percent of the 5 hour window,
 
 The second run was done five days later, for two reasons. One was plain certainty, since a single measurement is easy to doubt. The other was timing. On June 9 Anthropic released **Claude Fable 5** and gave it to Pro and Max subscribers at no extra cost for a two week launch window ([TechCrunch](https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/)). A new and free model in the rotation can move usage limits, so the window was worth re-checking before publishing.
 
-It held, and it showed why output is the right unit. The same prompt does not produce the same output twice. An agent takes more or fewer turns and writes more or fewer tests, and this run generated about twice as much as the first. That is what makes the pair useful, two different output sizes to read the window against. Output went **50,638 to 100,588**, and the window moved with it, **11 to 21 percent**. The other tokens did not track. Cache read alone went from 74,870 to almost 2 million, more than twenty five times as many, while the window only doubled. Total tokens told the same story, fourteen times as many for twice the window. The implied full window, near 479,000, lands within about 4 percent of the first. The number is stable, before the new model and after it.
+It held, and it showed why output is the right unit. The same prompt does not produce the same output twice. An agent takes more or fewer turns etc. and this run generated about twice as much as the first. Output went **50,638 to 100,588**, and the window moved with it, **11 to 21 percent**. The other tokens did not track. Cache read alone went from 74,870 to almost 2 million, more than twenty five times as many, while the window only doubled. Total tokens told the same story, fourteen times as many for twice the window. The implied full window, near 479,000, lands within about 4 percent of the first. The number is stable, before the new model and after it.
 
-A third run checked the other limit. The /usage screen reports a weekly percentage next to the five hour one, so the same task was read against both, before and after. At 111,097 output tokens, close to the second run, it moved the five hour window **21 percent but the weekly window only 2 percent**. In work terms the weekly window is about ten times the five hour one. To exhaust it a developer would have to run roughly ten back to back saturated five hour windows inside a single week. A 9 to 5 developer runs closer to eight a week and does not fill them, so the weekly cap sits above the working day pace, not below it. The five hour window is the limit a normal day meets, and the monthly figures below are not cut down by the weekly one.
+A third run checked the other limit. The /usage screen reports a weekly percentage next to the five hour one, so the same task was read against both, before and after. At 111,097 output tokens, close to the second run, it moved the five hour window **21 percent but the weekly window only 2 percent**. In work terms the weekly window is about ten times the five hour one. To exhaust it a developer would have to run roughly ten back to back saturated five hour windows inside a single week.
 
 ## The $200 comparison
 
@@ -85,7 +85,7 @@ Now follow the output tokens on each side.
 
 1. The plan is flat, gated by the output metered 5 hour window, no credits.
 2. The first run used 11 percent of the Pro window for 50,638 output tokens, so a full window is about **460,000 output tokens** (50,638 / 0.11). Times 20 for Max 20x is about **9.2 million output per window**.
-3. A working day is about 1.6 windows, a month about 22 days, so about 35 windows. That is about **324 million output tokens a month**, and the window keeps resetting.
+3. A working day is about 1.6 windows, a month about 22 days, so about 35 windows. That is about **324 million output tokens a month**.
 4. At the reference task's 50,638 output, that is about **6,400 heavy tasks**.
 
 **GitHub Copilot, for $200:**
@@ -101,9 +101,9 @@ Now follow the output tokens on each side.
 | Output tokens per month | ~16.5M | ~324M |
 | Heavy tasks per month | ~326 | ~6,400 |
 
-That is about **20 times more** usable Claude work for the same money, 324 million output tokens against 16.5 million, the same gap as about 6,400 heavy tasks against 326. The figure is stable because it arrives from two directions that agree. It is the plan multiplier, since Max 20x is 20 times Pro. And it is the measured comparison. Both land on the same number.
+That is about **20 times more** usable Claude work for the same money, 324 million output tokens against 16.5 million, the same gap as about 6,400 heavy tasks against 326. In dollar terms, those 6,400 tasks are about **$5,900 of API equivalent value a month**, at $0.92 each.
 
-In dollar terms, those 6,400 tasks are about **$5,900 of API equivalent value a month**, at $0.92 each.
+How is it possible?
 
 ## Limits of this measurement
 
