@@ -13,7 +13,7 @@ The same numbers come up again and again, but the sources behind them are either
 - Claude Max 20x is "worth about $5,000 of API compute, around 25 times the price." This traces to one developer's estimate, passed around pricing blogs with no measurement shown ([findskill](https://findskill.ai/blog/claude-code-subscription-pricing-guide/)).
 - Max 20x gets "roughly 220,000 tokens per 5 hour window." This is stated as a flat figure with no method behind it ([faros](https://www.faros.ai/blog/claude-code-token-limits)).
 
-The gap exists because **Anthropic does not publish a token number for the window** ([usage limits](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work) and it describes limits in relative terms rather than fixed token counts. The number is not unknowable though. Community tools like ccusage read Claude Code's own local logs and report the tokens and the API equivalent cost of each run. That is the method this post uses.
+The gap exists because **Anthropic does not publish a token number for the window** ([usage limits](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)), and it describes limits in relative terms rather than fixed token counts. The number is not unknowable though. Community tools like ccusage read Claude Code's own local logs and report the tokens and the API equivalent cost of each run. That is the method this post uses.
 
 ## How the two meters work
 
@@ -103,8 +103,6 @@ Now follow the output tokens on each side.
 
 That is about **20 times more** usable Claude work for the same money, 324 million output tokens against 16.5 million, the same gap as about 6,400 heavy tasks against 326. In dollar terms, those 6,400 tasks are about **$5,900 of API equivalent value a month**, at $0.92 each.
 
-How is it possible?
-
 ## Limits of this measurement
 
 - The Max 20x numbers are Pro measurements multiplied by 20. The multiplier is Anthropic's own plan definition, but it is not a direct Max 20x measurement.
@@ -112,23 +110,21 @@ How is it possible?
 - The weekly cap does not bind at a 9 to 5 pace, see the third run above, but that weekly reading is coarse. It moved only two percentage points and /usage rounds to whole numbers, so the true cost per task is somewhere between about 1.5 and 2.5 percent of the week. At the high end the weekly ceiling and the working day pace are about even. Either way the weekly limit does not pull the monthly figure below the 6,400. The one account that did hit the weekly cap every week ([issue #61426](https://github.com/anthropics/claude-code/issues/61426)) was an all day power user on the pricier Opus model, far past a 9 to 5 pace.
 - Copilot's credit and flex structure is new as of June 1 and can change over time, which would move the credit math in either direction ([GitHub docs](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals)).
 
-## What the comparison leaves out
+## Conclusion and arguments other than price
 
-The 20x is one number for one person, a solo developer spending their own $200. Change who is asking and other things start to matter more than the meter.
+So, we learned the regular 9 to 5 dev should currently go for Claude, as it gives him way, way more usage, 20x more to be exact. Of course, with a result like that, a question pops up. **How is it possible?** My best guess is that Anthropic heavily subsidizes their subscription pricing to stay competitive. Get developers in, get them used to the workflow, worry about the money later. But, as we saw with Copilot, this may not last forever.
 
-Copilot's real strength is that it is **a router, not a model**. One subscription reaches Claude, GPT 5.5, and Gemini, and you pick per task. For a large company that can outweigh the per token math. Microsoft is an established vendor, so the tool is often already cleared by procurement, which is half the work in a big org. The harness gap has narrowed too and the billing can favor the buyer at scale. Claude's enterprise plan is a per seat fee plus standard API rates, with **no included usage and no caps** ([enterprise plan](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)). The subsidized individual and team plans are **not offered past about 150 members**, so a large org pays API rates either way ([pricing](https://claude.com/pricing)). At that point Copilot, with model choice and some usage built into the seat, is a fair pick.
+### Other things worth considering
 
-Claude has an honest weakness too. The flat plan is a strong deal today, but Anthropic does not publish the token size of the 5 hour window, so the only way to know what you get is to measure it, which is why this post exists. That deal is not promised either. Limits and pricing move with little notice, sometimes up, as the May increase showed ([higher limits](https://www.anthropic.com/news/higher-limits-spacex)), and a generous flat plan can be re-cut the same way Copilot's was on June 1. You would find out from your own usage screen.
+So, Claude clearly wins on usage. A few arguments come to mind that are still good to consider:
 
-None of that changes the answer for the person this post is about. For a 9 to 5 developer, one agent at a time, on their own $200, Claude Code today is the better deal by a wide margin, and the measurement is the proof. The rest is about who you are and how the ground might move, not about the number.
+- Copilot's real strength is that it is **a router, not a model**. One subscription reaches Claude, GPT 5.5, and Gemini, and you pick per task. For a large company that can outweigh the per token math.
+- Microsoft is an established vendor, so the tool is often already cleared by procurement, which is half the work in a big org.
+- The billing can favor the buyer at scale. Claude's enterprise plan is a per seat fee plus standard API rates, with **no included usage and no caps** ([enterprise plan](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)). The subsidized individual and team plans are **not offered past about 150 members**, so a large org pays API rates either way ([pricing](https://claude.com/pricing)).
+- For autocomplete and short chats on GitHub Copilot, little changed, because **completions stay free** ([GitHub docs](https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing)). The gap opens once the work becomes agentic.
+- Anthropic's murky usage caps are one of its biggest weaknesses. The flat plan is a strong deal today, but Anthropic does not publish the token size of the 5 hour window, and they have historically changed and throttled it a lot, so that deal is not promised either. Limits and pricing move with little notice, sometimes up, as the May increase showed ([higher limits](https://www.anthropic.com/news/higher-limits-spacex)), and a generous flat plan can be re-cut the very same way.
 
-## Takeaway
-
-The model is the same on both sides. **Copilot resells the same Claude that Claude Code runs**, so the difference is the meter, not the model. Copilot passes the token cost straight through, and the $200 is a budget that runs out. Claude Code is first party and flat, and the window resets.
-
-One point in favor of the "not much changed" view holds. For autocomplete and short chats, little changed, because **completions stay free** ([GitHub docs](https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing)). The gap opens once the work becomes agentic.
-
-The method is cheap to repeat. Any Claude Code user can measure their own account in an afternoon and stop relying on copied numbers, including these.
+None of that changes the answer for the person this post is about. For a 9 to 5 developer doing agentic development on their own $200, Claude Code today is the better deal by a wide margin.
 
 ## Sources
 
